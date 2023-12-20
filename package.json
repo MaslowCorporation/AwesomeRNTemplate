@@ -62,7 +62,7 @@
     "react-native-qrcode-svg": "^6.2.0",
     "react-native-safe-area-context": "^4.5.3",
     "react-native-screens": "^3.20.0",
-    "react-native-stopwatch-timer": "github:lanouvelleecole/react-native-stopwatch-timer",
+    "react-native-stopwatch-timer": "github:MaslowCorporation/react-native-stopwatch-timer",
     "react-native-svg": "^13.14.0",
     "react-native-uuid": "^2.0.1",
     "react-native-vector-icons": "^9.2.0",
