@@ -1,0 +1,47 @@
+
+
+import React, { useState, useEffect } from 'react';
+import { ScrollView, TextInput, View, Text } from 'react-native';
+
+// Define the CodeEditor function.
+const CodeEditor = ({ initialCode, onCodeChanged }) => {
+  // Define a state variable for the code lines.
+  /*
+   * If initialCode is not null, split it into an array of lines.
+   * Otherwise, initialize it as an array with a single empty string.
+   */
+  const [codeLines, setCodeLines] = useState(initialCode ? initialCode.split('\n') : ['']);
+
+  // Handle when the code changes in one of the text inputs.
+  const handleCodeChanged = (lineIndex, newLine) => {
+    // Update the specific line of code.
+    const newCodeLines = [...codeLines];
+    newCodeLines[lineIndex] = newLine;
+    setCodeLines(newCodeLines);
+
+    // Call the onCodeChanged callback with the new code as a single string.
+    onCodeChanged(newCodeLines.join('\n'));
+  };
+
+  // Render the component.
+  return (
+    <ScrollView>
+      {codeLines.map((line, index) => (
+        <View key={index} style={{ flexDirection: 'row', flex: 1 }}>
+          {/* Line number label */}
+          <Text>{index + 1}</Text>
+          {/* Input for the line of code */}
+          <TextInput
+            value={line}
+            onChangeText={(newLine) => handleCodeChanged(index, newLine)}
+            placeholder={index === 0 ? 'Type your code here...' : null}
+            multiline
+          />
+        </View>
+      ))}
+    </ScrollView>
+  );
+};
+
+export default CodeEditor;
+

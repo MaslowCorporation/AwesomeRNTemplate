@@ -1,0 +1,48 @@
+
+
+// Import module
+import { RNSerialport } from 'react-native-usb-serialport';
+
+// Function that writes hex code to Arduino board over Serial USB
+export async function UploadHexToArduino(hexString) {
+
+  try {
+    // Get the list of all available devices
+    const deviceList = await RNSerialport.getDeviceList();
+
+    // If the device list is not empty
+    if(deviceList != null){
+        // We're assuming that the Arduino UNO is the first device in the list
+        const deviceName = deviceList[0].name;
+
+        // Check if the device is supported
+        if (await RNSerialport.isSupported(deviceName)) {
+        
+            // Connect to the Arduino device with default baud rate 9600
+            RNSerialport.connectDevice(deviceName, 9600);
+            
+            // Check if service is started and connection isOpen
+            if (await RNSerialport.isServiceStarted() && await RNSerialport.isOpen()) {
+            
+                // If connected, write the hex file to the Arduino
+                RNSerialport.writeHexString(hexString);
+                console.log("Writing hex code to Arduino UNO is successful");
+              
+            } else {
+                console.error('Failed to open device or service not started');
+            }
+            
+        } else {
+            console.error('Device not supported');
+        }
+
+    } else {
+        console.error('No devices found');
+    }
+
+  } catch (error) {
+    console.error(`Failed to install hex on Arduino UNO: ${error}`);
+  }
+
+}
+

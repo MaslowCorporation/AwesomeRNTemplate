@@ -1,0 +1,9 @@
+Crée SwitchPage, un component composé:
+d'un iframe, 
+d'une topbar contenant 4 boutons (un bouton qui ramène l'iframe à la page précédente (icone <), un bouton qui ramène l'iframe à la page suivante (icone >), un bouton qui reload l'iframe (icone reload), et un bouton switch (icone menu)).
+Ce SwitchPage prend toute la place disponible (flex: 1)
+Le iframe démarre à l'url initialUrl.
+le btn switch permet de changer l'écran passant du iframe, à une UI custom (fournie via uiComponent), et vice versa. 
+Le iframe ne doit pas reload quand on switch back & forth entre iframe et UI custom.
+
+PS: Je veux un component fonctionnel. Je veux aussi que le iframe / component custom, soit centré

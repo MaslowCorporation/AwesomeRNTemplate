@@ -1,0 +1,1 @@
+Returns a scrollable React Native modal containing all the input fields specified by inputs

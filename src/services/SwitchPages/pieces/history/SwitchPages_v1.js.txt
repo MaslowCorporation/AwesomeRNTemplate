@@ -1,0 +1,70 @@
+
+
+import React, { useState, useRef } from 'react';
+import { View, StyleSheet, TextInput, TouchableOpacity, Modal, Text } from 'react-native';
+import { WebView } from 'react-native-webview';
+import CustomButton from './CustomButton'; // Your CustomButton component
+
+const SwitchPages = ({ initialUrl, uiComponent }) => {
+    
+    // State to control display of UI Component
+    const [showUI, setShowUI] = useState(false)
+    
+    // State to maintain the url of WebView
+    const [iframeURL, setIframeURL] = useState(initialUrl);
+    
+    // Reference of WebView for using its instance methods
+    const webviewRef = useRef(null);
+
+    // Function to go back in WebView
+    const goBack = () => webviewRef.current.goBack();
+
+    // Function to go forward in WebView
+    const goForward = () => webviewRef.current.goForward();
+
+    // Function to reload WebView
+    const reload = () => webviewRef.current.reload();
+   
+    return (
+        <View style={styles.container}>
+            <View style={styles.bar}>
+                {/* Back Button */}
+                <CustomButton title="<" onPress={goBack} />
+
+                {/* Forward Button */}
+                <CustomButton title=">" onPress={goForward} />
+
+                {/* Reload Button */}
+                <CustomButton title="Reload" onPress={reload} />
+
+                {/* UI Switch Button */}
+                <CustomButton title="Switch UI" onPress={() => setShowUI(!showUI)} />
+            </View>
+
+            {/* WebView / UI Component as per the state */}
+            {!showUI &&
+                <WebView
+                    source={{ uri: iframeURL }}
+                    ref={webviewRef}
+                />
+            }
+            {showUI && uiComponent}
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    bar: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        height: 50,
+        backgroundColor: '#eee',
+    }
+})
+
+export default SwitchPages;
+

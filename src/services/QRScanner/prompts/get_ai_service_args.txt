@@ -1,0 +1,2 @@
+onSuccess (a callback that gets called when a QR code got scanned successfully, takes as arg the QR code's value),
+onError (a error callback)

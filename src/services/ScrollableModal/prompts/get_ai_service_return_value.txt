@@ -1,0 +1,5 @@
+Returns a scrollable React Native modal containing all the input fields specified by inputs. 
+
+Add a floating action button that allows the user to submit his answers. add a callback prop that allows the programmer to pick the submitted answers.
+
+The answers should be an array identical to inputs, but each object should have a key named output, containing the user output.

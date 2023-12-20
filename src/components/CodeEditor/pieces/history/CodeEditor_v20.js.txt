@@ -1,0 +1,48 @@
+
+
+import React, { useRef, useEffect, useState } from 'react';
+import { RichEditor, RichToolbar } from 'react-native-pell-rich-editor';
+
+// The CodeEditor is a functional React Native component that serves as a code or text editor
+export const CodeEditor = ({ initialCode, onCodeChanged }) => {
+  // Create reference to the editor
+  const richText = useRef(null);
+
+  // Initial State
+  const [content, setContent] = useState('');
+
+  // Set initial content
+  useEffect(() => {
+    if (initialCode) {
+      setContent(initialCode);
+      richText.current.setContentHTML(initialCode);
+    }
+  }, [initialCode]);
+
+  // onChange event from editor
+  const onContentChange = (text) => {
+    setContent(text); // Update state
+
+    // Propagate change to parent component through callback
+    if (onCodeChanged) {
+      onCodeChanged(text);
+    }
+  };
+
+  // Here's where we define the UI of our component
+  // We place our editable text within RichEditor and then wrap 
+  // rich toolbar within RichToolbar so we add functionalities such 
+  // as bold, italic, undo, redo etc.
+  return (
+    <>
+      <RichEditor
+        ref={richText}
+        initialContentHTML={content}
+        onChange={onContentChange}
+      />
+      <RichToolbar editor={richText} />
+    </>
+  );
+};
+
+

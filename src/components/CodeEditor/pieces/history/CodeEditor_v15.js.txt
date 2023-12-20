@@ -1,0 +1,59 @@
+
+
+// We start by importing the necessary dependencies. 
+import React, { useState } from 'react';
+import { ScrollView, TextInput, View, StyleSheet } from 'react-native';
+
+// We define our CodeEditor component. This component receives several props:
+// initialCode is the initial content of the editor.
+// onCodeChanged is a callback executed whenever the text changes.
+// textColor, backgroundColor and borderColor are used for styling.
+// textFont is used to change the font of the text in the editor.
+// placeholderText is the placeholder text for the TextInput component.
+
+export const CodeEditor = ({ initialCode, onCodeChanged, textColor, backgroundColor, borderColor, textFont, placeholderText }) => {  
+  
+  // We use the useState hook to initialize our state variable and update function. 
+  // This state holds the current text in the editor. 
+  const [codeLines, setCodeLines] = useState(initialCode ? initialCode.split('\n') : ['']);
+
+  // This method is responsible for gracefully handling the change of code 
+  // in the editor by updating our state and firing the onCodeChanged callback.
+  const handleCodeChanged = (newLine) => { 
+    setCodeLines([newLine]); 
+    onCodeChanged(newLine); 
+  };
+
+  // Here we define our JSX code that will be returned when this component is rendered.
+  return (
+    <View style={[styles.container, { borderColor: borderColor, backgroundColor: backgroundColor }]}> 
+      <ScrollView> 
+        <TextInput 
+          style={[styles.textInput, { color: textColor, fontFamily: textFont }]} // We apply both text color and text font.
+          value={codeLines[0]} 
+          onChangeText={handleCodeChanged} 
+          placeholder={placeholderText || 'Type your code here...'} // If placeholderText is defined, we use it. Otherwise, we use a default text.
+          multiline 
+          autoFocus 
+        /> 
+      </ScrollView> 
+    </View> 
+  );
+};
+
+// These are the styles that we apply to our components.
+// They are defined outside of the render function for performance reasons.
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderWidth: 1, 
+    margin: 20, 
+    borderRadius: 5
+  },
+  textInput: { 
+    flex: 1, 
+    fontSize: 16, 
+    padding: 10
+  }
+});
+

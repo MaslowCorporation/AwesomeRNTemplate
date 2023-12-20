@@ -1,0 +1,71 @@
+
+
+// Import necessary libraries
+import React, { useRef } from 'react';
+import { RichEditor, RichToolbar } from 'react-native-pell-rich-editor';
+
+// CodeEditor component
+const CodeEditor = ({ initialCode = '', onCodeChanged }) => {
+  // Create reference to the editor
+  const richText = useRef();
+
+  // OnChange event function for the editor
+  const handleOnChange = (value) => {
+    // Trigger callback with edited code
+    onCodeChanged && onCodeChanged(value);
+  };
+
+  // Function to get the edited code value
+  const getHtmlCode = async () => {
+    // Get the HTML value of the editor
+    const value = await richText.current.getContentHtml();
+    // Trigger callback with edited code
+    onCodeChanged && onCodeChanged(value);
+  };
+
+  // Return the editor component
+  return (
+    <>
+      {/* Rich Text Editor */}
+      <RichEditor
+        // Set reference to the editor
+        ref={richText}
+        // Initial value is passed code
+        initialContentHTML={initialCode}
+        // OnChange event is the passed callback
+        onChange={handleOnChange}
+        // Editor style configuration
+        editorStyle={{
+          // Background color
+          backgroundColor: '#333',
+          // Text color
+          color: '#fff',
+          // Padding
+          padding: 10,
+          // Set default font size
+          fontSize: 16,
+        }}
+      />
+      {/* Toolbar for the editor */}
+      <RichToolbar
+        // Get the editor from the ref
+        editor={richText}
+        // Actions to include in the toolbar
+        actions={[
+          'bold', 
+          'italic', 
+          'underline', 
+          'unorderedList', 
+          'orderedList', 
+          'link'
+        ]}
+        // onPressAddImage will get the current HTML code
+        onPressAddImage={getHtmlCode}
+      />
+    </>
+  );
+};
+
+// Export the CodeEditor component
+export default CodeEditor;
+

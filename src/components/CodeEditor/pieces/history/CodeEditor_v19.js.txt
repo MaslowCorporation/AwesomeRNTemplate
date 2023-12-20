@@ -1,0 +1,72 @@
+
+
+import React, { useState } from 'react';
+import { ScrollView, TextInput, View, StyleSheet } from 'react-native';
+
+// The CodeEditor is a functional React Native component that serves as a code or text editor
+// Convert the arguments into an object for easier manipulation
+const CodeEditor = ({
+    initialCode,
+    onCodeChanged,
+    textColor,
+    backgroundColor,
+    borderColor,
+    textFont,
+    placeholderText,
+}) => {
+    // The initial state of the code/text editor is given by the prop 'initialCode'
+    // If 'initialCode' is not provided, the editor will be empty initially
+    const [code, setCode] = useState(initialCode || '');
+
+    // This function gets triggered whenever the text within the editor changes
+    // It updates the state accordingly and propagates this change upwards through the 'onCodeChanged' callback
+    const handleCodeChanged = (text) => {
+        setCode(text);
+        onCodeChanged(text);
+    };
+
+    // Here's where we define the UI of our component
+    // We wrap everything inside a View for styling purposes, then we place our editable text within a ScrollView
+    // so that it can be scrolled when there's more content than visible space, then finally our TextInput is where the code gets input and edited
+    return (
+        <View style={[styles.container, { borderColor, backgroundColor }]}>
+            <ScrollView
+                // These props manage the style of the scrollbar
+                showsVerticalScrollIndicator={true}
+                indicatorStyle='black'
+                style={styles.scrollBar}
+            >
+                <TextInput
+                    style={[styles.textInput, { color: textColor, fontFamily: textFont }]}
+                    value={code}
+                    onChangeText={handleCodeChanged}
+                    placeholder={placeholderText || 'Type your code here...'}
+                    multiline
+                    autoFocus
+                />
+            </ScrollView>
+        </View>
+    );
+};
+
+// CSS for the React Native components to stylize the editor and scrollbar
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        borderWidth: 1,
+        margin: 20,
+        borderRadius: 5,
+    },
+    scrollBar: {
+        width: 20, // To adequately display the scroll bar
+        marginRight: 10, // To create space between the scrollbar and the content
+    },
+    textInput: {
+        flex: 1,
+        fontSize: 16,
+        padding: 10,
+    },
+});
+
+export default CodeEditor;
+
