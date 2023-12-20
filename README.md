@@ -1,4 +1,4 @@
-# <YOUR_APP_NAME> (A simple & humble React Native app template)
+# <YOUR_APP_NAME> (A simple & humble React Native app template)  🌎
 
 ## Create a React Native app using the npx <MAS> create-react-native-app command
 
