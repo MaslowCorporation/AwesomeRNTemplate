@@ -95,9 +95,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.arduinogpt"
+    namespace "com.remindme"
     defaultConfig {
-        applicationId "com.arduinogpt"
+        applicationId "com.remindme"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

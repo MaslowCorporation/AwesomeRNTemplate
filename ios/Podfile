@@ -22,7 +22,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'arduinogpt' do
+target 'remindme' do
   use_expo_modules!
   post_integrate do |installer|
     begin
@@ -52,7 +52,7 @@ target 'arduinogpt' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'arduinogptTests' do
+  target 'remindmeTests' do
     inherit! :complete
     # Pods for testing
   end

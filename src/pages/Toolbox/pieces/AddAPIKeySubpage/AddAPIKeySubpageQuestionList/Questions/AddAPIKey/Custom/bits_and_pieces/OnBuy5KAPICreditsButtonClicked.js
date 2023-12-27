@@ -4,7 +4,7 @@ import { showSnackbar } from "src/components/Messager/Messager";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 
-// import YourOwnSDK from "your-own-sdk";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 
 /**
  * 
@@ -18,7 +18,7 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
     // to set the iframe url, and UI visibility respectively
     // feel free to add more args if needed
     
-    /*
+    
     const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
     const maslowAPIKey = AppState.maslowAPIKey;
 
@@ -26,7 +26,7 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
     
     GoogleLogin({
         onSuccess: async (login_data) => {
-            YourOwnSDK.Buy5KAPICreditsLink({
+            MaslowGPTSDK.Buy5KAPICreditsLink({
                 apiKey: maslowAPIKey,
                 params: login_data,
                 onSuccess: (url_data) => {
@@ -60,5 +60,5 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
             showSnackbar(app_strings.t("LoginCancel"))
         },
     });
-    */
+    
 }

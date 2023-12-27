@@ -1,42 +1,54 @@
-
-/* PLOP_INJECT_IMPORT */
-
-/* PLOP_INJECT_GLOBAL_CODE */
-
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import useInterval from './useInterval.js'; //Your custom Hook for setting intervals.
-import { CustomButton } from 'src/components/CustomButton/CustomButton.js';
 
-const TextReader = ({ speedMs = 1000, text = "", fontFamily, textSize, textColor, backgroundColor, textBackgroundColor }) => {
-
-    //Split the text for easy manipulation.
+const TextReader = ({
+    speedMs = 1000,
+    text = "",
+    fontFamily,
+    textSize,
+    textColor,
+    backgroundColor,
+    textBackgroundColor,
+    animate = true,
+    animateLoop = true, // New prop for looping animation
+}) => {
     const wordsArray = text?.split(" ");
-
-    //States for the word counter and the current text displayed.
     const [counter, setCounter] = useState(0);
     const [currentText, setCurrentText] = useState('');
-
-    //Reference to the ScrollView for auto-scrolling.
+    
     const scrollRef = useRef();
 
-    //Your custom Hook for setting intervals.
     useInterval(() => {
-        //If it's end of the text, reset.
-        if (counter === wordsArray?.length) {
-            setCounter(0);
-            setCurrentText('');
-        }
-        else {
-            //Update the current text and increment the counter.
-            setCurrentText(prevWords => prevWords + ' ' + wordsArray[counter]);
-            setCounter(prevCount => prevCount + 1);
-        }
-        //Auto-scrolls down.
-        scrollRef.current.scrollToEnd({ animated: true });
-    }, speedMs); //function called every second.
+        //console.log(`counter: ${counter}`);
+        //console.log(`words length: ${wordsArray?.length}`);
 
-    //Resets the text in case of press the refresh button
+        if (counter >= wordsArray?.length) {
+
+            if (animateLoop) {
+                setCounter(0);
+                setCurrentText('');
+            }
+        } else {
+            if (animate) {
+                //console.log(`animate the text word by word`);
+
+                setCurrentText(prevWords => prevWords + ' ' + wordsArray[counter]);
+                setCounter(prevCount => prevCount + 1);
+            } else {
+                //console.log(`add a block of words`);
+
+                setCurrentText(wordsArray.join(' '));
+                setCounter(wordsArray?.length);
+            }
+
+            //console.log(`elder scroll !`);
+            scrollRef.current.scrollToEnd({ animated: true });
+            
+        }
+        
+    }, speedMs);
+
     const refreshText = () => {
         setCounter(0);
         setCurrentText('');
@@ -49,47 +61,22 @@ const TextReader = ({ speedMs = 1000, text = "", fontFamily, textSize, textColor
         fontFamily: fontFamily,
         margin: 10,
         paddingRight: 10
-    }
+    };
 
     return (
-
-        <TouchableOpacity
+        <View
             style={[styles.container, { backgroundColor: backgroundColor }]}
-            onPress={refreshText}
         >
-            {/*<CustomButton
-                onClick={refreshText}
-                buttonLogoName={"refresh"}
-                buttonContainerStyle={styles.btnStyle}
-                buttonTextStyle={styles.btnTxtStyle}
-                isVisible={true}
-
-            ></CustomButton>*/}
-
             <ScrollView ref={scrollRef}>
                 <Text style={textStyle}>{currentText}</Text>
             </ScrollView>
-        </TouchableOpacity>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
     refreshButton: {
         alignSelf: 'center',
-    },
-    btnStyle: {
-        backgroundColor: 'transparent',
-        borderRadius: 15,
-        borderWidth: 1,
-        padding: 10,
-        margin: 10,
-        borderColor: "black",
-        width: 100
-
-    },
-    btnTxtStyle: {
-        color: "black",
-        fontFamily: "ComingSoon",
     },
     container: {
         flex: 1,
@@ -99,4 +86,3 @@ const styles = StyleSheet.create({
 });
 
 export default TextReader;
-

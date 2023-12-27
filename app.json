@@ -1,6 +1,6 @@
 {
-  "name": "arduinogpt",
-  "displayName": "arduinogpt",
+  "name": "remindme",
+  "displayName": "remindme",
   "plugins": [
     "expo-localization"
   ],
@@ -8,8 +8,8 @@
     "eas": {}
   },
   "expo": {
-    "slug": "arduinogpt",
-    "name": "arduinogpt",
+    "slug": "remindme",
+    "name": "remindme",
     "sdkVersion": "48.0.0",
     "entryPoint": ".vscode\\exponentIndex.js",
     "extra": {

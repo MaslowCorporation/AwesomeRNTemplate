@@ -10,7 +10,7 @@ import { useState } from 'react';
 // des providers, fournisseurs de choses utiles
 
 // permet d'etre multilingue
-import { AppStrings } from 'src/stringRepos/AppStrings/AppStrings';
+import { InitAppStrings } from 'src/stringRepos/AppStrings/AppStrings';
 
 // permet d'afficher un écran de base quand l'appli n'est pas encore prête a etre affichée
 import * as SplashScreen from 'expo-splash-screen';
@@ -53,7 +53,7 @@ SplashScreen.preventAutoHideAsync();
  * permet d'utiliser des strings multilingues partout
  * (doit etre exécute une seule fois dans le cycle de vie de l'appli)
  */
-AppStrings();
+InitAppStrings();
 
 /**
  * Bonjour,
