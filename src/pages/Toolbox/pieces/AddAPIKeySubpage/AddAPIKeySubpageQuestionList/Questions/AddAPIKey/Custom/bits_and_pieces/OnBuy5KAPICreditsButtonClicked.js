@@ -4,7 +4,7 @@ import { showSnackbar } from "src/components/Messager/Messager";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 
-import MaslowGPTSDK from "maslow-gpt-sdk";
+//import MaslowGPTSDK from "maslow-gpt-sdk";
 
 /**
  * 
@@ -17,9 +17,9 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
     // you can use the setSubscribeUrl and setShowUI setters (or other names if u renamed it earlier)
     // to set the iframe url, and UI visibility respectively
     // feel free to add more args if needed
-    
-    
-    const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
+
+
+    /*const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
     const maslowAPIKey = AppState.maslowAPIKey;
 
 
@@ -60,5 +60,5 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
             showSnackbar(app_strings.t("LoginCancel"))
         },
     });
-    
+    */
 }
