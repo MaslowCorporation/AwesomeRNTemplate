@@ -1,0 +1,1 @@
+imgPath (string, the path/url of the photo to be cropped), cropAreaSize (number, the size of the crop square's sides), onSuccess (a callback that's called with the cropped picture path as argument), onError (a callback that's called when something got wrong during cropping)

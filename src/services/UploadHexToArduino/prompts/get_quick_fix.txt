@@ -1,0 +1,55 @@
+Add the following fixes to this function:
+
+// Import the RNSerialport module for performing USB serial communication.
+import { RNSerialport } from 'react-native-usb-serialport';
+
+// The UploadHexToArduino function written as an asynchronous function.
+// Async means this function returns a promise, which resolves when all the contained 
+// potentially asynchronous methods have completed.
+export async function UploadHexToArduino(hexString) {
+  try {
+    // Fetch the list of all available devices connected to USB serial.
+    const deviceList = await RNSerialport.getDeviceList();
+    
+    // Ensure that at least one device is found
+    if(deviceList != null){
+        
+        // Assuming Arduino UNO is the first device (device index 0)
+        const deviceName = deviceList[0].name;
+        
+        // Verify if the connected device is compatible or supported for the operation.
+        if (await RNSerialport.isSupported(deviceName)) {
+            // If supported device found, try to establish a connection using the device name
+            // and baud rate of 9600 which is standard for Arduino UNO
+            RNSerialport.connectDevice(deviceName, 9600);
+
+            // Check if the connection service is started and whether is open for write
+            if (await RNSerialport.isServiceStarted() && await RNSerialport.isOpen()) {
+                // If a connection is established and confirmed, write the Hex code/file to Arduino UNO
+                RNSerialport.writeHexString(hexString);
+                console.log("Hex code successful written to Arduino UNO.");
+                
+            } else {
+                // If service is not started or connection isn't open, log the error message.
+                console.error('Service not started or failed to open device.');
+            }
+            
+        } else {
+            // If no supported devices found, log the error message
+            console.error('Connected device is not supported.');
+        }
+        
+    } else {
+        // If no devices are found, log the error message
+        console.error('No devices found.');
+    }
+    
+  } catch (error) {
+    // Catch any other unforeseen errors during the execution of the function and log the error message
+    console.error(`Failed to write hex code to Arduino UNO due to: ${error}`);
+  }
+
+}
+
+
+Fixes_should_be_here

@@ -1,0 +1,51 @@
+
+
+/**
+ * @function GetFileObj
+ * @param {string} filePath - The file path from which we want to create a data object.
+ * @returns {{uri: string, name: string, type: string}} - an object with uri as the filePath, the fileName including extension,
+ *  and the mime type derived from the file extension.
+ */
+export function GetFileObj(filePath) {
+    // Split the filePath using slash(/) or backslash(\) to get an array of path fragments
+    let pathParts = filePath.split(/[\\/]/);
+
+    // Get the last element of the array as fileName (name + extension)
+    let baseName = pathParts[pathParts.length - 1];
+
+    // Split the baseName using dot(.) to get an array of filename and extension
+    let nameParts = baseName.split('.');
+
+    // Get the last element of the array as file extension
+    let extension = nameParts[nameParts.length - 1];
+
+    // We assume that the video type is mp4 by default
+    let mimeType = 'video/mp4';
+
+    // Initialize an object where keys are extensions and values are mime types
+    const mimeTypes = {
+        'jpg': 'image/jpeg',
+        'jpeg': 'image/jpeg',
+        'png': 'image/png',
+        'gif': 'image/gif',
+        'bmp': 'image/bmp',
+        'mp4': 'video/mp4',
+        'mov': 'video/quicktime',
+        'avi': 'video/x-msvideo',
+        'mkv': 'video/x-matroska'
+        // add more if needed
+    };
+
+    // If the file extension exists in our object, override the default mime type
+    if (mimeTypes.hasOwnProperty(extension)) {
+        mimeType = mimeTypes[extension];
+    }
+
+    // Return an object with uri as the filePath, the fileName including extension, and the mime type derived from the file extension
+    return {
+        uri: filePath,
+        name: baseName,
+        type: mimeType
+    };
+}
+

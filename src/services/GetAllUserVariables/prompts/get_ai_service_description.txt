@@ -1,0 +1,1 @@
+Returns a list of strings containing all the user variables found in the source code. Return null if no user variable was found, or if an error took place during search.

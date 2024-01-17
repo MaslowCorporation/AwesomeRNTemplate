@@ -1,0 +1,45 @@
+
+
+// Required Imports
+import React from 'react'; // Base React package
+import CodeEditor from 'react-native-code-editor'; // Code editor library
+
+// CodeEditor component
+const CodeEditorComponent = ({ initialCode = '', onCodeChanged }) => {
+  let settings = {
+    content: {
+      fontSize: 16,
+      color: 'white',
+      backgroundColor: 'black',
+      paddingLeft: 20,
+      paddingRight: 20,
+      paddingTop: 20,
+      paddingBottom: 20,
+    },
+    lineNumber: {
+      fontSize: 16,
+      color: '#ccc',
+      backgroundColor: '#333',
+      paddingLeft: 10,
+      paddingRight: 10,
+    },
+    container: {
+      paddingLeft: 0,
+    },
+  };
+
+  return (
+    // Embed the CodeEditor within the React Component 'CodeEditorComponent'
+    // Pass down the initialCode prop to set the initial value of the editor
+    // Pass down the onCodeChanged prop to set a callback function 
+    // that will be triggered every time the text changes
+    <CodeEditor
+      settings={settings}
+      initialCode={initialCode}
+      onCodeChanged={onCodeChanged}
+    />
+  );
+};
+
+export default CodeEditorComponent;
+

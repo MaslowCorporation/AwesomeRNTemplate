@@ -1,0 +1,1 @@
+Returns a React Native component that provides a code/text editor.

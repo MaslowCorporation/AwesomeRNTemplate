@@ -1,0 +1,39 @@
+
+
+import React, { useState, useRef } from 'react';
+import { View, 
+         TextInput, 
+         TouchableOpacity, 
+         StyleSheet } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+// The SwitchPages component takes initialUrl, uiComponent and showUI as props
+const SwitchPages = ({ initialUrl, UIComponent, showUI, setShowUI, iframeURL }) => {
+  // existing code omitted for brevity
+
+  // Function to go back in WebView
+  const goBack = () => webviewRef.current.goBack();
+
+  // existing code omitted for brevity
+
+  // WebView / UI Component as per the state
+  // If !showUI, WebView gets rendered. If showUI is true, UIComponent gets rendered  
+  return (
+    <View style={styles.container}>
+      {/* existing code omitted for brevity */}
+      {!showUI ? (
+        <WebView source={{ uri: iframeURL || initialUrl}} ref={webviewRef} />
+      ) : (
+        <UIComponent />
+      )}
+    </View>
+   )
+}
+
+const styles = StyleSheet.create({
+  // existing styles omitted for brevity
+})
+
+export default SwitchPages;
+

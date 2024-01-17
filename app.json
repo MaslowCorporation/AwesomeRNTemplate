@@ -1,0 +1,19 @@
+{
+  "name": "remindme",
+  "displayName": "remindme",
+  "plugins": [
+    "expo-localization"
+  ],
+  "extra": {
+    "eas": {}
+  },
+  "expo": {
+    "slug": "remindme",
+    "name": "remindme",
+    "sdkVersion": "48.0.0",
+    "entryPoint": ".vscode\\exponentIndex.js",
+    "extra": {
+      "eas": {}
+    }
+  }
+}

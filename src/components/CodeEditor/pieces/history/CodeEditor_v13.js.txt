@@ -1,0 +1,76 @@
+
+
+// Required imports.
+import React, { useState, useEffect } from 'react';
+import { ScrollView, TextInput, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
+// Define the CodeEditor function.
+const CodeEditor = ({ initialCode, onCodeChanged }) => {
+  // This function keeps track of the code that is currently being displayed in the editor.
+  // It uses a state variable (codeLines) that can be updated using the setCodeLines function.
+  // InitialCode is separated by new lines and put into an array. If there is no initial code, the array just has an empty string.
+  const [codeLines, setCodeLines] = useState(initialCode ? initialCode.split('\n') : ['']);
+  
+  // This function is used to handle when a line of code is changed. It takes in the index of the line that was changed, and the new line that the user entered.
+  const handleCodeChanged = (lineIndex, newLine) => {
+    // Here, the line in the code that was changed is updated with the new line.
+    const newCodeLines = [...codeLines];
+    newCodeLines[lineIndex] = newLine;
+    setCodeLines(newCodeLines);
+
+    // Call the onCodeChanged callback with the new code as a single string, rejoining with new lines.
+    onCodeChanged(newCodeLines.join('\n'));
+  };
+
+  // This is the render function. It returns a JSX element that represents what the component should look like.
+  return (
+    // We wrap our view with a ScrollView to enable scrolling when the content overflows the view.
+    <ScrollView style={styles.container}>
+      {/* Here we're mapping through each line of code that is currently in the editor. */}
+      {codeLines.map((line, index) => (
+        // We display each line individually in its own row. We also display the appropriate line number next to each line of code.
+        <View key={index} style={styles.lineRow}>
+          <Text style={styles.lineNumber}>{index + 1}</Text>
+          <TextInput
+            style={styles.textInput}
+            value={line}
+           /* This adds an event listener to the input, which calls an anonymous function that then calls handleCodeChanged with the index of the changed line and the new line every time the user modifies the line. */
+            onChangeText={(newLine) => handleCodeChanged(index, newLine)}
+            placeholder={index === 0 ? 'Type your code here...' : null}
+            multiline
+            autoFocus
+          />
+        </View>
+      ))}
+      {/* Button to add new lines to the editor. */}
+      <TouchableOpacity onPress={() => setCodeLines([...codeLines, ''])}>
+        <Text style={styles.addButton}>Add Line +</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
+
+// Styling for the CodeEditor component, inside a StyleSheet object for improved performance.
+const styles = StyleSheet.create({
+  container: {
+    flex: 1 // This will make the component take up all the available space.
+  },
+  textInput: {
+    flex: 1 // This will make the text input take up all the available space in the row, after the line number.
+  },
+  lineRow: {
+    flexDirection: 'row', // This will make the line number and the text input sit side by side.
+    flex: 1,
+    alignItems: 'center' // This will vertically center the text input and the line number in the row.
+  },
+  lineNumber: {
+    marginRight: 10 // Gives some space between the line number and the text input.
+  },
+  addButton: {
+    color: 'blue',
+    marginTop: 10
+  }
+});
+
+export default CodeEditor;
+
