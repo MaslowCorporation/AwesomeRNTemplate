@@ -38,9 +38,9 @@
     "copy-aab-release-windows": "copy android\\app\\build\\outputs\\bundle\\release\\app-release.aab %USERPROFILE%\\Desktop",
     "copy-aab-release-linux": "cp ./android/app/build/outputs/bundle/release/app-release.aab ~/Desktop",
     "copy-aab-release-macos": "cp ./android/app/build/outputs/bundle/release/app-release.aab ~/Desktop",
-    "build-android-debug": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && gradlew assembleDebug && cd ..",
-    "build-android-release": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && npm run clean-android-resources && cd android && gradlew assembleRelease && cd ..",
-    "build-android-release-aab": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && npm run clean-android-resources && cd android && gradlew bundleRelease && cd .."
+    "build-android-debug": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && gradlew assembleDebug && cd ..",
+    "build-android-release": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && npm run clean-android-resources && cd android && gradlew assembleRelease && cd ..",
+    "build-android-release-aab": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && npm run clean-android-resources && cd android && gradlew bundleRelease && cd .."
   },
   "dependencies": {
     "@notifee/react-native": "^7.8.0",
