@@ -4,6 +4,7 @@ import { GetUniqueID } from "src/services/GetUniqueID/GetUniqueID";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import React from "react"
 import { CustomComponent } from "./Custom/custom";
+import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 
 
 /* PLOP_INJECT_GLOBAL_CODE */
@@ -48,9 +49,10 @@ const AddAPIKey = () => {
 
     // la callback de customization
     customQuestionPanel: ({ answers, answer, answerIndex, onInput }) => {
+      const AppState = SqliteReduxAppState.GetFreshestAppStateFirstRow();
 
       return <CustomComponent
-        defaultAPIKey={answer?.value}
+        defaultAPIKey={AppState?.maslowAPIKey ?? answer?.value}
         onInput={onInput}
       />
     },

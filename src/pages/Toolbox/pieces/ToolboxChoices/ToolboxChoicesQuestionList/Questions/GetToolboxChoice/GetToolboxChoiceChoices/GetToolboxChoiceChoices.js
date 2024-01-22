@@ -1,5 +1,6 @@
 import { SetPageState } from "src/pages/Toolbox/pieces/NavHelpers/SetPageState.js";
 import { app_strings } from "../../../../../../../../stringRepos/AppStrings/AppStrings.js";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 
 /* PLOP_INJECT_IMPORT */
 import { DatabaseObjects } from 'src/reduxState/DatabaseObjects';
@@ -9,6 +10,7 @@ import { ShowNotification } from 'src/services/ShowNotification/ShowNotification
 import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStateGetterSetter";
 import { GoogleLogin, GoogleLogout, IsSomeUserLoggedIn } from "src/services/GoogleLogin/GoogleLogin.js";
 import { showSnackbar } from "src/components/Messager/Messager.js";
+import { SaveAPIKeyInAppState } from "src/pages/Toolbox/pieces/AddAPIKeySubpage/AddAPIKeySubpageQuestionList/Questions/AddAPIKey/Custom/bits_and_pieces/SaveAPIKeyInAppState.js";
 
 
 /* PLOP_INJECT_GLOBAL_CODE */
@@ -127,15 +129,59 @@ export const GetToolboxChoiceChoicesActions = {
     if (userData) {
       GoogleLogout({
         onSuccess: (data) => {
-          showSnackbar('Logout OK !')
+          showSnackbar('Logout successful !')
+
+          SaveAPIKeyInAppState(null);
+        },
+        onError: (e) => {
+          showSnackbar('Logout failed... Try again ;-)')
         }
       });
     } else {
       GoogleLogin({
-        onSuccess: (data) => {
-          showSnackbar('Login NOT OK !')
+        onSuccess: async (data) => {
+
+          await GrabGoogleAPIKey(data);
+        },
+        onError: (e) => {
+          showSnackbar('Login failed... Try again ;-)')
+        },
+        onCancel: () => {
+          showSnackbar('Login stopped ;-)')
         }
       });
     }
   },
 };
+
+async function GrabGoogleAPIKey(data) {
+  const googleAPIKeyResponse = await MaslowGPTSDK.GetGoogleAPIKey({
+    onSuccess: (output) => {
+    },
+    onError: (e) => {
+      console.log(`Error`);
+    },
+    google_uid: data.firebase_uid, // "zizix",
+    print: false,
+  });
+  const googleAPIKey = googleAPIKeyResponse?.apiKey;
+
+
+  console.log(`googleAPIKey = ${JSON.stringify(googleAPIKey, null, 2)}`);
+
+  if (googleAPIKey) {
+    showSnackbar('Login successful !');
+
+    ShowNotification({
+      id: 0,
+      title: "remindme",
+      body: app_strings.t("APIKeySuccess") + `: ` + googleAPIKey,
+      extra: null,
+    });
+
+    SaveAPIKeyInAppState(googleAPIKey);
+  } else {
+    showSnackbar("Login successful ! But.... This account doesn't exist !");
+  }
+}
+

@@ -17,13 +17,12 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
     // you can use the setSubscribeUrl and setShowUI setters (or other names if u renamed it earlier)
     // to set the iframe url, and UI visibility respectively
     // feel free to add more args if needed
-
-
-    /*const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
+    /*
+    const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
     const maslowAPIKey = AppState.maslowAPIKey;
 
 
-    
+
     GoogleLogin({
         onSuccess: async (login_data) => {
             MaslowGPTSDK.Buy5KAPICreditsLink({
@@ -39,6 +38,8 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
 
                     setSubscribeUrl(url_data.url);
                     setShowUI(false);
+
+                    GoogleLogout({});
                 },
 
                 onError: (e) => {
@@ -61,4 +62,5 @@ export function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI }) {
         },
     });
     */
+
 }
