@@ -1,7 +1,7 @@
 import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStateGetterSetter";
 
 /**
- * Let's go back to AddItemToToolbox
+ * Lets go back to AddItemToToolbox
  */
 export function GoToAddItemToToolbox() {
   // getter
@@ -12,16 +12,14 @@ export function GoToAddItemToToolbox() {
     row: {
       ...ToolboxState,
 
-      // l'écran actuellement affiché dans Toolbox.js
+      // lécran actuellement affiché dans Toolbox.js
       chosenOne: "AddItemToToolbox",
     },
     rowName: "uniqueId",
     rowValue: "ToolboxState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans Toolbox.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

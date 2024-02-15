@@ -24,7 +24,7 @@ export function addRowToGroupIfNeeded(row, state) {
       state.groups[groupName] = [row];
     }
 
-    // range en ordre croissant d'ajout
+    // range en ordre croissant dajout
     // selon (row.itemIndex)
     state.groups[groupName]?.sort((a, b) => a.itemIndex - b.itemIndex);
   }

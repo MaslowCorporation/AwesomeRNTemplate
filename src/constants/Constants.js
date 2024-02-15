@@ -6,14 +6,14 @@
  */
 const Constants = {
 
-  // la longueur d'avancement retour arriere, forward backward,
+  // la longueur davancement retour arriere, forward backward,
   // lors de visionnage de vidéo
   TRAVEL_TIME_MSEC: 5000,
 
-  // la couleur d'arrière plan par défaut de l'appli
+  // la couleur darrière plan par défaut de lappli
   defaultBackgroundColor: 'pink',
 
-  // la couleur de contenu par défaut de l'appli
+  // la couleur de contenu par défaut de lappli
   defaultContentColor: 'black',
 
   // le font par défaut

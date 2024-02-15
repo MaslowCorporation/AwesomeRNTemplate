@@ -41,7 +41,7 @@ export const CodeEditor = ({ initialCode, onCodeChanged }) => {
       <TouchableOpacity style={styles.fab}
         onPress={() => {
           // on pressing the button
-          console.log('Button pressed.'); 
+           
         }}>
         <Icon name="check" size={30} color="#FFF" />
       </TouchableOpacity>

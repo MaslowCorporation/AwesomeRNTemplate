@@ -15,11 +15,11 @@ import notifee from '@notifee/react-native';
  * payload données
  *
  * @param {*} id
- * l'identifiant de notif (nombre)
+ * lidentifiant de notif (nombre)
  *
- * Affiche une notif dans le status bar (la ou y'a l'heure)
+ * Affiche une notif dans le status bar (la ou ya lheure)
  *
- * Construit avec l'aide de:
+ * Construit avec laide de:
  *
  * https://github.com/wix/react-native-notifications/issues/533#issuecomment-625818174
  * https://github.com/wix/react-native-notifications/issues/533#issuecomment-676199941
@@ -51,7 +51,7 @@ const ShowNotification = async ({ title, body, extra, id }) => {
     },
   });
 
-  console.log(`***\n${title}\n***\n${body}\n***`);
+
 };
 
 export { ShowNotification };

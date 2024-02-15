@@ -28,9 +28,7 @@ const GetTestPageItemName = () => {
   const currentItem =
     SqliteReduxTestPage.GetItemByUniqueID(currentItemUniqueId);
 
-  //console.log(`page state  = ${JSON.stringify(TestPageState)}`);
-  //console.log(`current item  uid = ${currentItemUniqueId}`);
-  //console.log(`current item  = ${JSON.stringify(currentItem)}`);
+
 
   return {
     // un identifiant unique
@@ -54,7 +52,7 @@ const GetTestPageItemName = () => {
           choiceImgUrl: "",
           choiceImgPath: "",
           greenCheckmark: answer?.value == true,
-          onChoiceClicked: () => {},
+          onChoiceClicked: () => { },
         },
         {
           choiceDescription: app_strings.t("non"),
@@ -62,12 +60,12 @@ const GetTestPageItemName = () => {
           choiceImgUrl: "",
           choiceImgPath: "",
           greenCheckmark: answer?.value == false,
-          onChoiceClicked: () => {},
+          onChoiceClicked: () => { },
         },
       ];
     },
 
-    // la valeur choisie/écrite par l'user
+    // la valeur choisie/écrite par luser
     // null (par défaut)
     value: currentItem?.name ?? null,
 
@@ -76,22 +74,22 @@ const GetTestPageItemName = () => {
       return answer?.value ?? currentItem?.name ?? "";
     },
 
-    // les flex du message ou de la zone d'input
+    // les flex du message ou de la zone dinput
     messageFlex: 1,
     componentFlex: 1,
 
     // la taille du texte du message
     messageFontSize: 25,
 
-    // on montre le component d'input en premier, ou pas ?
+    // on montre le component dinput en premier, ou pas ?
     componentFirst: true,
 
-    // un callback qui vérifie que l'input est valide
+    // un callback qui vérifie que linput est valide
     // true si valide false autrement
     checkInput: ({ input, answers, answer, answerIndex }) => {
       return input != null && input.length > 0;
     },
-    // un message d'erreur à afficher si les données ne sont pas valides
+    // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
       return TypeSomePlz;
     },

@@ -13,12 +13,12 @@ import { RequestTypes } from "../MakeHTTPRequest/RequestTypes";
  * @param {*} imgPath
  * @param {*} apiKey
  *
- * @returns l'uploader de photo sur un compte ImgBB, via API
+ * @returns luploader de photo sur un compte ImgBB, via API
  */
 const ImgBbUploader = ({ onDone, onError, grabCanceller, imgPath, apiKey }) => {
   /* PLOP_INJECT_CODE */
 
-  //console.log(`imgbb url: ${Constants.imgBBEndpoint}?key=${apiKey}`);
+  //
 
   MakeHTTPRequest({
     onGrabCanceller: grabCanceller,

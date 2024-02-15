@@ -3,11 +3,11 @@ import { itemIsTheChosenOne } from "./itemIsTheChosenOne";
 
 /**
  *
- * @param {*} itemIndex, index de l'item
- * @param {*} chosenOneIndex, index de l'item actuellement visible à l'écran.
- * @param {*} howManyNPCSOnEachSide, combien de PNJ entourent le chosen one actuellement visible à l'écran ?
+ * @param {*} itemIndex, index de litem
+ * @param {*} chosenOneIndex, index de litem actuellement visible à lécran.
+ * @param {*} howManyNPCSOnEachSide, combien de PNJ entourent le chosen one actuellement visible à lécran ?
  *
- * @returns si l'item est un PNJ, ou pas ?
+ * @returns si litem est un PNJ, ou pas ?
  */
 export const itemIsNPC = (itemIndex, chosenOneIndex, howManyNPCSOnEachSide) => {
   return (

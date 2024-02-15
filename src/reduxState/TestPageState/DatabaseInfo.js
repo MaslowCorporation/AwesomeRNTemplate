@@ -16,19 +16,19 @@ export const rowNamesAndTypes = {
   // texte du snack
   snackbarText: "TEXT",
 
-  // index d'erreur en utilisant GetUserInput
+  // index derreur en utilisant GetUserInput
   userInputErrorIndex: "INTEGER",
 
-  // l'écran actuellement affiché dans TestPageState.js
+  // lécran actuellement affiché dans TestPageState.js
   chosenOne: "TEXT",
 
   // la page TestPageState.js est prêt à être affichée ?
   isMounted: "INTEGER",
 
-  // identifiant unique de l'item en cours de modif
+  // identifiant unique de litem en cours de modif
   itemUniqueId: "TEXT",
 
-  // l'index actuel visionné
+  // lindex actuel visionné
   currentIndex: "INTEGER",
 
   // identifiant unique
@@ -45,22 +45,22 @@ export const defaultValues = {
   // texte du snack
   snackbarText: "",
 
-  // index d'erreur en utilisant GetUserInput
+  // index derreur en utilisant GetUserInput
   userInputErrorIndex: -1,
 
-  // l'écran actuellement affiché dans TestPageState.js
+  // lécran actuellement affiché dans TestPageState.js
   chosenOne: "TestPageList",
 
   // la page TestPageState.js est prêt à être affichée ?
   isMounted: Constants.false,
 
-  // identifiant unique de l'item en cours de modif
+  // identifiant unique de litem en cours de modif
   itemUniqueId: null,
 
   // identifiant unique
   uniqueId: "TestPageState",
 
-  // l'index actuel
+  // lindex actuel
   currentIndex: 0,
 };
 

@@ -21,7 +21,7 @@ export const CodeEditor = ({
   // Creating a reference for the text input component 
   const textInput = useRef(null);
 
-  // State hook to keep track of the editor's content 
+  // State hook to keep track of the editors content 
   const [content, setContent] = useState(initialCode || '');
 
   // Using useEffect to set the initial content of the editor once after first render 
@@ -31,7 +31,7 @@ export const CodeEditor = ({
     }
   }, [initialCode]);
 
-  // Function to handle changes in the editor's content 
+  // Function to handle changes in the editors content 
   const onContentChange = (text) => {
     setContent(text);
     // Checking if onCodeChanged callback is passed as props and calling it with text as argument 

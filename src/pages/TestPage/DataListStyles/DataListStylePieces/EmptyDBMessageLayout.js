@@ -9,7 +9,7 @@ import { PlayerGTAInstance } from "src/constants/PlayerGTA/PlayerGTA.js";
  *
  *
  * @returns le layout à appliquer à la page
- * qui s'affiche quand la liste de données est vide
+ * qui saffiche quand la liste de données est vide
  */
 export function EmptyDBMessageLayout() {
   const route = useRoute();
@@ -26,17 +26,17 @@ export function EmptyDBMessageLayout() {
     // le lecteur audio de clic
     clickSound: PlayerGTAInstance.GetSound(),
 
-    // la couleur d'arrière plan
+    // la couleur darrière plan
     backgroundColor: Constants.defaultBackgroundColor,
 
-    // l'image au dessus du texte
+    // limage au dessus du texte
     iconPath: route.params.images.app_icon,
 
-    // hauteur/largeur de l'image
+    // hauteur/largeur de limage
     iconWidth: 100,
     iconHeight: 100,
 
-    // la couleur d'arrière plan du bouton
+    // la couleur darrière plan du bouton
     buttonBackgroundColor: "pink",
 
     // des icones venant de https://materialdesignicons.com/

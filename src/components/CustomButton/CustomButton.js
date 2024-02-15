@@ -7,15 +7,6 @@ import { Icon } from "@rneui/base";
  *
  * https://materialdesignicons.com
  * 
- * @param {*} un objet contenant: {
- *   buttonText: "Le texte du bouton",
- *   buttonContainerStyle: {Le style du conteneur du bouton},
- *   buttonTextStyle: {Le style du texte du bouton},
- *   onClick: () => le boulot que doit faire le bouton qd on clique,
- *   buttonbuttonLogoName: "le nom du logo de bouton"
- *   buttonLogoSize: la taille du logo de bouton (int)
- *   color: "la couleur du logo de bouton"
- * }
  *
  * @returns un joli bouton
  */

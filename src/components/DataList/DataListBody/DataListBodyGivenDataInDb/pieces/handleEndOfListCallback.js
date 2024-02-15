@@ -8,7 +8,7 @@ import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
  * @param {*} dataListStyle
  * @param {*} event
  *
- * La callback d'atteignage de fin de liste d'items.
+ * La callback datteignage de fin de liste ditems.
  */
 export function handleEndOfListCallback({
   qtyItems,
@@ -34,19 +34,19 @@ export function handleEndOfListCallback({
   const totalFlatlistSize = qtyItems * properSnapToIntervalAndOffset;
 
   // la distance,
-  // partant du bord en haut à droite de l'écran,
+  // partant du bord en haut à droite de lécran,
   // et le bord en haut à droite du dernier item de la liste de données.
   const maxListOffset = totalFlatlistSize - properSnapToIntervalAndOffset;
 
   // la distance,
-  // partant du bord en haut à droite de l'écran,
-  // et le bord en haut à droite de l'item  visible à actuellement à l'écran, dans la liste de données.
+  // partant du bord en haut à droite de lécran,
+  // et le bord en haut à droite de litem  visible à actuellement à lécran, dans la liste de données.
   const currentOffset =
     horizontal === false
       ? event.nativeEvent.contentOffset.y
       : event.nativeEvent.contentOffset.x;
 
-  // si l'item visible actuellement à l'écran se trouve actuellement
+  // si litem visible actuellement à lécran se trouve actuellement
   // a la meme position que le tout dernier item de la liste de données,
   // alors on run la callback de fin de liste pushed on.
   if (currentOffset >= maxListOffset) {

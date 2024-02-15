@@ -1,15 +1,19 @@
+import i18next from 'i18next';
+
 
 /* PLOP_INJECT_IMPORT */
 
 /* PLOP_INJECT_GLOBAL_CODE */
 
-// First, let's import all necessary components from react, and react native.
+// First, lets import all necessary components from react, and react native.
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { CustomButton } from 'src/components/CustomButton/CustomButton';
+import { ShowNotification } from '../ShowNotification/ShowNotification';
 import { Constants } from 'src/constants/Constants';
 import { TextInputWithButtons } from './TextInputWithButtons';
 import { showSnackbar } from 'src/components/Messager/Messager';
+import { OuiOuNon } from '../OuiOuNon/OuiOuNon';
 
 export const PageState = {
   NoData: 0,
@@ -56,7 +60,20 @@ export function FormUI({
             setFormInput(text);
             otherButtons[0].onButtonClicked(text);
           } else {
-            showSnackbar("Some work is already going on, brother !");
+            showSnackbar(i18next.t('xb9dUQ9T'));
+
+            OuiOuNon({
+              text: i18next.t('xWQ2YEPr'),
+              onYesPressed: () => {
+                setUIState(
+                  JSON.stringify({
+                    ...UIState,
+                    PageState: PageState.NoData
+                  })
+                )
+
+              },
+            });
           }
         }}
       />}
@@ -71,7 +88,20 @@ export function FormUI({
             if (!workIsGoingOn) {
               btn.onButtonClicked();
             } else {
-              showSnackbar("Some work is already going on, brother !");
+              showSnackbar(i18next.t('x0vdnKW5'));
+
+              OuiOuNon({
+                text: i18next.t('xGmtzh7t'),
+                onYesPressed: () => {
+                  setUIState(
+                    JSON.stringify({
+                      ...UIState,
+                      PageState: PageState.NoData
+                    })
+                  )
+
+                },
+              });
             }
           }}
           buttonLogoName={btn.buttonIconName}
@@ -89,7 +119,7 @@ export function FormUI({
 }
 
 
-// Here you have your styles. Remember that in React Native, we don't use CSS, but a JavaScript 
+// Here you have your styles. Remember that in React Native, we dont use CSS, but a JavaScript 
 // object system that looks like CSS.
 const styles = StyleSheet.create({
   container: {

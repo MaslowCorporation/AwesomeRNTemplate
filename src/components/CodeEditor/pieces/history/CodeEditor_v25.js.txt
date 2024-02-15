@@ -47,7 +47,7 @@ export const CodeEditor = ({ initialCode, onCodeChanged }) => {
         style={styles.fab}
         onPress={() => {
           // Logging the current text editor content to the console on button press
-          console.log('Button pressed. Current content:', content);
+          
         }}
       >
         <Icon name="check" size={30} color="#FFF" />

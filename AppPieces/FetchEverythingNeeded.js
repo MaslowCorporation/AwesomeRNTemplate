@@ -2,11 +2,11 @@
 
 // permet de chager des icones.
 
-// permet d'update l'UI quand tout est chargé.
-import {useEffect} from 'react';
+// permet dupdate lUI quand tout est chargé.
+import { useEffect } from 'react';
 
 // permet de charger les sons
-import {FetchEverythingNeededAsynchronously} from './Fetchers/FetchEverythingNeededAsynchronously';
+import { FetchEverythingNeededAsynchronously } from './Fetchers/FetchEverythingNeededAsynchronously';
 
 /**
  * @returns rien
@@ -15,9 +15,9 @@ import {FetchEverythingNeededAsynchronously} from './Fetchers/FetchEverythingNee
  * des choses avant/après que le component soit contruit/détruit.
  *
  * dans notre cas, on charge des données utiles avant
- * d'afficher l'application.
+ * dafficher lapplication.
  */
-export const FetchEverythingNeeded = ({appState, setAppState}) => {
+export const FetchEverythingNeeded = ({ appState, setAppState }) => {
   let initialState = null;
 
   useEffect(() => {

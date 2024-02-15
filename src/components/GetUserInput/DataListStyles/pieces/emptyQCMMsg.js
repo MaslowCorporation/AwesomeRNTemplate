@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 import logo from "assets/images/icon.png";
 import { Constants } from "src/constants/Constants.js";
 
@@ -9,7 +11,7 @@ import { Constants } from "src/constants/Constants.js";
  */
 export function emptyQCMMsg(props) {
   return {
-    messageText: "Ajoute des choix poto, dans ton programme",
+    messageText: i18next.t('xsQxpbdW'),
     messageTextColor: props.dataListTextColor ?? Constants.defaultContentColor,
     messageTextFont: props.bodyFont ?? Constants.defaultFontFamily,
     backgroundColor: props.dataListBackgroundColor ?? "red",
@@ -20,7 +22,7 @@ export function emptyQCMMsg(props) {
     buttonLogoName: "add",
     buttonLogoSize: 30,
     buttonLogoColor: "white",
-    buttonText: "This bouton ne sert à rien",
+    buttonText: i18next.t('xyjJ1GaA'),
     buttonTextColor: "white",
     buttonTextFont: Constants.defaultFontFamily,
     onButtonClicked: () => {},

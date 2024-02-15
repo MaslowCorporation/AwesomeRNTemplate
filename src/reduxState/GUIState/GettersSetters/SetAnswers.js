@@ -33,7 +33,6 @@ function SetAnswersNonPersistent({ answers, onSuccess, onError }) {
     showGUI: Constants.true,
   };
 
-  //console.log(`Newest row + answers: ${JSON.stringify(newRow)}`);
   UpdateSpecificRowsFromDB({
     row: newRow,
     rowName: "uniqueId",

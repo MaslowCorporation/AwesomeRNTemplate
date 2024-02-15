@@ -9,7 +9,7 @@ export const databaseName = "GUIState";
 export const rowNamesAndTypes = {
   // PLOP_INJECT_DB_ROW
 
-  // l'index actuel visionné
+  // lindex actuel visionné
   currentIndex: "INTEGER",
 
   // identifiant unique
@@ -32,7 +32,7 @@ export const defaultValues = {
   // identifiant unique
   uniqueId: "GUIState",
 
-  // l'index actuel
+  // lindex actuel
   currentIndex: 0,
 
   // montre ou pas le GUI

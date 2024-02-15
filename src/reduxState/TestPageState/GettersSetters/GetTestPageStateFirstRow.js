@@ -2,9 +2,9 @@ import { store } from "src/reduxState/reduxStore";
 
 /**
  *
- * permet d'obtenir le premier row stocké actuellement dans Redux.
+ * permet dobtenir le premier row stocké actuellement dans Redux.
  *
- * Mais l'UI utilisant cette fonction restera figé quand le state redux change. !!!! ATTENTION
+ * Mais lUI utilisant cette fonction restera figé quand le state redux change. !!!! ATTENTION
  *
  */
 

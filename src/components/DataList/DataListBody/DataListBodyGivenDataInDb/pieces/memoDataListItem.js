@@ -3,12 +3,12 @@ import { shouldRefresh } from "./shouldRefresh";
 
 /**
  *
- * @param {*} item, les données servant à créer l'UI de l'item.
- * @param {*} index, l'index de l'item dans la liste verticale/horizontale
- * @param {*} renderDataListItem, le renderer d'UI d'item individuel (user defined)
+ * @param {*} item, les données servant à créer lUI de litem.
+ * @param {*} index, lindex de litem dans la liste verticale/horizontale
+ * @param {*} renderDataListItem, le renderer dUI ditem individuel (user defined)
  * @param {*} importantData,
  *
- * @returns l'UI d'item de liste verticale/horizontale.
+ * @returns lUI ditem de liste verticale/horizontale.
  */
 const MemoDataListItem = ({
   item,

@@ -30,7 +30,7 @@ import { Modal, View, Text, TextInput, ScrollView, TouchableOpacity } from 'reac
  * 
  * @param {*} modalVisible, is the modal visible or not ?
  * 
- * @param {*} showModalButton, do we show the "show modal" button, or not ?
+ * @param {*} showModalButton, do we show the show modal button, or not ?
  * 
  * @param {*} fontFamily, the font family to be used in the modal
  * 
@@ -42,11 +42,13 @@ const ScrollableModal = ({
   modalVisible = true,
   showModalButton = true,
   fontFamily = 'Arial', // Default font family is Arial
+  textColor = 'black',
 }) => {
   // Define state variables
   const [answers, setAnswers] = useState(inputs);
   const [isVisible, setIsVisible] = useState(modalVisible);
 
+  console.log(`inputs modal: ${JSON.stringify(inputs, null, 2)}`)
   // Update modal visibility when prop value changes
   useEffect(() => {
     setIsVisible(modalVisible);
@@ -75,7 +77,6 @@ const ScrollableModal = ({
     setAnswers(updatedAnswers);
   };
 
-  //console.log(`${JSON.stringify(answers, null, 2)}`)
 
   return (
     <View>
@@ -98,13 +99,13 @@ const ScrollableModal = ({
               inputs.map(input => (
                 <View key={input.id}>
                   {/* Render the title of the input field */}
-                  <Text style={{ fontFamily, marginTop: 20 }}>{input.title}</Text>
+                  <Text style={{ fontFamily, marginTop: 20, color: textColor }}>{input.title}</Text>
                   {/* Render input fields based on input type */}
                   {
                     input.type === 'textinput_text' && (
                       <TextInput
                         defaultValue={input.output}
-                        style={[styles.textInput, { fontFamily }]}
+                        style={[styles.textInput, { fontFamily, color: textColor }]}
                         onChangeText={output => handleAnswerChange(input.id, output)}
                       />
                     )
@@ -128,6 +129,7 @@ const ScrollableModal = ({
                         {/* Render choice items */}
                         {input.choices.map(choice => (
                           <Picker.Item
+                            color={textColor}
                             key={choice.value}
                             label={choice.title}
                             value={choice.value}
@@ -142,7 +144,7 @@ const ScrollableModal = ({
                         style={[styles.submitButton, { fontFamily }]}
                         onPress={input.onClick}
                       >
-                        <Text style={{ color: 'white', fontFamily }}>{input.buttonText ?? input.title}</Text>
+                        <Text style={{ color: textColor, fontFamily }}>{input.buttonText ?? input.title}</Text>
                       </TouchableOpacity>
                     )
                   }
@@ -151,7 +153,7 @@ const ScrollableModal = ({
             ) : (
               // Render a message if inputs array is empty or null
               // eslint-disable-next-line react/no-unescaped-entities
-              <Text style={{ fontFamily }}>
+              <Text style={{ fontFamily, color: textColor }}>
                 There s no inputs specified... Add an array of inputs, sir.
               </Text>
             )}

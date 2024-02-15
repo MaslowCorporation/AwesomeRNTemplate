@@ -3,7 +3,7 @@ import { SetPageState } from "./SetPageState";
 import { GetUniqueID } from "src/services/GetUniqueID/GetUniqueID";
 
 /**
- * Let's go back to AddItemToTestPage
+ * Lets go back to AddItemToTestPage
  */
 export function GoToAddItemToTestPage() {
   // getter
@@ -13,7 +13,7 @@ export function GoToAddItemToTestPage() {
   SetPageState({
     ...TestPageState,
 
-    // l'écran actuellement affiché dans TestPage.js
+    // lécran actuellement affiché dans TestPage.js
     chosenOne: "AddItemToTestPage",
 
     itemUniqueId: GetUniqueID(7)

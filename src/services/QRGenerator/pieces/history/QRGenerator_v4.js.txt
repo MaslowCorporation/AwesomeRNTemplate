@@ -52,7 +52,7 @@ export default function QRGenerator({ qrText, onSuccess, onError }) {
         })
         .catch(err => {
           // Log error message and pass to onError callback function
-          console.log(err.message);
+          
           onError(err.message);
         });
     });

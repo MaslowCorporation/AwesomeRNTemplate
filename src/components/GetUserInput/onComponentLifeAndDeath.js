@@ -58,16 +58,16 @@ function AddDefaultNonPersistentAnswers(persistenceID, questions, setGUIStateRea
 }
 
 async function AddDefaultPersistentAnswers(persistenceID, questions, setGUIStateReady) {
-  // les reponses par defaut des UI de la liste d'UI
+  // les reponses par defaut des UI de la liste dUI
   const initialAnswers = extractDataFromQuestions(questions);
 
 
-  // les reponses des UI de la liste d'UI,
+  // les reponses des UI de la liste dUI,
   // stockees dans la base de donnees GUIAnswers,
   // si donnees existantes, ou null si pas de donnees dans DB
   const answersPersistent = SqliteReduxGUIAnswers.GetItemByUniqueID(persistenceID);
 
-  // si il n'existe aucune donnees pour cette liste d'UI persistante,
+  // si il nexiste aucune donnees pour cette liste dUI persistante,
   // alors ajoute les rows par defaut dans la DB
   if (!answersPersistent) {
     SqliteReduxGUIAnswers.AddRowToDatabase({

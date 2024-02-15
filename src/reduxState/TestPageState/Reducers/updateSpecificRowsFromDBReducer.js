@@ -14,14 +14,14 @@ import { updateRowsInGroups } from "./updateRowsInGroups";
  * en vrac, dans state.allRows, et dans les groupes, dans state.groups.
  */
 export function updateSpecificRowsFromDBReducer(builder) {
-  // l'AsyncThunk est en train de modifier les données dans SQLITE.
+  // lAsyncThunk est en train de modifier les données dans SQLITE.
   builder.addCase(updateSpecificRowsFromDB.pending, (state, action) => {
-    // indique que modif en cours, quand c'est = true
+    // indique que modif en cours, quand cest = true
     state.loading = true;
   });
 
-  // l'AsyncThunk à fini de modifier les données.
-  // Les données row, rowName et rowValue (retournées par l'AsyncThunk) sont dispo dans action.payload
+  // lAsyncThunk à fini de modifier les données.
+  // Les données row, rowName et rowValue (retournées par lAsyncThunk) sont dispo dans action.payload
   builder.addCase(updateSpecificRowsFromDB.fulfilled, (state, action) => {
     // indique que chargement terminé
     state.loading = false;
@@ -34,7 +34,7 @@ export function updateSpecificRowsFromDBReducer(builder) {
       rowValue: action.payload.rowValue,
     });
 
-    // range en ordre croissant d'ajout
+    // range en ordre croissant dajout
     // selon (row.itemIndex)
     state.allRows.sort((a, b) => a.itemIndex - b.itemIndex);
 
@@ -47,7 +47,7 @@ export function updateSpecificRowsFromDBReducer(builder) {
     });
   });
 
-  // Une erreur est survenue dans l'AsyncThunk
+  // Une erreur est survenue dans lAsyncThunk
   builder.addCase(updateSpecificRowsFromDB.rejected, (state, action) => {
     // indique que chargement terminé
     state.loading = false;

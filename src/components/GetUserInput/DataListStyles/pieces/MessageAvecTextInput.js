@@ -8,7 +8,7 @@ import { SqliteReduxGUIState } from 'src/reduxState/GUIState/GUIStateGetterSette
 import { RunIfPossible } from 'src/services/RunIfPossible/RunIfPossible';
 
 /**
- * Le layout d'un question individuel dans la liste de données
+ * Le layout dun question individuel dans la liste de données
  *
  */
 export const MsgAvecTextInputTextKeyboard = props => {
@@ -17,7 +17,7 @@ export const MsgAvecTextInputTextKeyboard = props => {
 
   const [input, setInput] = useState(props.defaultTextInput);
 
-  // l'index de la question a l'écran
+  // lindex de la question a lécran
   const GUIState = SqliteReduxGUIState.GetFreshestGUIStateFirstRow();
   const currentIndex = GUIState.currentIndex;
 

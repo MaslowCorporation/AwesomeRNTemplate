@@ -19,7 +19,7 @@ export function onItemCreationError(answers, errAnswerIndex, errMsg) {
   /**
    *
    * si données invalides,
-   * on affiche un message d'erreur.
+   * on affiche un message derreur.
    *
    */
   SetPageState({

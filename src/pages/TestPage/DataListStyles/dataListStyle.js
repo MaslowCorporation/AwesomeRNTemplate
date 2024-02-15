@@ -19,7 +19,7 @@ import { DataListItem } from "src/components/DataListItem/DataListItem";
 // constantes globales
 import { Constants } from "src/constants/Constants.js";
 
-// style a appliquer à l'item par défaut de la liste d'items
+// style a appliquer à litem par défaut de la liste ditems
 import { DataListItemStyle } from "./DataListStylePieces/DataListItemStyle";
 
 // messaage du vide
@@ -32,15 +32,15 @@ import { EmptyDBMessageLayout } from "./DataListStylePieces/EmptyDBMessageLayout
  * de la liste.
  *
  * Il faut fournir les styles
- * de l'appbar et du bottom bar,
+ * de lappbar et du bottom bar,
  * car la heuteur et largeur de la liste de données
- * dépend du style appliqué a l'appbar et bottom bar.
+ * dépend du style appliqué a lappbar et bottom bar.
  */
 const getDataListStyle = () => {
   const route = useRoute();
 
   return {
-    // la couleur d'arrière plan par défaut de la liste de données.
+    // la couleur darrière plan par défaut de la liste de données.
     backgroundColor: Constants.defaultBackgroundColor,
 
     // la couleur par défaut du texte de la liste de données
@@ -51,7 +51,7 @@ const getDataListStyle = () => {
 
     // les styles à appliquer au message de base de données vide.
     emptyDBMsgData: EmptyDBMessageLayout(),
-    // le layout d'un item individuel de la liste de données
+    // le layout dun item individuel de la liste de données
     renderDataListItem: ({ item, index }) => {
       return (
         <DataListItem
@@ -63,7 +63,7 @@ const getDataListStyle = () => {
 
     // si renderOnlyItemOnScreen = true
     // et dataListScrollDirection == "vertical_one_by_one" ou "horizontal_one_by_one"
-    // qu'affiche t'on pour les items entourant l'item snackbarVisible à l'écran.
+    // quaffiche ton pour les items entourant litem snackbarVisible à lécran.
     // les personnages non joueurs (PNJ - NPC)
     renderNPCDataListItem: ({ item, index }) => {
       return (
@@ -76,19 +76,19 @@ const getDataListStyle = () => {
 
     // que fait on quand on arrive au bout de la liste ?
     onListEndPushed: () => {
-      /*console.log(`We're at the end of the list... Time to do some work...`);*/
+      /**/
     },
 
-    // on affiche uniquement l'item à l'index en cours de visionnage ?
+    // on affiche uniquement litem à lindex en cours de visionnage ?
     renderOnlyItemOnScreen: true,
 
     // si renderOnlyItemOnScreen = true
-    // howManyNPCSOnEachSide représente combien de PNJ entourent la chose affichée a l'écran ?
+    // howManyNPCSOnEachSide représente combien de PNJ entourent la chose affichée a lécran ?
     // combien à gauche et a droite.
     // (par ex: si howManyNPCSOnEachSide = 1, il y a un component PNJ a gauche et un a droite.
     // le reste des éléments de la FlatList est = à null.
     //
-    // ..... null => PNJ => Chose a l'écran => PNJ => null => .....
+    // ..... null => PNJ => Chose a lécran => PNJ => null => .....
     //
     // Ce méchanisme permet de ne pas trop surcharger notre UI
     // quand on affiche une liste de components 'lourds'

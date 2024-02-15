@@ -9,7 +9,7 @@ export const databaseName = "TestPage";
 // (il y a 3 types possibles: TEXT (string), INTEGER (nombre entier), et REAL (nombre decimal))
 export const rowNamesAndTypes = {
   // PLOP_INJECT_DB_ROW
-	name: "TEXT",
+  name: "TEXT",
 
   // la catégorie du tuto
   category: "INTEGER",
@@ -25,7 +25,7 @@ export const rowNamesAndTypes = {
   // le combien-tième ajout ?
   itemIndex: "INTEGER",
 
-  // cet item fait partie d'un groupe ?
+  // cet item fait partie dun groupe ?
   // si oui,
   // ceci représente le nom du groupe auquel il appartient
   groupName: "TEXT",

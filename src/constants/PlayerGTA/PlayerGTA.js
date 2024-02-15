@@ -1,10 +1,11 @@
+import i18next from 'i18next';
 /* PLOP INJECT_IMPORT */
 //import React from "react";
 
 /* PLOP_INJECT_CODE */
 
 /**
- * L'instance du singleton PlayerGTA.
+ * Linstance du singleton PlayerGTA.
  */
 let instance;
 
@@ -22,19 +23,19 @@ let state = {
 class PlayerGTA {
   /**
    * Le constructeur
-   * qui ne construira qu'un seul objet,
+   * qui ne construira quun seul objet,
    * stocké dans instance.
    */
   constructor() {
     if (instance) {
-      throw new Error('New instance of PlayerGTA cannot be created.');
+      throw new Error(i18next.t('x1KVUz3U'));
     }
 
     instance = this;
   }
 
   /**
-   * Ceci permet d'obtenir le PlayerGTA
+   * Ceci permet dobtenir le PlayerGTA
    */
   GetSound() {
     return state.sound;
@@ -50,18 +51,18 @@ class PlayerGTA {
   /**
    * Ceci permet de ...
    */
-  action_1({arg1, arg2}) {
+  action_1({ arg1, arg2 }) {
     return;
   }
 
   /**
    * Ceci permet de ...
    */
-  action_2({arg1, arg2}) {
+  action_2({ arg1, arg2 }) {
     return;
   }
 }
 
 let PlayerGTAInstance = Object.freeze(new PlayerGTA());
 
-export {PlayerGTAInstance};
+export { PlayerGTAInstance };

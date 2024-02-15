@@ -6,7 +6,7 @@ import { _fetchAndGetResponse } from "./_fetchAndGetResponse";
 /**
  *
  * @param {*} url
- * L'URL de la requête HTTP
+ * LURL de la requête HTTP
  *
  * @param {*} requestType
  * Le type de requête HTTP
@@ -40,7 +40,7 @@ export const _multipartRequest = async ({
     const keyValue = body[key];
 
     // si un des élements du body est un path de fichier
-    // alors prépare le pour qu'il soit interprété comme tel
+    // alors prépare le pour quil soit interprété comme tel
     const itsAFile = await FileExists({ path: keyValue });
 
     if (itsAFile) {
@@ -53,11 +53,11 @@ export const _multipartRequest = async ({
       // le nom du fichier
       const fileName = await GetFileName(keyValue);
 
-      //console.log(`file name: ${fileName}`);
-      //console.log(`file mime type: ${blobFileType}`);
+      //
+      //
 
       // pour que ce path de fichier soit reconnu
-      // il faut l'enrober comme tel
+      // il faut lenrober comme tel
       const fichierEnrobay = {
         // le path du fichier
         uri: keyValue,
@@ -69,7 +69,6 @@ export const _multipartRequest = async ({
         name: fileName,
       };
 
-      //console.log(`enrobay: ${JSON.stringify(fichierEnrobay)}`);
 
       formData.append(key, fichierEnrobay);
     } else {

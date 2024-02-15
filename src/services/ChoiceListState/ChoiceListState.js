@@ -1,8 +1,9 @@
+import i18next from 'i18next';
 /* PLOP_INJECT_IMPORT */
 //import React from "react";
 
 /**
- * L'instance du singleton ChoiceListState.
+ * Linstance du singleton ChoiceListState.
  */
 let instance;
 
@@ -10,10 +11,10 @@ let instance;
  * le state actuel du ChoiceListState.
  */
 let choiceListState = {
-  // l'index du tout dernier item cliqué dans un DataList vertical/horizontal
+  // lindex du tout dernier item cliqué dans un DataList vertical/horizontal
   lastItemClickedIndex: null,
 
-  // l'index de l'avant dernier item cliqué dans un DataList vertical/horizontal
+  // lindex de lavant dernier item cliqué dans un DataList vertical/horizontal
   avantDernierItemClickedIndex: null,
 };
 
@@ -27,12 +28,12 @@ let choiceListState = {
 class ChoiceListState {
   /**
    * Le constructeur
-   * qui ne construira qu'un seul objet,
+   * qui ne construira quun seul objet,
    * stocké dans instance.
    */
   constructor() {
     if (instance) {
-      throw new Error("New instance cannot be created!!");
+      throw new Error(i18next.t('xPRoIUP'));
     }
 
     instance = this;
@@ -40,10 +41,10 @@ class ChoiceListState {
 
   /**
    *
-   * @param lastItemClickedIndex, le dernier index d'item cliqué
+   * @param lastItemClickedIndex, le dernier index ditem cliqué
    */
   setLastItemClickedIndex(lastItemClickedIndex) {
-    // stocke le dernier index d'item cliqué
+    // stocke le dernier index ditem cliqué
     choiceListState.lastItemClickedIndex = lastItemClickedIndex;
   }
 

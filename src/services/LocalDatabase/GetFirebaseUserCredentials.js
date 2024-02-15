@@ -7,11 +7,11 @@ export const GetFirebaseUserCredentials = async () => {
 
     if (user) {
         // User is already logged in
-        console.log('User is logged in:', user.uid);
+
         return user;
     } else {
         // User is not logged in
-        console.log('User is not logged in');
+
 
 
         return null;

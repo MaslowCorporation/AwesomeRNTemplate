@@ -2,7 +2,7 @@ import { SqliteReduxTestPageState } from "src/reduxState/TestPageState/TestPageS
 import { SetPageState } from "./SetPageState";
 
 /**
- * Let's go back to the item edit screen.
+ * Lets go back to the item edit screen.
  */
 export function GoToEditItemInTestPage(itemUniqueId) {
   // getter
@@ -11,10 +11,10 @@ export function GoToEditItemInTestPage(itemUniqueId) {
   SetPageState({
     ...TestPageState,
 
-    // l'écran actuellement affiché dans TestPage.js
+    // lécran actuellement affiché dans TestPage.js
     chosenOne: "EditItemInTestPage",
 
-    // identifiant unique de l'item en cours de modif
+    // identifiant unique de litem en cours de modif
     itemUniqueId: itemUniqueId,
   });
 

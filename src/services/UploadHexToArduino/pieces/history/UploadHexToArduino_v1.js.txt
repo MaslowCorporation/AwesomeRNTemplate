@@ -18,7 +18,7 @@ export async function UploadHexToArduino(hexString) {
             // Writing hex string to Arduino 
             USBSerialport.writeHexToDevice(hexString, device)
             .then(() => {
-                console.log('Writing hex string to Arduino is successful');
+                
             })
             .catch(error => {
                 console.error(`Failed to write hex string to Arduino: ${error}`);

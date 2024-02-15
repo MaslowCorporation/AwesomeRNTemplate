@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 import { Constants } from "src/constants/Constants.js";
 
 const styles = StyleSheet.create({

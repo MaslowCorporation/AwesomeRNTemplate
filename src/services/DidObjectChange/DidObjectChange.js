@@ -8,9 +8,9 @@ const _ = require("lodash");
  *
  * @param {*} obj1, un objet
  * @param {*} obj2, un objet
- * @param {*} prettyPrint, on pretty print, ou pas les objets, et l'outcome ?
+ * @param {*} prettyPrint, on pretty print, ou pas les objets, et loutcome ?
  *
- * @returns un booléen (true si l'un des props (primitive only) de l'objet à changé, ou false si rien n'a changé)
+ * @returns un booléen (true si lun des props (primitive only) de lobjet à changé, ou false si rien na changé)
  *
  * Cette fonction permet de savoir
  * si un objet à changé, ou pas.
@@ -36,11 +36,7 @@ const DidObjectChange = ({ obj1, obj2, prettyPrint }) => {
     JSON.stringify(filteredObj1) === JSON.stringify(filteredObj2)
   );*/
 
-  if (prettyPrint) {
-    console.log(JSON.stringify(filteredObj1, undefined, 2));
-    console.log(JSON.stringify(filteredObj2, undefined, 2));
-    console.log(`Les données d'item ont t'elles changé ?: ${didItChange}`);
-  }
+
 
   return didItChange;
 };

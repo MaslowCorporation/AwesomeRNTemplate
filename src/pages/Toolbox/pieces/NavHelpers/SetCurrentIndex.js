@@ -1,7 +1,7 @@
 import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStateGetterSetter";
 
 /**
- * Set l'index d'étape actuellement visionné à l'écran.
+ * Set lindex détape actuellement visionné à lécran.
  */
 export function SetCurrentIndex(newIndex) {
   // getter
@@ -17,10 +17,8 @@ export function SetCurrentIndex(newIndex) {
     rowName: "uniqueId",
     rowValue: "ToolboxState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans Toolbox.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

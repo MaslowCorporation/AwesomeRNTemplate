@@ -1,25 +1,27 @@
+import i18next from 'i18next';
+
 /**
  *
  *
- * @returns la liste d'options de l'appbar
+ * @returns la liste doptions de lappbar
  */
 export function AppbarOptionsMenuList() {
   return [
     {
-      optionName: "Option 1",
+      optionName: i18next.t('xmQbIBwM'),
 
       // que faire quand on clique sur ce choix
       onOptionClicked: () => {
-        console.log("Option 1 à été cliqué");
+
       },
     },
     {
       // texte du choix
-      optionName: "Option 2",
+      optionName: i18next.t('xlCyp2sY'),
 
       // que faire quand on clique sur ce choix
       onOptionClicked: () => {
-        console.log("Option 2 à été cliqué");
+
       },
     },
   ];

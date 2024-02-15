@@ -34,7 +34,7 @@ export const rowNamesAndTypes = {
   // le combien-tième ajout ?
   itemIndex: "INTEGER",
 
-  // cet item fait partie d'un groupe ?
+  // cet item fait partie dun groupe ?
   // si oui,
   // ceci représente le nom du groupe auquel il appartient
   groupName: "TEXT",

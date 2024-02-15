@@ -13,14 +13,14 @@ import { organizeRowsInGroups } from "./organizeRowsInGroups";
  * en vrac, dans state.allRows, et en groupes, dans state.groups.
  */
 export function getAllRowsFromDBReducer(builder) {
-  // l'AsyncThunk est en train de préparer/charger les données.
+  // lAsyncThunk est en train de préparer/charger les données.
   builder.addCase(getAllRowsFromDB.pending, (state, action) => {
-    // indique que chargement en cours, quand c'est = true
+    // indique que chargement en cours, quand cest = true
     state.loading = true;
   });
 
-  // l'AsyncThunk à fini de charger les données.
-  // Les données (retournées par l'AsyncThunk) sont dispo dans action.payload
+  // lAsyncThunk à fini de charger les données.
+  // Les données (retournées par lAsyncThunk) sont dispo dans action.payload
   builder.addCase(getAllRowsFromDB.fulfilled, (state, action) => {
     // indique que chargement terminé
     state.loading = false;
@@ -28,7 +28,7 @@ export function getAllRowsFromDBReducer(builder) {
     // stocke les données (rows) en vrac
     state.allRows = action.payload;
 
-    // range en ordre croissant d'ajout
+    // range en ordre croissant dajout
     // selon (row.itemIndex)
     state.allRows.sort((a, b) => a.itemIndex - b.itemIndex);
 
@@ -38,7 +38,7 @@ export function getAllRowsFromDBReducer(builder) {
     });
   });
 
-  // Une erreur est survenue dans l'AsyncThunk
+  // Une erreur est survenue dans lAsyncThunk
   builder.addCase(getAllRowsFromDB.rejected, (state, action) => {
     // indique que chargement terminé
     state.loading = false;

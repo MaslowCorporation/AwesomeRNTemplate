@@ -1,10 +1,11 @@
+import i18next from 'i18next';
 /* PLOP_INJECT_IMPORT */
 //import React from "react";
 
 import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
 
 /**
- * L'instance du singleton Timer.
+ * Linstance du singleton Timer.
  */
 let instance;
 
@@ -12,7 +13,7 @@ let instance;
  * le state actuel du Timer.
  */
 let timerState = {
-  // l'identifiant du timer
+  // lidentifiant du timer
   // permet suppression.
   timerId: null,
 
@@ -33,12 +34,12 @@ let timerState = {
 class CameraTimer {
   /**
    * Le constructeur
-   * qui ne construira qu'un seul objet,
+   * qui ne construira quun seul objet,
    * stocké dans instance.
    */
   constructor() {
     if (instance) {
-      throw new Error("New instance cannot be created!!");
+      throw new Error(i18next.t('xYJkIqwm'));
     }
 
     instance = this;
@@ -51,7 +52,7 @@ class CameraTimer {
     // arrête le timer actuel
     clearTimeout(timerState.timerId);
 
-    // efface l'id du timer puisque il est dead
+    // efface lid du timer puisque il est dead
     timerState.timerId = null;
 
     // stocke la durée de temps restante
@@ -59,14 +60,11 @@ class CameraTimer {
     // la ou il faut, si besoin.
     timerState.remaining -= Date.now() - timerState.start;
 
-    console.log(
-      `On à mit en pause le timer, il restera ${timerState.remaining} millisecondes.`
-    );
   }
 
   /**
    *
-   * @returns  l'id du timer tout juste crée.
+   * @returns  lid du timer tout juste crée.
    *
    * Ceci crée un  et retourne son id.
    */
@@ -86,9 +84,7 @@ class CameraTimer {
       timerState.remaining
     );
 
-    console.log(
-      `On à redémarré le timer, il reste ${timerState.remaining} millisecondes.`
-    );
+
   }
 
   /**
@@ -107,7 +103,7 @@ class CameraTimer {
       // arrête le timer actuel
       clearTimeout(timerState.timerId);
 
-      // efface l'id du timer puisque il est dead
+      // efface lid du timer puisque il est dead
       timerState.timerId = null;
     }
 
@@ -122,15 +118,13 @@ class CameraTimer {
     // si besoin
     timerState.latestCallback = callback;
 
-    // lance ze timer, et stocke l'id pour suppression etc...
+    // lance ze timer, et stocke lid pour suppression etc...
     timerState.timerId = setTimeout(
       timerState.latestCallback,
       timerState.remaining
     );
 
-    /*console.log(
-      `On à démarré le timer, il dure ${timerState.remaining} millisecondes.`
-    );*/
+
   }
 
   /**
@@ -143,7 +137,7 @@ class CameraTimer {
 
       RunIfPossible({ func: timerState.latestCallback });
 
-      // efface l'id et consorts,
+      // efface lid et consorts,
       // du timer puisque il est dead
       timerState.timerId = null;
       timerState.start = null;

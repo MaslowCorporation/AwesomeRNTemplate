@@ -7,7 +7,7 @@ import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
 import { deleteSpecificRowsFromDB } from "../AsyncThunks/deleteSpecificRowsFromDB";
 
 // Le nom de la DB Sqlite,
-// ainsi qu'une description des noms/types des rows de cette DB Sqlite
+// ainsi quune description des noms/types des rows de cette DB Sqlite
 import { rowNamesAndTypes, databaseName } from "../DatabaseInfo";
 
 /**
@@ -16,7 +16,7 @@ import { rowNamesAndTypes, databaseName } from "../DatabaseInfo";
  * @param {*} onSuccess, callback si tout c bien pacé
  * @param {*} onError, callback si ca pue
  *
- * @returns la quantité d'items supprimés.
+ * @returns la quantité ditems supprimés.
  *
  * Aussi, on en profite pour supprimer les rows dans les groupes
  * si besoin
@@ -49,7 +49,7 @@ export const DeleteSpecificRowsFromDB = ({
       )
       .unwrap()
       /**
-       * cette callback, s'execute lorsque les
+       * cette callback, sexecute lorsque les
        * données ont été supprimées dans Sqlite/Redux
        */
       .then((qtyDeleted) => {

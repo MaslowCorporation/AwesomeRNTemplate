@@ -10,7 +10,7 @@ import { Delay } from 'src/services/Delay/Delay';
  * }
  *
  *
- * @returns une liste d'items crées par toi, l'utilisateur de l'appli.
+ * @returns une liste ditems crées par toi, lutilisateur de lappli.
  */
 const Messager = props => {
   if (props.snackbarVisible) {

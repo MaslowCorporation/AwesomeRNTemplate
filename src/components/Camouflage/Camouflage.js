@@ -22,7 +22,7 @@ import { View } from "react-native";
  *
  * @param {*}
  *
- * @returns un wrapper pour afficher plusieurs component l'un sur l'autre.
+ * @returns un wrapper pour afficher plusieurs component lun sur lautre.
  */
 const Camouflage = (props) => {
   /* PLOP_INJECT_CODE */
@@ -31,8 +31,8 @@ const Camouflage = (props) => {
   const isVisible = props.chosenOne == props.name;
 
   // on jette le contenu du camo a la poubelle
-  // si l'user veut recréer un truc frais lorsqu'il devra réapparaitre.
-  // (si refreshed == true, et que l'item est actuellement censé etre invisible)
+  // si luser veut recréer un truc frais lorsquil devra réapparaitre.
+  // (si refreshed == true, et que litem est actuellement censé etre invisible)
   const isRefreshed = props.refreshed == true && !isVisible;
 
   /**

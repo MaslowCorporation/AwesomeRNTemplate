@@ -7,7 +7,7 @@
  *
  * @returns un gros path fusionné
  *
- * Cette fonction permet de joindre des paths ensemble pour former qu'un
+ * Cette fonction permet de joindre des paths ensemble pour former quun
  */
 const JoinPaths = (...args) => {
   /* PLOP_INJECT_CODE */

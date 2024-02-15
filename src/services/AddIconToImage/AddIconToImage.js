@@ -30,7 +30,7 @@ import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
  *
  * @returns le path de la photo textuée.
  *
- * Cette fonction permet d'ajouter un ou plusieurs icones
+ * Cette fonction permet dajouter un ou plusieurs icones
  * sur une photo
  */
 const AddIconToImage = ({ imagePath, icon, position, onSuccess, onError }) => {
@@ -38,12 +38,12 @@ const AddIconToImage = ({ imagePath, icon, position, onSuccess, onError }) => {
 
   return new Promise((resolve, reject) => {
     /**
-     * Premièrement, on essaie d'ajouter le
+     * Premièrement, on essaie dajouter le
      * icone sur la photo.
      */
     overlayImage(imagePath, icon, position)
       /**
-       * cette callback, s'execute lorsque la photo est prête
+       * cette callback, sexecute lorsque la photo est prête
        */
       .then((iconedPhotoPath) => {
         resolve(iconedPhotoPath);

@@ -1,6 +1,6 @@
 
 
-// Let's import GetAllUserVariables function here
+// Lets import GetAllUserVariables function here
 
 // Define function that places user variable values into the code
 const AddUserVarsToCode = (programCode, allUserVars, allUserValues) => {

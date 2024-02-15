@@ -1,14 +1,14 @@
 /* PLOP_INJECT_IMPORT */
 
 // un identifiant unique
-import {GetUniqueID} from 'src/services/GetUniqueID/GetUniqueID';
+import { GetUniqueID } from 'src/services/GetUniqueID/GetUniqueID';
 
 // permet multilingue
-import {app_strings} from 'src/stringRepos/AppStrings/AppStrings';
+import { app_strings } from 'src/stringRepos/AppStrings/AppStrings';
 
-import {SqliteReduxToolbox} from 'src/reduxState/Toolbox/ToolboxGetterSetter';
+import { SqliteReduxToolbox } from 'src/reduxState/Toolbox/ToolboxGetterSetter';
 
-import {SqliteReduxToolboxState} from 'src/reduxState/ToolboxState/ToolboxStateGetterSetter';
+import { SqliteReduxToolboxState } from 'src/reduxState/ToolboxState/ToolboxStateGetterSetter';
 
 /* PLOP_INJECT_GLOBAL_CODE */
 
@@ -27,9 +27,6 @@ const GetToolboxItemName = () => {
   const currentItemUniqueId = ToolboxState.itemUniqueId;
   const currentItem = SqliteReduxToolbox.GetItemByUniqueID(currentItemUniqueId);
 
-  //console.log(`page state  = ${JSON.stringify(ToolboxState)}`);
-  //console.log(`current item  uid = ${currentItemUniqueId}`);
-  //console.log(`current item  = ${JSON.stringify(currentItem)}`);
 
   return {
     // un identifiant unique
@@ -41,11 +38,11 @@ const GetToolboxItemName = () => {
     type: 'text', //"text" || "number" || "choices" || "custom",
 
     // requis
-    description: ({answers, answer, answerIndex}) => {
+    description: ({ answers, answer, answerIndex }) => {
       return TypeBabyName;
     },
     // requis, si "type" === "choices"
-    choices: ({answers, answer, answerIndex}) => {
+    choices: ({ answers, answer, answerIndex }) => {
       return [
         {
           choiceDescription: app_strings.t('oui'),
@@ -53,7 +50,7 @@ const GetToolboxItemName = () => {
           choiceImgUrl: '',
           choiceImgPath: '',
           greenCheckmark: answer?.value == true,
-          onChoiceClicked: () => {},
+          onChoiceClicked: () => { },
         },
         {
           choiceDescription: app_strings.t('non'),
@@ -61,40 +58,40 @@ const GetToolboxItemName = () => {
           choiceImgUrl: '',
           choiceImgPath: '',
           greenCheckmark: answer?.value == false,
-          onChoiceClicked: () => {},
+          onChoiceClicked: () => { },
         },
       ];
     },
 
-    // la valeur choisie/écrite par l'user
+    // la valeur choisie/écrite par luser
     // null (par défaut)
     value: currentItem?.name ?? null,
 
     // la valeur par défaut a mettre dans le text input
-    defaultValue: ({answers, answer, answerIndex}) => {
+    defaultValue: ({ answers, answer, answerIndex }) => {
       return answer?.value ?? currentItem?.name ?? '';
     },
 
-    // les flex du message ou de la zone d'input
+    // les flex du message ou de la zone dinput
     messageFlex: 1,
     componentFlex: 1,
 
     // la taille du texte du message
     messageFontSize: 25,
 
-    // on montre le component d'input en premier, ou pas ?
+    // on montre le component dinput en premier, ou pas ?
     componentFirst: true,
 
-    // un callback qui vérifie que l'input est valide
+    // un callback qui vérifie que linput est valide
     // true si valide false autrement
-    checkInput: ({input, answers, answer, answerIndex}) => {
+    checkInput: ({ input, answers, answer, answerIndex }) => {
       return input != null && input.length > 0;
     },
-    // un message d'erreur à afficher si les données ne sont pas valides
-    errMsg: ({answers, answer, answerIndex}) => {
+    // un message derreur à afficher si les données ne sont pas valides
+    errMsg: ({ answers, answer, answerIndex }) => {
       return TypeSomePlz;
     },
   };
 };
 
-export {GetToolboxItemName};
+export { GetToolboxItemName };

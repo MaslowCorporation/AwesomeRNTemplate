@@ -47,7 +47,7 @@
   "OriginalPath": "src\\services\\DeletePreviousLookalikeLine\\DeletePreviousLookalikeLine.js",
   "DuplicatePath": "src\\services\\GrabSteakInSandwich",
   "delete_or_not": "Oui, supprime App.js et consorts.",
-  "AppName": "remindme",
+  "AppName": "arduinogpt",
   "gold_caviar": null,
   "get_appbar_title_dest": "Title",
   "AffineAppStrings": "src/AppStrings",

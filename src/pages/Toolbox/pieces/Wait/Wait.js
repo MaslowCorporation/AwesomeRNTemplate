@@ -27,7 +27,7 @@ export const Wait = () => {
 
   /**
    *
-   * Camouflage, c'est une cape d'invisibilité conditionnelle,
+   * Camouflage, cest une cape dinvisibilité conditionnelle,
    * si chosenOne == name, on affiche contenu, sinon rien
    *
    */

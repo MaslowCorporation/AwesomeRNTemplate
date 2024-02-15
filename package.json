@@ -1,14 +1,12 @@
 {
-  "name": "remindme",
+  "name": "arduinogpt",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "reset-main-branch": "git checkout --orphan latest_branch && git add -A && git commit -am \"First commit ;-)\" && git branch -D main && git branch -m main && git push -f --set-upstream origin main",
-    "first-push": "npm run git-init && git add . && git commit -m \"first commit\" && git branch -M main && git remote add origin <YOUR_GITHUB_URL> && git push -u origin main",
+    "first-push": "npm run git-init && git add . && git commit -m \"first commit\" && git branch -M main && git remote add origin https://github.com/MaslowCorporation/ArduinoGPT.git && git push -u origin main",
     "git-init": "rimraf .git && git init",
     "push": "(git add . && git commit -m \"I'm a bigger pusher than Ice-T homie !!!\" && git push) || exit 0",
-
-    
     "android": "npx react-native run-android",
     "ios": "npx react-native run-ios",
     "start": "npx react-native start",
@@ -17,13 +15,11 @@
     "fix-lint-errors": "eslint . --fix",
     "eas-init": "npx eas login && npx eas build:configure",
     "eas-debug-build-android": "npx eas build -p android --profile development",
-    "adb-connect": "adb tcpip 57391 && adb connect <ADDR_IP>:57391",
+    "adb-connect": "adb tcpip 57391 && adb connect 100.88.49.91:57391",
     "adb-disconnect": "(adb disconnect) || exit 0",
     "start-debug-android": "(npm run adb-connect && npm run android) || exit 0",
     "start-debug-ios": "(npm run adb-connect && npm run ios) || exit 0",
     "clean-app": "cd android && gradlew clean && cd ..",
-    
-
     "clean-android-resources": "rimraf android/app/src/main/res/raw android/app/src/main/res/drawable-hdpi android/app/src/main/res/drawable-mdpi android/app/src/main/res/drawable-xhdpi android/app/src/main/res/drawable-xxhdpi android/app/src/main/res/drawable-xxxhdpi",
     "del-sha-keys": "keytool -delete -v -alias androiddebugkey -keystore android/app/debug.keystore -storepass android",
     "gen-sha-keys": "keytool -genkey -v -keystore android/app/debug.keystore -alias androiddebugkey -storepass android -keypass android -keyalg RSA -validity 14000",
@@ -42,7 +38,11 @@
     "copy-aab-release-macos": "cp ./android/app/build/outputs/bundle/release/app-release.aab ~/Desktop",
     "build-android-debug": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && gradlew assembleDebug && cd ..",
     "build-android-release": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && npm run clean-android-resources && cd android && gradlew assembleRelease && cd ..",
-    "build-android-release-aab": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && npm run clean-android-resources && cd android && gradlew bundleRelease && cd .."
+    "build-android-release-aab": "cd android && gradlew bundleRelease && cd ..",
+    "build-android-debug-quick": "cd android && gradlew assembleDebug && cd ..",
+    "build-android-release-quick": "cd android && gradlew assembleRelease && cd ..",
+    "shake-device": "adb shell input keyevent 82",
+    "postinstall": "node ./src/services/FixAppDependencies/FixAppDependencies.js"
   },
   "dependencies": {
     "@notifee/react-native": "^7.8.0",
@@ -50,6 +50,7 @@
     "@react-native-firebase/app": "^18.3.2",
     "@react-native-firebase/auth": "^18.3.2",
     "@react-native-firebase/firestore": "^18.3.2",
+    "@react-native-firebase/messaging": "^18.8.0",
     "@react-native-google-signin/google-signin": "^10.0.1",
     "@react-native-picker/picker": "^2.5.1",
     "@react-navigation/native": "^6.1.6",
@@ -74,6 +75,7 @@
     "expo-web-browser": "~12.1.1",
     "i18next": "^23.7.6",
     "intl-pluralrules": "^2.0.1",
+    "maslow-gpt-sdk": "github:MaslowCorporation/maslow-gpt-sdk",
     "react": "18.2.0",
     "react-native": "0.71.8",
     "react-native-blob-util": "^0.17.3",

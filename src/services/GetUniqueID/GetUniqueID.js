@@ -7,7 +7,7 @@ import uuid from "react-native-uuid";
  *
  * @returns ...
  *
- * Cette fonction permet d'obtenir un UUID
+ * Cette fonction permet dobtenir un UUID
  */
 const GetUniqueID = () => {
   /* PLOP_INJECT_CODE */

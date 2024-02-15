@@ -19,10 +19,8 @@ export function HideSnackbar() {
     rowName: "uniqueId",
     rowValue: "TestPageState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans TestPage.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

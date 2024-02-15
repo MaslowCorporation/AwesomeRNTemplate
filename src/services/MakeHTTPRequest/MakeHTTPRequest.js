@@ -10,7 +10,7 @@ import { _OnHTTPRequestError } from "./_OnHTTPRequestError";
 /**
  *
  * @param {*} url
- * L'URL de la requête HTTP
+ * LURL de la requête HTTP
  *
  * @param {*} requestType
  * Le type de requête HTTP
@@ -44,7 +44,7 @@ import { _OnHTTPRequestError } from "./_OnHTTPRequestError";
  * @returns
  *
  * encapsule le processus de création,
- * et traitement d'une requete HTTP
+ * et traitement dune requete HTTP
  * (conversion en Objet, gestion succès/erreur etc...)
  */
 const MakeHTTPRequest = async ({
@@ -59,8 +59,6 @@ const MakeHTTPRequest = async ({
   onFailSafe,
   onGrabCanceller,
 }) => {
-  //console.log(`url: ${JSON.stringify(url)}`);
-  //console.log(`: ${JSON.stringify(url)}`);
 
   return BeforeDuringAfterPattern({
     onBefore: onBefore,
@@ -77,7 +75,7 @@ const MakeHTTPRequest = async ({
       _OnHTTPRequestDone(onDone, result);
     },
     onError: (e) => {
-      //console.log(`Error during request:\n\n${e}`);
+      //
 
       if (onFailSafe != null) {
         onFailSafe();

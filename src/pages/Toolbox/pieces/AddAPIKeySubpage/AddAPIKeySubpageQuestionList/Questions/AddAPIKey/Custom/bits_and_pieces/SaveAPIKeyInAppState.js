@@ -11,10 +11,10 @@ export function SaveAPIKeyInAppState(text) {
         SqliteReduxObject: SqliteReduxAppState,
         uniqueId: "AppState",
         onSuccess: (qtyRowsAffected) => {
-            console.log(`API key saved successfully in AppState !`);
+
         },
         onError: (e) => {
-            console.log(`This error happened trying to save data: ${e} .`);
+
         }
     });
 }

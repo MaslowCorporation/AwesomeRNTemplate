@@ -2,7 +2,7 @@ import { React } from "react";
 import { DataListItem } from "src/components/DataListItem/DataListItem";
 import { getChoiceStyle } from "./getSingleChoiceStyle";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 import { emptyQCMMsg } from "./emptyQCMMsg";
 
 /**
@@ -25,7 +25,7 @@ export const getChoicesStyle = ({
   choicesState,
 }) => {
   return {
-    // couleur d'arrière plan du QCM
+    // couleur darrière plan du QCM
     backgroundColor: props.bodyBackgroundColor ?? "yellow",
 
     // couleur du texte, border, etc... du QCM
@@ -34,7 +34,7 @@ export const getChoicesStyle = ({
     // message si QCM vide
     emptyDBMsgData: emptyQCMMsg(props),
 
-    // Crée l'UI d'un choix individuel du QCM
+    // Crée lUI dun choix individuel du QCM
     renderDataListItem: ({ item, index }) => {
       return (
         <DataListItem
@@ -47,7 +47,7 @@ export const getChoicesStyle = ({
             // la couleur du contenu du QCM
             contentAndBorderColor: props.bodyContentColor,
 
-            // couleur d'arrière plan du QCM
+            // couleur darrière plan du QCM
             backgroundColor: props.dataListBackgroundColor,
 
             // bruit de clic sur choix QCM
@@ -74,7 +74,7 @@ export const getChoicesStyle = ({
             // le state du QCM
             choicesState: choicesState,
 
-            // l'index du choix de QCM dans la liste de choix du QCM
+            // lindex du choix de QCM dans la liste de choix du QCM
             index: index,
           })}
           // données rpzt le choix du QCM

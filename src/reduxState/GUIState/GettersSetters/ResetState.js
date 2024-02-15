@@ -13,7 +13,7 @@ export const ResetState = async (hardReset) => {
 
   const rows = GetGUIState();
 
-  // si le state de GetUserInput n'existe pas déja....
+  // si le state de GetUserInput nexiste pas déja....
   if (rows.length == 0) {
     // ajoute les rows par défaut
     await AddRowToDatabase({
@@ -26,7 +26,7 @@ export const ResetState = async (hardReset) => {
       rowName: "uniqueId",
       rowValue: "GUIState",
       onSuccess: (data) => {
-        //console.log(`state de GUIState reset avec succès`);
+        //
       },
     });
   }
@@ -46,7 +46,7 @@ export const ResetState = async (hardReset) => {
       rowName: "uniqueId",
       rowValue: "GUIState",
       onSuccess: (data) => {
-        //console.log(`state de GUIState reset avec succès`);
+        //
       },
     });
   }

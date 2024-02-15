@@ -30,7 +30,7 @@ export async function _GetAppFolderFilePath({
   });
   !folderExists ? await ReactNativeBlobUtil.fs.mkdir(fullSubfolder) : null;
 
-  //console.log(`subfolder ${fullSubfolder} created successfully.`);
+  //
   // ze path of ze graal
   const filePath = JoinPaths(fullSubfolder, `${fileName}.${fileExtension}`);
 
@@ -48,6 +48,6 @@ export async function _GetAppFolderFilePath({
     }
   }
 
-  //console.log(`file ${filePath} created successfully.`);
+  //
   return "file://" + filePath;
 }

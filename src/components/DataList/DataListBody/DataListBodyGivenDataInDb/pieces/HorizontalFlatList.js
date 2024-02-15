@@ -28,7 +28,7 @@ export const HorizontalFlatList = ({
       <FlatList
         data={dataItems}
         // fix: On set la quantité maximum
-        // d'items à créer dans la FlatList
+        // ditems à créer dans la FlatList
         // (pas trop, pas trop peu, goldilocks)
         maxToRenderPerBatch={5}
         // fix

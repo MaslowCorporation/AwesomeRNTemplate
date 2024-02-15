@@ -18,7 +18,7 @@ export function cancelItemCreation() {
     // le state existant.... agrémenté de ....
     ...ToolboxState,
 
-    // l'écran actuellement affiché dans Toolbox.js
+    // lécran actuellement affiché dans Toolbox.js
     chosenOne: "ToolboxChoices",
 
   });

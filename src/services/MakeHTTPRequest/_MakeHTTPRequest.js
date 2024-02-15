@@ -6,7 +6,7 @@ import { _multipartRequest } from "./_multipartRequest";
 /**
  *
  * @param {*} url
- * L'URL de la requête HTTP
+ * LURL de la requête HTTP
  *
  * @param {*} requestType
  * Le type de requête HTTP
@@ -30,8 +30,6 @@ export const _MakeHTTPRequest = async ({
   body,
   onGrabCanceller,
 }) => {
-  //console.log(`Request headers: ${JSON.stringify(headers)}`);
-  //console.log(`Request body: ${JSON.stringify(body)}`);
 
   // si on veut requete POST multipart
   if (requestType == RequestTypes.POST && _requestIsMutipartFormData(headers)) {

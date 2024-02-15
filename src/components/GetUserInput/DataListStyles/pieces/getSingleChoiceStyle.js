@@ -5,7 +5,7 @@ import { greenCheckUri, setNewestChoiceClickedOn } from "./getChoiceStyle";
  *
  * @param {*} contentAndBorderColor, la couleur du contenu du QCM
  *
- * @param {*} backgroundColor, couleur d'arrière plan du QCM
+ * @param {*} backgroundColor, couleur darrière plan du QCM
  *
  * @param {*} contentFont, design du text de QCM
  *
@@ -23,7 +23,7 @@ import { greenCheckUri, setNewestChoiceClickedOn } from "./getChoiceStyle";
  *
  * @param {*} clickSound, bruit de clic sur choix QCM
  *
- * @returns style + callbacks d'un choix de QCM
+ * @returns style + callbacks dun choix de QCM
  */
 export const getChoiceStyle = ({
   contentAndBorderColor,
@@ -47,7 +47,7 @@ export const getChoiceStyle = ({
     thumbPath: null,
     itemName: choixData.choiceDescription,
     itemsInfos: [
-      // un green checkmark si c'est l'item choisi, ou rien
+      // un green checkmark si cest litem choisi, ou rien
       {
         infoIconUrl: null,
         infoIconPath: choixData.greenCheckmark == true ? greenCheckUri : null,
@@ -57,7 +57,7 @@ export const getChoiceStyle = ({
     // son optionel quand clic sur choix
     clickSound: clickSound,
 
-    // callback quand l'utilisateur clique sur le choix
+    // callback quand lutilisateur clique sur le choix
     onItemClicked: (choixData) => {
       // exécute la callback de choix  si besoin
       RunIfPossible({ func: choixData.onChoiceClicked });

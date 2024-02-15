@@ -53,7 +53,7 @@ const GetTestName = () => {
     description: ({ answers, answer, answerIndex }) => {
       return app_strings.t("xK6jy8ax");
     },
-    // les choix dispos pour l'utilisateur, si "type" === "choices"
+    // les choix dispos pour lutilisateur, si "type" === "choices"
     choices: ({ answers, answer, answerIndex }) => {
       return AllGetTestName({
         answers,
@@ -66,7 +66,7 @@ const GetTestName = () => {
       });
     },
 
-    // la valeur choisie/écrite par l'user
+    // la valeur choisie/écrite par luser
     // null (par défaut)
     value: currentItem?.name,
 
@@ -80,23 +80,23 @@ const GetTestName = () => {
     defaultValue: ({ answers, answer, answerIndex }) =>
       currentItem?.name,
 
-    // les flex du message ou de la zone d'input
+    // les flex du message ou de la zone dinput
     messageFlex: 1,
     componentFlex: 1,
 
     // la taille du texte du message
     messageFontSize: 25,
 
-    // on montre le component d'input en premier, ou pas ?
+    // on montre le component dinput en premier, ou pas ?
     componentFirst: true,
 
-    // un callback qui vérifie que l'input est valide
+    // un callback qui vérifie que linput est valide
     // (optionnel)
     // true si valide false autrement
     checkInput: ({ input, answers, answer, answerIndex }) => {
       return answer?.value?.length > 0;
     },
-    // un message d'erreur à afficher si les données ne sont pas valides
+    // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
       return app_strings.t("xdBhrfN");
     },

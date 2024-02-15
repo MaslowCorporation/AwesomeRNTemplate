@@ -4,7 +4,7 @@ import { showSnackbar } from "src/components/Messager/Messager";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 
-//import MaslowGPTSDK from "maslow-gpt-sdk";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 
 /**
  * 
@@ -13,8 +13,7 @@ import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSette
  * this callback gets called when the button under the form is pressed 
  */
 export function OnAPIInfoRequestBtnClicked({ setYourAPIData, setShowUI }) {
-
-    /*
+  
     const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
     const maslowAPIKey = AppState.maslowAPIKey;
 
@@ -33,6 +32,5 @@ export function OnAPIInfoRequestBtnClicked({ setYourAPIData, setShowUI }) {
         },
         print: true
     });
-    */
-
+    
 }

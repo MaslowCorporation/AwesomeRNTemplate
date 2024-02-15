@@ -2,7 +2,7 @@ import { Constants } from "src/constants/Constants";
 import { SqliteReduxTestPageState } from "src/reduxState/TestPageState/TestPageStateGetterSetter";
 
 /**
- * Let's go back to TestPageList
+ * Lets go back to TestPageList
  */
 export function GoToTestPageList() {
   // getter
@@ -13,7 +13,7 @@ export function GoToTestPageList() {
     row: {
       ...TestPageState,
 
-      // l'écran actuellement affiché dans TestPage.js
+      // lécran actuellement affiché dans TestPage.js
       chosenOne: "TestPageList",
 
       // cache le snack
@@ -24,10 +24,8 @@ export function GoToTestPageList() {
     rowName: "uniqueId",
     rowValue: "TestPageState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans TestPage.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

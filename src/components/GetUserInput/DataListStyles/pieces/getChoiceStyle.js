@@ -9,7 +9,7 @@ export const greenCheckUri = Image.resolveAssetSource(greenCheck).uri;
 
 /**
  *
- * @param {*} index, l'index du choix dans la liste de choix, choices
+ * @param {*} index, lindex du choix dans la liste de choix, choices
  *
  * @param {*} choixData, données rpzt le choix du QCM
  *

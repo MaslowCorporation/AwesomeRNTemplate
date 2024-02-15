@@ -24,12 +24,12 @@ export async function CreateFirestoreDocument({
 
 
     if (!documentId) {
-      console.log(`You gave an invalid documentId`);
+
       return null;
     }
 
     if (!collectionName) {
-      console.log(`You gave an invalid collectionName`);
+
       return null;
     }
 
@@ -65,12 +65,12 @@ export async function GetFirestoreDocument({
 }) {
   try {
     if (!documentId) {
-      console.log(`You gave an invalid documentId`);
+
       return null;
     }
 
     if (!collectionName) {
-      console.log(`You gave an invalid collectionName`);
+
       return null;
     }
 
@@ -84,7 +84,7 @@ export async function GetFirestoreDocument({
       RunIfPossible({ func: onSuccess, args: documentData });
       return documentData;
     } else {
-      console.log(`Document with ID ${documentId} does not exist.`);
+
       return null;
     }
   } catch (error) {
@@ -109,7 +109,7 @@ export async function GetFirestoreCollection({
 }) {
   try {
     if (!collectionName) {
-      console.log(`You gave an invalid collectionName`);
+
       return null;
     }
 
@@ -148,12 +148,12 @@ export async function UpdateFirestoreDocument({
 }) {
   try {
     if (!documentId) {
-      console.log(`You gave an invalid documentId`);
+
       return null;
     }
 
     if (!collectionName) {
-      console.log(`You gave an invalid collectionName`);
+
       return null;
     }
 
@@ -188,12 +188,12 @@ export async function DeleteFirestoreDocument({
 }) {
   try {
     if (!documentId) {
-      console.log(`You gave an invalid documentId`);
+
       return false;
     }
 
     if (!collectionName) {
-      console.log(`You gave an invalid collectionName`);
+
       return false;
     }
 

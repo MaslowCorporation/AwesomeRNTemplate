@@ -11,7 +11,7 @@ import { UpdateSpecificRowsFromDB } from "./UpdateSpecificRowsFromDB";
 export const ResetState = async () => {
   const rows = GetToolboxState();
 
-  // si le state camera n'existe pas déja....
+  // si le state camera nexiste pas déja....
   if (rows.length == 0) {
     // ajoute les option défaut
     await AddRowToDatabase({
@@ -26,7 +26,7 @@ export const ResetState = async () => {
       rowName: "uniqueId",
       rowValue: "ToolboxState",
       onSuccess: (data) => {
-        //console.log(`state de ToolboxState reset avec succès`);
+        //
       },
     });
   }

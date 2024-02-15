@@ -1,7 +1,7 @@
 import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStateGetterSetter";
 
 /**
- * Let's go to the waiting screen
+ * Lets go to the waiting screen
  */
 export function GoToWaitScreen() {
   // getter
@@ -12,16 +12,14 @@ export function GoToWaitScreen() {
     row: {
       ...ToolboxState,
 
-      // l'écran actuellement affiché dans Toolbox.js
+      // lécran actuellement affiché dans Toolbox.js
       chosenOne: "Wait",
     },
     rowName: "uniqueId",
     rowValue: "ToolboxState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans Toolbox.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

@@ -24,7 +24,7 @@ export function VerticalList({
 }) {
   /**
    * The renderItem function describes how each item in the list should be rendered.
-   * It's a parameterized function where each item in our 'items' array along with its index is passed.
+   * Its a parameterized function where each item in our 'items' array along with its index is passed.
    * This function returns a touchable opacity component (which is like a button), that triggers a function when short pressed or long pressed.
   */
   const renderItem = ({ item, index }) => (

@@ -11,7 +11,7 @@ import { UpdateSpecificRowsFromDB } from "./UpdateSpecificRowsFromDB";
 export const ResetState = async () => {
   const rows = GetTestPageState();
 
-  // si le state n'existe pas déja....
+  // si le state nexiste pas déja....
   if (rows.length == 0) {
     // ajoute le state par défaut
     await AddRowToDatabase({
@@ -26,7 +26,7 @@ export const ResetState = async () => {
       rowName: "uniqueId",
       rowValue: "TestPageState",
       onSuccess: (data) => {
-        //console.log(`state de TestPageState reset avec succès`);
+        //
       },
     });
   }

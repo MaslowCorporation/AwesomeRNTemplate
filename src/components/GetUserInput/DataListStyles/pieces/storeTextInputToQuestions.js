@@ -16,11 +16,9 @@ export function storeInputToQuestions({
 
   // ajoute la valeur actuelle dans answers
   if (answer) {
-    //console.log(`This answer already exists, update it: ${JSON.stringify(answer, null, 2)}`);
 
     answers[question.name].value = input;
   } else {
-    //console.log(`This answer doesn't exists, create it: ${JSON.stringify(question, null, 2)}`);
 
     const answer = GetAnswerObject(question.name);
 
@@ -28,8 +26,7 @@ export function storeInputToQuestions({
     answers[question.name].value = input;
   }
 
-  //console.log(`Answers: ${JSON.stringify(answers)}`);
-  //console.log(`We're storing the answer for UI named ${question.name}`);
+  //
 
   // stocke les réponses dans le state
   SqliteReduxGUIState.SetAnswers({ answers, persistenceID });

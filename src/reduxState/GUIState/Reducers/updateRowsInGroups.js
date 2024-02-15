@@ -24,7 +24,7 @@ export const updateRowsInGroups = ({ groups, row, rowName, rowValue }) => {
       rowValue: rowValue,
     });
 
-    // range en ordre croissant d'ajout
+    // range en ordre croissant dajout
     // selon (row.itemIndex)
     groups[groupName]?.sort((a, b) => a.itemIndex - b.itemIndex);
   });

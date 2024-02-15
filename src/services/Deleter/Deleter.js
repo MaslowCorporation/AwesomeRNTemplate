@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 /* PLOP_INJECT_IMPORT */
 
 import { LogIf } from "../LogIf/LogIf";
@@ -22,11 +23,11 @@ export function DeleteFileOrFolder({ filePath, printInfo }) {
           .then(() => {
             LogIf({
               condition: () => printInfo,
-              str: `Suppression de ${filePath} effectuée avec succès !!`,
+              str: i18next.t('xtJmvMj6') + filePath,
             });
           })
-          .catch((err) => {});
+          .catch((err) => { });
       }
     })
-    .catch(() => {});
+    .catch(() => { });
 }

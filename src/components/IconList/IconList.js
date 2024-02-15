@@ -20,7 +20,7 @@ const IconList = (props) => {
   /* PLOP_INJECT_CODE */
 
   /**
-   * permet d'ouvrir/fermer le menu
+   * permet douvrir/fermer le menu
    */
   const [visible, setVisible] = useState(false);
   const openMenu = () => setVisible(true);
@@ -102,10 +102,6 @@ const onComponentLifeAndDeath = () => {
 export const openMenuIfNeeded = (iconChoicesList, openMenu) => {
   if (iconChoicesList != null && iconChoicesList.length > 0) {
     openMenu();
-  } else {
-    /*console.log(
-      "Le menu d'options n'a pas d'option... On n'affiche pas le menu"
-    );*/
   }
 };
 

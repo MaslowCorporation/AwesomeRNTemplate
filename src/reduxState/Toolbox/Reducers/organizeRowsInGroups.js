@@ -15,7 +15,7 @@ export const organizeRowsInGroups = ({ rows }) => {
   var groups = {};
 
   // pour chaque row dans la liste de rows,
-  // regarde s'il faut le grouper, ou pas
+  // regarde sil faut le grouper, ou pas
   rows.forEach((row) => {
     // le nom du groupe auquel appartient ce row
     const groupNameOfRow = row.groupName;
@@ -29,18 +29,18 @@ export const organizeRowsInGroups = ({ rows }) => {
         groups[groupNameOfRow]?.push(row);
       }
 
-      // si y'a pas déja de groupe existant,
+      // si ya pas déja de groupe existant,
       // crées en un, puis ajoute le row dedans
       else {
         groups[groupNameOfRow] = [row];
       }
 
-      // range en ordre croissant d'ajout
+      // range en ordre croissant dajout
       // selon (row.itemIndex)
       groups[groupNameOfRow]?.sort((a, b) => a.itemIndex - b.itemIndex);
     }
 
-    // sinon on n'ajoute pas
+    // sinon on najoute pas
     // ce row a un groupe
     else {
       return;

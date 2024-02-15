@@ -1,7 +1,7 @@
 import { SqliteReduxTestPageState } from "src/reduxState/TestPageState/TestPageStateGetterSetter";
 
 /**
- * Set l'index d'étape actuellement visionné à l'écran.
+ * Set lindex détape actuellement visionné à lécran.
  */
 export function SetCurrentIndex(newIndex) {
   // getter
@@ -17,10 +17,8 @@ export function SetCurrentIndex(newIndex) {
     rowName: "uniqueId",
     rowValue: "TestPageState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans TestPage.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

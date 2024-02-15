@@ -1,7 +1,7 @@
 import { SqliteReduxTestPageState } from "src/reduxState/TestPageState/TestPageStateGetterSetter";
 
 /**
- * Let's go to the waiting screen
+ * Lets go to the waiting screen
  */
 export function GoToWaitScreen() {
   // getter
@@ -12,16 +12,14 @@ export function GoToWaitScreen() {
     row: {
       ...TestPageState,
 
-      // l'écran actuellement affiché dans TestPage.js
+      // lécran actuellement affiché dans TestPage.js
       chosenOne: "Wait",
     },
     rowName: "uniqueId",
     rowValue: "TestPageState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans TestPage.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

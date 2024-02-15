@@ -22,7 +22,7 @@ const outputAudioPath = await GetAppFolderFilePath({
   folder: ReactNativeBlobUtil.fs.dirs.DownloadDir,
   fileExtension: "mp3",
   fileName: "yt_audio",
-  subfolder: "remindme",
+  subfolder: "arduinogpt",
 });
 
  * 

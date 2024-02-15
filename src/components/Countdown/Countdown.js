@@ -48,7 +48,7 @@ const Countdown = (props) => {
         }}
         //can call a function On finish of the time
         getTime={(time) => {
-          ///*console.log(time);
+          ///*
         }}
       />
     );
@@ -69,7 +69,7 @@ const Countdown = (props) => {
         }}
         //can call a function On finish of the time
         getTime={(time) => {
-          ///*console.log(time);
+          ///*
         }}
       />
     );
@@ -105,11 +105,11 @@ const options = (props) => {
 const onComponentLifeAndDeath = () => {
   useEffect(() => {
     // Anything in here is fired on component mount.
-    ///*console.log("timer born");
+    ///*
 
     return () => {
       // Anything in here is fired on component unmount.
-      ///*console.log("timer killed");
+      ///*
     };
   }, []);
 };

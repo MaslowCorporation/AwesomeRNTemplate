@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 import { CreateFirestoreDocument } from "../FirestoreCRUD/FirebaseCRUD";
 import { GoogleLogin, GoogleLogout } from "../GoogleLogin/GoogleLogin";
@@ -11,24 +12,24 @@ export async function SaveLocalDatabaseToCloud({ SqliteReduxObject, onSuccess, o
         const firebase_user = await GetFirebaseUserCredentials();
 
 
-        // si y'a un user Google/Firebase connectay
+        // si ya un user Google/Firebase connectay
         if (firebase_user) {
 
 
             const allRows = await SqliteReduxObject.GetAllRowsFromDB({});
 
-            console.log(`before cloud save, db contains ${allRows.length} rows`);
+
 
 
             const doc = await CreateFirestoreDocument({
-                collectionName: `SqliteReduxDatabases`,
+                collectionName: `SqliteReduxDatabases_arduinogpt`,
                 documentId: `${firebase_user.uid}_${SqliteReduxObject.dbName}`,
                 documentData: { 'rows': allRows },
                 onSuccess: (data) => {
-                    //console.log(`success: ${JSON.stringify(data, null, 2)}`)
+
                 },
                 onError: (e) => {
-                    console.log(`error: ${JSON.stringify(e, null, 2)}`)
+
                 },
             });
 
@@ -47,7 +48,7 @@ export async function SaveLocalDatabaseToCloud({ SqliteReduxObject, onSuccess, o
 
 
 
-        RunIfPossible({ func: onError, args: 'Cloud save failed homie..... Try again soldier' })
+        RunIfPossible({ func: onError, args: i18next.t('xesK1QSp') })
 
         return false;
 

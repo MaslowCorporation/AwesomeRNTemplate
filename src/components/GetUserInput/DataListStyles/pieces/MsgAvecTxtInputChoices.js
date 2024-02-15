@@ -14,7 +14,7 @@ import { SqliteReduxGUIState } from "src/reduxState/GUIState/GUIStateGetterSette
  * @param {*} bodyBackgroundColor
  * @param {*} props
  *
- * @returns Le layout d'un écran permettant de faire des choix pour répondre à une question donnée.
+ * @returns Le layout dun écran permettant de faire des choix pour répondre à une question donnée.
  */
 export const MsgAvecTxtInputChoices = ({
   question,
@@ -25,31 +25,24 @@ export const MsgAvecTxtInputChoices = ({
   bodyBackgroundColor,
   props,
 }) => {
-  // l'index de la question a l'écran
+  // lindex de la question a lécran
   const GUIState = SqliteReduxGUIState.GetFreshestGUIStateFirstRow();
   const currentIndex = GUIState.currentIndex;
 
   // les réponse actuelles aux questions du QCM
   const answers = SqliteReduxGUIState.GetAnswers(props.persistenceID);
 
-  /*console.log(
-    `answers (inside MsgAvecTxtInputChoices): ${JSON.stringify(answers)}`
-  );
-  console.log(
-    `answer with name ${question.name} (inside MsgAvec...): ${JSON.stringify(
-      answers[question.name]
-    )}`
-  );*/
 
-  // Le state de l'écran de choix.
+
+  // Le state de lécran de choix.
   //
   // Contient:
   //
   // choices, la liste de choix possibles.
-  // Définie par l'utilisateur de GetUserInput
+  // Définie par lutilisateur de GetUserInput
   // (ze programmeur)
   //
-  // lastItemClickedIndex, l'index
+  // lastItemClickedIndex, lindex
   // du tt dernier choix cliqué.
   // null, si aucun clic fait
   const [choicesState, setChoicesState] = useState({
@@ -64,7 +57,6 @@ export const MsgAvecTxtInputChoices = ({
     lastItemClickedIndex: choicesState.lastItemClickedIndex,
   };*/
 
-  //console.log(`clicked on n° (imp) ${importantData.lastItemClickedIndex}`);
 
   return (
     /**

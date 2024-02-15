@@ -47,9 +47,9 @@ export const CustomComponent = ({
   // and a mini web page (AKA Iframe)
   // feel free to tweak it so it serves your purpose
 
-  // The iframe's currently displayed url.
+  // The iframes currently displayed url.
   // you can rename the getter/setter as you wish
-  // use the setter to change the iframe's url
+  // use the setter to change the iframes url
   const [subscribeUrl, setSubscribeUrl] = useState(null)
 
   // Whether or not the UI shown on screen.
@@ -64,7 +64,7 @@ export const CustomComponent = ({
   const [yourAPIData, setYourAPIData] = useState(null);
 
   // a no arg callback that returns a component of your choice
-  // here it's an UI that allows the user to press a subscribe button to subscribe to the API
+  // here its an UI that allows the user to press a subscribe button to subscribe to the API
   // then enter his fresh API in a form.
   // but it could also be your own custom homemade DIY component made from you too
   const UIComponent = () =>
@@ -93,7 +93,7 @@ export const CustomComponent = ({
       iframeURL={subscribeUrl}
       setIframeURL={setSubscribeUrl}
       fontFamily={"ComingSoon"}
-      /* the url of the homepage, if omitted, the home button won't be shown in the iframe */
+      /* the url of the homepage, if omitted, the home button wont be shown in the iframe */
       //homeURL={"https://duckduckgo.com"}
       /* do we show the address bar in the iframe, or not ? */
       showAddressBar={true}
@@ -105,7 +105,7 @@ export const CustomComponent = ({
           id: "APISub",
           title: app_strings.t("SubAPIMsg"),
           type: "clickable_choice",
-          onClick:  () => {
+          onClick: () => {
             OnAPISubscribeButtonClicked({ setSubscribeUrl, setShowUI });
 
             setShowModal(false);
@@ -113,7 +113,7 @@ export const CustomComponent = ({
         },
         {
           id: "Buy5KCredits",
-          title:  app_strings.t("Buy5KMsg"),
+          title: app_strings.t("Buy5KMsg"),
           type: "clickable_choice",
           onClick: () => {
             OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowUI });
@@ -127,7 +127,7 @@ export const CustomComponent = ({
           buttonText: yourAPIData ? JSON.stringify(yourAPIData, null, 2) : app_strings.t("LemonButton"),
           type: "clickable_choice",
           onClick: () => {
-            OnAPIInfoRequestBtnClicked({  setYourAPIData, setShowUI });
+            OnAPIInfoRequestBtnClicked({ setYourAPIData, setShowUI });
 
             //setShowModal(false);
           }

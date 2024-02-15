@@ -3,14 +3,14 @@
 
 /**
  *
- * @returns Cette fonction permet d'obtenir le unix time
+ * @returns Cette fonction permet dobtenir le unix time
  */
 const GetUnixTime = () => {
   /* PLOP_INJECT_CODE */
 
   const time = Math.floor(Date.now() / 1000);
 
-  //console.log(`Unix time: ${time}`);
+  //
 
   return time;
 };

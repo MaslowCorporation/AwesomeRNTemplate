@@ -4,7 +4,7 @@ import { MessageAvecBouton } from "src/components/MessageAvecBouton/MessageAvecB
  *
  * @param {*} msgData le message et actions de bouton à afficher quand la db est vide.
  *
- * @returns l'écran de bouge to cul et crée quelque chose
+ * @returns lécran de bouge to cul et crée quelque chose
  */
 export const ShowMsgWithButton = ({ msgData }) => {
   return MessageAvecBouton(msgData);

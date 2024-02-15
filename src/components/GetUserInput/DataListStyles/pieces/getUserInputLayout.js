@@ -14,8 +14,8 @@ import { storeInputToQuestions } from "./storeTextInputToQuestions";
  *
  * @returns
  *
- * Ceci nous permet d'obtenir l'écran d'une question individuelle
- * à demander à l'user (demande txt, numero, choix, ou custom)
+ * Ceci nous permet dobtenir lécran dune question individuelle
+ * à demander à luser (demande txt, numero, choix, ou custom)
  */
 export const GetUserInputLayout = ({
   question,
@@ -23,15 +23,15 @@ export const GetUserInputLayout = ({
   questions,
   setQuestions,
 }) => {
-  // on récupère l'id, le name, le value de chaque question.
-  // on va donner ceci à la callback de succès, si y'a pas d'erreurs.
+  // on récupère lid, le name, le value de chaque question.
+  // on va donner ceci à la callback de succès, si ya pas derreurs.
   const answers = SqliteReduxGUIState.GetAnswers(props.persistenceID);
 
-  // l'index de la question a l'écran
+  // lindex de la question a lécran
   const GUIState = SqliteReduxGUIState.GetFreshestGUIStateFirstRow();
   const currentIndex = GUIState.currentIndex;
 
-  // on récupère l'info via un component custom,
+  // on récupère linfo via un component custom,
   if (question.type === "custom") {
 
     return question.customQuestionPanel({
@@ -49,7 +49,7 @@ export const GetUserInputLayout = ({
       },
     });
   }
-  // on récupère l'info via un TextInput
+  // on récupère linfo via un TextInput
   // qui récupère du texte.
   // et met à jour le state via setQuestions dataList, et item (id entre autre)
   else if (question.type === "text") {
@@ -72,7 +72,7 @@ export const GetUserInputLayout = ({
       ></MsgAvecTextInputTextKeyboard>
     );
   }
-  // on récupère l'info via un TextInput
+  // on récupère linfo via un TextInput
   // qui récupère un nombre entier/décimal.
   // et met à jour le state via setQuestions dataList, et item (id entre autre)
   else if (question.type === "number") {
@@ -95,7 +95,7 @@ export const GetUserInputLayout = ({
       ></MsgAvecTxtInputNumKeyboard>
     );
   }
-  // on récupère l'info via un FlatList vertical
+  // on récupère linfo via un FlatList vertical
   // qui propose des choix (stockés dans item.choices).
   // et met à jour le state via setQuestions dataList, et item (id entre autre)
   else if (question.type === "choices") {

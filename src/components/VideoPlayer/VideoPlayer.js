@@ -33,7 +33,7 @@ const VideoPlayer = (props) => {
   // permet de faire des actions lors de la création/destruction du component.
   onComponentLifeAndDeath(props.index);
 
-  // quelle orientation à l'écran ?
+  // quelle orientation à lécran ?
   // ("PORTRAIT" ou "LANDSCAPE")
   //const currentOrientation = GetOrientation({});
 
@@ -44,7 +44,7 @@ const VideoPlayer = (props) => {
   // getter/setter permet de consulter/stocker le statut actuel de playback vidéo
   const [status, setStatus] = useState({});
 
-  // videoRatio: le ratio de la vidéo en tant que nombre entier (par défaut celui de l'écran)
+  // videoRatio: le ratio de la vidéo en tant que nombre entier (par défaut celui de lécran)
   //
   // videoType: le ratio de la vidéo en tant que String
   // (PORTRAIT ou PAYSAGE, par défaut PORTRAIT)
@@ -69,7 +69,6 @@ const VideoPlayer = (props) => {
     });
   };
 
-  //console.log(`video position: ${JSON.stringify(status?.positionMillis)}`);
 
   return (
     <View
@@ -129,7 +128,7 @@ const onComponentLifeAndDeath = (index) => {
 
     return () => {
       // Anything in here is fired on component unmount.
-      //console.log(`video n°${index} destroyed`);
+      //
     };
   }, []);
 };

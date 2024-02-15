@@ -10,9 +10,5 @@ export const openMenuIfNeeded = (bottomBarStyle, openMenu) => {
 
   if (menuList != null && menuList.length > 0) {
     openMenu();
-  } else {
-    /*console.log(
-      "Le menu d'options n'a pas d'option... On n'affiche pas le menu"
-    );*/
   }
 };

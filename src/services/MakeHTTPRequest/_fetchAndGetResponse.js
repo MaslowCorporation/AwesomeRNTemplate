@@ -3,7 +3,7 @@ import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
 /**
  *
  * @param {*} url
- * L'URL de la requête HTTP
+ * LURL de la requête HTTP
  *
  * @param {*} requestType
  * Le type de requête HTTP

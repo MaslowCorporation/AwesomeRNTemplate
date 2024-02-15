@@ -11,7 +11,7 @@
  *
  * @returns ce que la fonction retourne, si fonction existe, ou null
  *
- * Cette fonction permet d'exécuter une fonction si elle existe.
+ * Cette fonction permet dexécuter une fonction si elle existe.
  */
 const RunIfPossible = async ({ func, args }) => {
   if (func != null) {

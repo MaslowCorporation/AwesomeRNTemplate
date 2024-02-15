@@ -35,7 +35,7 @@ const VideoComponent = (props) => {
       // selon le statut du lecteur vidéo
       // (isPlaying, etc....)
       onPlaybackStatusUpdate={(status) => {
-        //console.log(`current position: ${status.positionMillis}`);
+        //
         props.setStatus(() => status);
       }} // Update the video Ratio once done loading the first frame of the video
       onReadyForDisplay={props.updateVideoRatioOnDisplay}

@@ -1,11 +1,11 @@
 /* PLOP_INJECT_IMPORT */
 
-/* permet UI de création/modif d'item dans liste */
+/* permet UI de création/modif ditem dans liste */
 import { GetUserInput } from "src/components/GetUserInput/GetUserInput";
 
 import { PlayerGTAInstance } from "src/constants/PlayerGTA/PlayerGTA.js";
 
-/* la liste de question nécessaire à la modif d'item via UI */
+/* la liste de question nécessaire à la modif ditem via UI */
 import { AddAPIKeySubpageQuestionList } from "./AddAPIKeySubpageQuestionList/AddAPIKeySubpageQuestionList.js";
 
 // some shyt
@@ -17,7 +17,7 @@ import { Constants } from "src/constants/Constants.js";
 // permet affichage conditionnel de component
 import { Camouflage } from "src/components/Camouflage/Camouflage.js";
 
-// permet d'être multilingue
+// permet dêtre multilingue
 
 // permet accès CRUD a DB Sqlite , + Redux associé
 import { cancelItemCreation } from "./cancelItemCreation.js";
@@ -33,7 +33,7 @@ import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
  *
  *
  * @returns un component qui affiche conditionnellement
- * un GetUserInput de création d'item dans AddAPIKeySubpage.
+ * un GetUserInput de création ditem dans AddAPIKeySubpage.
  */
 export const AddAPIKeySubpage = () => {
   /* PLOP_INJECT_CODE */
@@ -55,7 +55,7 @@ export const AddAPIKeySubpage = () => {
     >
       {/* Une UI de récup/modif de données */}
       <GetUserInput
-        /* Permet persistence des donnees d'U.I. 
+        /* Permet persistence des donnees dU.I. 
         This takes effect when the value is a string, 
         the persistence ID */
         persistenceID={"AddAPIKeySubpage"}
@@ -93,13 +93,13 @@ export const AddAPIKeySubpage = () => {
         }}
         /* callback si on réussit  à obtenir données valides, via questions UI */
         onSuccess={(answers) => {
-          //debugger;
+          //
 
           onItemCreationSuccess(answers, route);
         }}
         /* callback si données input sont invalides */
         onError={({ errMsg, errAnswerIndex, answers }) => {
-          //debugger;
+          //
 
           onItemCreationError(answers, errAnswerIndex, errMsg, questions);
         }}

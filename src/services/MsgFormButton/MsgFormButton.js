@@ -3,7 +3,7 @@
 
 /* PLOP_INJECT_GLOBAL_CODE */
 
-// First, let's import all necessary components from react, and react native.
+// First, lets import all necessary components from react, and react native.
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { CustomButton } from 'src/components/CustomButton/CustomButton';
@@ -48,7 +48,7 @@ export function MsgFormButton({ message, initialFormInput, formPlaceholder, onFo
 }
 
 
-// Here you have your styles. Remember that in React Native, we don't use CSS, but a JavaScript 
+// Here you have your styles. Remember that in React Native, we dont use CSS, but a JavaScript 
 // object system that looks like CSS.
 const styles = StyleSheet.create({
   container: {

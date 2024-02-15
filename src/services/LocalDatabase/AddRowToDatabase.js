@@ -10,7 +10,7 @@ import { InitLocalDatabase } from "./InitLocalDatabase";
  *
  * @returns via callback de succès ou erreur
  *
- * Cette fonction permet d'ajouter une chose dans la base de données.
+ * Cette fonction permet dajouter une chose dans la base de données.
  * 
  * 
  * 
@@ -28,10 +28,10 @@ AddRowToDatabase({
     moyenneBac: 10,
   },
   onSuccess: (row) => {
-    /*console.log("Ajout de données réussi !");
+    /*
   },
   onError: (e) => {
-    /*console.log("Erreur durant ajout de données.");
+    /*
   },
 });
 

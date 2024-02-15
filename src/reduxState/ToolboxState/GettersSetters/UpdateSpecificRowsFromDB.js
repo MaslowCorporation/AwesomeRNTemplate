@@ -7,11 +7,11 @@ import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
 import { updateSpecificRowsFromDB } from "../AsyncThunks/updateSpecificRowsFromDB";
 
 // Le nom de la DB Sqlite,
-// ainsi qu'une description des noms/types des rows de cette DB Sqlite
+// ainsi quune description des noms/types des rows de cette DB Sqlite
 import { rowNamesAndTypes, databaseName } from "../DatabaseInfo";
 
 /**
- * @param {*} row, l'objet à modifier dans la DB.
+ * @param {*} row, lobjet à modifier dans la DB.
  * @param {*} rowName, le nom de row qui détermine le maillon faible
  * @param {*} rowValue, la valeur du row qui détermine le maillon faible
  * @param {*} onSuccess, callback si tout c bien pacé
@@ -51,7 +51,7 @@ export const UpdateSpecificRowsFromDB = ({
       )
       .unwrap()
       /**
-       * cette callback, s'execute lorsque les
+       * cette callback, sexecute lorsque les
        * données ont été ajoutées/réparties dans Sqlite/Redux
        */
       .then((qtyAffected) => {

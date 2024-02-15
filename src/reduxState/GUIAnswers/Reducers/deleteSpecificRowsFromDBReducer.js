@@ -15,15 +15,15 @@ import { deleteRowsInGroups } from "./deleteRowsInGroups";
  * en vrac, dans state.allRows, et dans les groupes, dans state.groups.
  */
 export function deleteSpecificRowsFromDBReducer(builder) {
-  // l'AsyncThunk est en train de préparer/charger les données.
+  // lAsyncThunk est en train de préparer/charger les données.
   builder.addCase(deleteSpecificRowsFromDB.pending, (state, action) => {
-    // indique que suppression en cours dans SQLITE, quand c'est = true
+    // indique que suppression en cours dans SQLITE, quand cest = true
     state.loading = true;
   });
 
-  // l'AsyncThunk à fini de supprimer les données dans SQLITE.
+  // lAsyncThunk à fini de supprimer les données dans SQLITE.
   // Les données rowName et rowValue
-  // (retournées par l'AsyncThunk) sont dispo dans action.payload
+  // (retournées par lAsyncThunk) sont dispo dans action.payload
   builder.addCase(deleteSpecificRowsFromDB.fulfilled, (state, action) => {
     // indique que chargement terminé
     state.loading = false;
@@ -35,7 +35,7 @@ export function deleteSpecificRowsFromDBReducer(builder) {
       rowValue: action.payload.rowValue,
     });
 
-    // range en ordre croissant d'ajout
+    // range en ordre croissant dajout
     // selon (row.itemIndex)
     state.allRows.sort((a, b) => a.itemIndex - b.itemIndex);
 
@@ -47,7 +47,7 @@ export function deleteSpecificRowsFromDBReducer(builder) {
     });
   });
 
-  // Une erreur est survenue dans l'AsyncThunk
+  // Une erreur est survenue dans lAsyncThunk
   builder.addCase(deleteSpecificRowsFromDB.rejected, (state, action) => {
     // indique que chargement terminé
     state.loading = false;

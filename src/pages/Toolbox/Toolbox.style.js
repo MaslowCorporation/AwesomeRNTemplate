@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 
 /**
  * Ci-dessous, voici les styles à appliquer à la page Toolbox

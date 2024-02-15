@@ -1,13 +1,13 @@
 import React from 'react';
-import {styles} from '../DataListItem.style.js';
-import {ActivityIndicator, View} from 'react-native';
-import {Card} from '@rneui/themed';
+import { styles } from '../DataListItem.style.js';
+import { ActivityIndicator, View } from 'react-native';
+import { Card } from '@rneui/themed';
 
 /**
  *
  * @param {*} itemStyle, les infos de style de la vignette
  *
- * @returns le thumbnail d'item, si existant
+ * @returns le thumbnail ditem, si existant
  */
 export const thumbnailPicIfUrlExists = itemStyle => {
   if (itemStyle?.thumbUrl != null || itemStyle?.thumbPath != null) {

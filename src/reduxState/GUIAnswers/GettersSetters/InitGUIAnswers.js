@@ -7,7 +7,7 @@ import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
 import { getAllRowsFromDB } from "../AsyncThunks/getAllRowsFromDB";
 
 // Le nom de la DB Sqlite,
-// ainsi qu'une description des noms/types des rows de cette DB Sqlite
+// ainsi quune description des noms/types des rows de cette DB Sqlite
 import { rowNamesAndTypes, databaseName } from "../DatabaseInfo";
 
 /**
@@ -17,12 +17,12 @@ import { rowNamesAndTypes, databaseName } from "../DatabaseInfo";
  *
  * @returns la liste de tous les GUIAnswers (rows {key: value}).
  *
- * Permet d'initialiser la base de données SQLITE et Redux.
+ * Permet dinitialiser la base de données SQLITE et Redux.
  *
  * Aussi, on en profite pour répartir les rows en groupes,
  * selon row.groupName, si existant.
  *
- * Tout ceci de manière que nos données soit dispo pour l'application.
+ * Tout ceci de manière que nos données soit dispo pour lapplication.
  */
 export const InitGUIAnswers = ({ onSuccess, onError, debugMode }) => {
   // Promise nous permet de pouvoir retourner la liste de données
@@ -47,7 +47,7 @@ export const InitGUIAnswers = ({ onSuccess, onError, debugMode }) => {
       )
       .unwrap()
       /**
-       * cette callback, s'execute lorsque les
+       * cette callback, sexecute lorsque les
        * données ont été ajoutées/réparties dans Sqlite/Redux
        */
       .then((rows) => {

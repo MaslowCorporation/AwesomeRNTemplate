@@ -22,10 +22,10 @@ DeleteSpecificRowsFromDB({
     moyenneBac: "REAL",
   },
   onSuccess: (rows) => {
-    /*console.log(`Voici les données mises à jour: ${rows}`);
+    /*
   },
   onError: (e) => {
-    /*console.log("Erreur durant mise à jour de données.");
+    /*
   },
 });
 

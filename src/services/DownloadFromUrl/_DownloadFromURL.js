@@ -9,7 +9,7 @@ import * as FileSystem from "expo-file-system";
  * @param {*} onError
  * @param {*} onProgress
  *
- * Cete fonctionn permet de télécharger du contenu venant d'une URL
+ * Cete fonctionn permet de télécharger du contenu venant dune URL
  */
 export async function _DownloadFromURL({
   url,
@@ -19,7 +19,7 @@ export async function _DownloadFromURL({
   onProgress,
   resolve, reject,
 }) {
-  // callback d'avancement de DL
+  // callback davancement de DL
   const callback = (downloadProgress) => {
     // le pourcentage de contenu DL (de 0 à 100)
     const progress =
@@ -27,13 +27,12 @@ export async function _DownloadFromURL({
         downloadProgress.totalBytesExpectedToWrite) *
       100;
 
-    console.log(`DL %: ${progress}`)
 
-    // si l'user à un callback custom, exécute la
+    // si luser à un callback custom, exécute la
     RunIfPossible({ func: onProgress, args: progress });
   };
 
-  // ceci crée le processus d'upload,
+  // ceci crée le processus dupload,
   // mais ne le lance pas tout de suite
   const downloadResumable = FileSystem.createDownloadResumable(
     url,
@@ -44,16 +43,16 @@ export async function _DownloadFromURL({
   );
 
   try {
-    console.log(`DL commencé`);
 
-    // lance l'upload
+
+    // lance lupload
     const { uri } = await downloadResumable.downloadAsync();
 
-    console.log(`DL terminé`);
+
 
     resolve(uri)
 
-    // ici, l'upload est terminé
+    // ici, lupload est terminé
     RunIfPossible({ func: onSuccess, args: uri });
   } catch (e) {
     reject(null)

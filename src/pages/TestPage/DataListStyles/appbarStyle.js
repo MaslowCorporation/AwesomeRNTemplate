@@ -1,11 +1,11 @@
 /* PLOP_INJECT_IMPORT */
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import { Constants } from "src/constants/Constants.js";
 
-// la liste d'options de l'appbar
+// la liste doptions de lappbar
 import { AppbarOptionsMenuList } from "./AppbarStylePieces/AppbarOptionsMenuList";
 
 import { PlayerGTAInstance } from "src/constants/PlayerGTA/PlayerGTA.js";
@@ -19,78 +19,78 @@ export const getAppbarStyle = () => {
   const navigation = useNavigation();
 
   return {
-    // la barre en haut de l'écran est elle distincte du body (false)
-    // ou mélangé l'un a l'autre (true)
+    // la barre en haut de lécran est elle distincte du body (false)
+    // ou mélangé lun a lautre (true)
     appbarLayoutOverlaid: false,
 
     // le lecteur audio de clic
     clickSound: PlayerGTAInstance.GetSound(),
 
-    // la taille des icones de l'appbar
+    // la taille des icones de lappbar
     appbarIconSize: 35,
 
-    // la taille du texte de l'appbar
+    // la taille du texte de lappbar
     appbarTextSize: 20,
 
-    // la hauteur de l'appbar
+    // la hauteur de lappbar
     appbarHeight: Constants.defaultBarHeight,
 
     // la hauteur/largeur des icones
     appbarIconWidth: 60,
 
-    // idéalement la même taille que l'appbar
+    // idéalement la même taille que lappbar
     appbarIconHeight: 75,
 
-    // on affiche l'appbar ou pas ?
+    // on affiche lappbar ou pas ?
     showAppbar: true,
 
-    // montre l'icone menu (3 ptit point) ?
+    // montre licone menu (3 ptit point) ?
     showAppbarMenuIcon: false,
 
-    // le titre (texte snackbarVisible) de l'appbar
+    // le titre (texte snackbarVisible) de lappbar
     appbarTitle: app_strings.t("xBlM1Zi"),
 
-    // le design du texte de l'appbar et menu appbar
+    // le design du texte de lappbar et menu appbar
     appbarFont: Constants.defaultFontFamily,
 
-    // montre l'icone a gauche de l'icone menu (3 ptit point) ?
+    // montre licone a gauche de licone menu (3 ptit point) ?
     showAppbarIcon: true,
 
     // des icones venant de https://materialdesignicons.com/
-    // l'icone en question si showAppbarIcon = true
+    // licone en question si showAppbarIcon = true
     appbarIcon: "tools",
 
-    // la couleur d'arrière plan de l'appbar
+    // la couleur darrière plan de lappbar
     appbarBackgroundColor: Constants.defaultBackgroundColor,
 
 
-    // la couleur d'arrière plan des icones de l'appbar
+    // la couleur darrière plan des icones de lappbar
     appbarContentBackgroundColor: "transparent",
 
-    // la couleur de bordure des icones de l'appbar
+    // la couleur de bordure des icones de lappbar
     appbarContentBorderColor: "transparent",
 
-    // si supérieur à 0, élève l'appbar pour avoir un effet de relief entre body et appbar
+    // si supérieur à 0, élève lappbar pour avoir un effet de relief entre body et appbar
     appbarElevation: 0,
 
-    // la couleur de tout ce qu'il y a dans l'appbar (titre, icones, etc...)
+    // la couleur de tout ce quil y a dans lappbar (titre, icones, etc...)
     appbarContentColor: Constants.defaultContentColor,
 
-    // callback d'actions a effectuer si on clique sur le texte de l'appbar
+    // callback dactions a effectuer si on clique sur le texte de lappbar
     onAppbarTitleClicked: () => { },
 
-    // callback d'actions a effectuer si on clique sur l'icone de l'appbar
+    // callback dactions a effectuer si on clique sur licone de lappbar
     onAppbarIconClicked: () => {
       navigation.navigate("Toolbox");
     },
 
-    // callback d'actions a effectuer si on clique sur la flèche de retour arrière
-    // de l'appbar.
+    // callback dactions a effectuer si on clique sur la flèche de retour arrière
+    // de lappbar.
     onBackPressed: () => {
       navigation.goBack();
     },
 
-    // la liste des choix du menu s'affichant quand on clique sur les 3 petits points de l'appbar
+    // la liste des choix du menu saffichant quand on clique sur les 3 petits points de lappbar
     appbarOptionMenuList: AppbarOptionsMenuList(),
   };
 };

@@ -3,7 +3,7 @@
 
 /**
  *
- * @param {*} obj, l'objet à filtrer.
+ * @param {*} obj, lobjet à filtrer.
  *
  * @param {*} condition, fonction de filtrage de key.
  *
@@ -15,11 +15,11 @@ const FilterObject = ({ obj, condition }) => {
   if (obj == null) return;
 
   /**
-   * les noms des keys de l'objet
+   * les noms des keys de lobjet
    */
   const objKeyNames = Object.keys(obj);
 
-  //console.log(`object keys before filtering: ${objKeyNames}`);
+  //
 
   /** crée un nouvel objet fitré, selon callback condition */
   let filteredObj = {};
@@ -34,7 +34,7 @@ const FilterObject = ({ obj, condition }) => {
     }
   });
 
-  //console.log(`object keys after filtering: ${keysAfterFiltering}`);
+  //
 
   return filteredObj;
 };

@@ -11,7 +11,7 @@ import { GoToTestPageList } from "../NavHelpers/GoToTestPageList";
  */
 export const EditItemInTestPageDB = ({ answers }) => {
   /* PLOP_INJECT_ANSWER_VALUE */
-	const name = answers["GetTestName"]?.value;
+  const name = answers["GetTestName"]?.value;
 
   // getter, contient le state actuel
   const TestPageState = SqliteReduxTestPageState.GetTestPageStateFirstRow();
@@ -23,27 +23,24 @@ export const EditItemInTestPageDB = ({ answers }) => {
     ...currentItem,
 
     /* PLOP_INJECT_VALUE_IN_DB */
-		name,
+    name,
 
     //name,
     //category: category,
   };
 
-  console.log(`edited item = ${JSON.stringify(editedItem)}`);
 
   SqliteReduxTestPage.UpdateSpecificRowsFromDB({
     row: editedItem,
     rowName: "uniqueId",
     rowValue: editedItem.uniqueId,
     onSuccess: (row) => {
-      console.log("item modifé avec succès dans TestPage.");
+
 
       GoToTestPageList();
     },
     onError: (e) => {
-      console.log(
-        "Un problème est survenu durant la modif d'item dans TestPage."
-      );
+
 
       GoToTestPageList();
     },

@@ -10,7 +10,7 @@ import { SqliteReduxToolbox } from "src/reduxState/Toolbox/ToolboxGetterSetter";
 export function AddItemToDB(answers, uniqueId) {
   /* PLOP_INJECT_ANSWER_VALUE */
 
-  // la date de création de l'item
+  // la date de création de litem
   const currentDate = new Date();
 
   // combien de Toolbox à tu déja crée précédemment (0 ou +) ?
@@ -18,7 +18,7 @@ export function AddItemToDB(answers, uniqueId) {
   const qtyItems = allItems.length;
 
   /**
-   * l'item fraichement crée
+   * litem fraichement crée
    */
   const item = {
     /* PLOP_INJECT_VALUE_IN_DB */
@@ -34,16 +34,14 @@ export function AddItemToDB(answers, uniqueId) {
     itemIndex: qtyItems,
   };
 
-  // ajoute l'item dans la base de données + Redux
+  // ajoute litem dans la base de données + Redux
   SqliteReduxToolbox.AddRowToDatabase({
     row: item,
     onSuccess: (row) => {
-      console.log("item ajouté avec succès dans Toolbox.");
+
     },
     onError: (e) => {
-      console.log(
-        "Un problème est survenu durant  l'ajout d'item dans Toolbox."
-      );
+
     },
   });
 }

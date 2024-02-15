@@ -26,7 +26,7 @@ import React from "react";
  *
  *
  * @returns une appbar (optionnel) avec bouton
- * Précédent, un titre, une icone importante, et un menu d'options.
+ * Précédent, un titre, une icone importante, et un menu doptions.
  */
 export const ShowImportantIconOrNot = (props) => {
   if (props.appbarStyle.showAppbarIcon === true) {

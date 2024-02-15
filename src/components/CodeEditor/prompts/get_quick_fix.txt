@@ -59,7 +59,7 @@ export const CodeEditor = ({
       <TouchableOpacity
         style={styles.fab}
         onPress={() => {
-          console.log('Button pressed. Current content:', content);
+          
         }}
       >
         <Icon name="check" size={30} color="#FFF" />

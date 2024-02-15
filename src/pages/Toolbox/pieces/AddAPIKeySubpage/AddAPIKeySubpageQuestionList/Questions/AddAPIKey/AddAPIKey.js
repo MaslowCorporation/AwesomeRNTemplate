@@ -28,21 +28,21 @@ const AddAPIKey = () => {
     // "text" ou "number" ou "choices" ou "custom"
     type: "custom",
 
-    // la valeur choisie/écrite par l'user
+    // la valeur choisie/écrite par luser
     // null (par défaut)
     value: null,
 
-    // un callback qui vérifie que l'input est valide
+    // un callback qui vérifie que linput est valide
     // (optionnel)
     // true si valide false autrement
     checkInput: ({ input, answers, answer, answerIndex }) => {
-      //console.log(`valiou: ${answer?.value?.length}`);
+      //
 
       const isValid = answer?.value?.length > 0;
 
       return isValid;
     },
-    // un message d'erreur à afficher si les données ne sont pas valides
+    // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
       return app_strings.t("xlEu9A5o");
     },
@@ -52,7 +52,7 @@ const AddAPIKey = () => {
       const AppState = SqliteReduxAppState.GetFreshestAppStateFirstRow();
 
       return <CustomComponent
-        defaultAPIKey={AppState?.maslowAPIKey ?? answer?.value}
+        defaultAPIKey={AppState?.maslowAPIKey}
         onInput={onInput}
       />
     },

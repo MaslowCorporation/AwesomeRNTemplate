@@ -7,15 +7,15 @@ import { PlayerGTAInstance } from "src/constants/PlayerGTA/PlayerGTA.js";
 
 /**
  *
- * @param {*} item, l'élement individuel dans la liste d'items de la base de données.
+ * @param {*} item, lélement individuel dans la liste ditems de la base de données.
  * @param {*} index, la position de cet item dans la liste
  *
  * @returns les styles et callbacks,
- * à appliquer à l'UI par défaut de l'item,
+ * à appliquer à lUI par défaut de litem,
  * de la liste de données
  */
 export const DataListItemStyle = (item, index) => {
-  // la date de création de l'item
+  // la date de création de litem
   const creationDate = new Date(
     item.creation_year,
     item.creation_month,
@@ -25,7 +25,7 @@ export const DataListItemStyle = (item, index) => {
     item.creation_second ?? 0
   );
 
-  // la date de création de l'item, format texte
+  // la date de création de litem, format texte
   const howLongAgo = HowLongAgo({ creationDate: creationDate });
 
   // trucs de react-navigation
@@ -39,20 +39,20 @@ export const DataListItemStyle = (item, index) => {
     // le style du texte
     contentFont: Constants.defaultFontFamily,
 
-    // la couleur d'arrière plan
+    // la couleur darrière plan
     backgroundColor: Constants.defaultBackgroundColor,
 
-    // l'url ou uri local du thumbnail de l'item
+    // lurl ou uri local du thumbnail de litem
     thumbUrl: null,
     thumbPath: route.params.images.baby,
 
-    // le nom de l'item
+    // le nom de litem
     itemName: `${item.name}`,
 
     // le lecteur audio de clic
     clickSound: PlayerGTAInstance.GetSound(),
 
-    // 1 ou plusieurs informations a propos de l'item
+    // 1 ou plusieurs informations a propos de litem
     itemsInfos: [
       {
         // self explanatory

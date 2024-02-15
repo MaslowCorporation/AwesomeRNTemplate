@@ -1,6 +1,6 @@
 import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 import { Constants } from "src/constants/Constants.js";
 import { SqliteReduxGUIState } from "src/reduxState/GUIState/GUIStateGetterSetter";
 
@@ -28,10 +28,10 @@ export const getAppbarStyle = ({ props, questions, setQuestions }) => {
     appbarContentColor:
       props.appbarContentColor ?? Constants.defaultContentColor,
     onAppbarTitleClicked: () => {
-      /*console.log("Le titre à été cliqué dessus.");*/
+      /**/
     },
     onAppbarIconClicked: () => {
-      /*console.log("Le all mighty icone à été cliqué dessus.");*/
+      /**/
     },
     onBackPressed: () => {
       RunIfPossible({

@@ -1,9 +1,9 @@
 /* PLOP_INJECT_IMPORT */
 
-// permet de supprimer un item de la liste d'items
+// permet de supprimer un item de la liste ditems
 import { DeleteItemOrNot } from "./Questions/DeleteItemOrNot";
 
-// permet de créer/modifier les données d'un item.
+// permet de créer/modifier les données dun item.
 import { ToolboxCreationList } from "../../AddItemToToolbox/ToolboxCreationList/ToolboxCreationList";
 
 /* PLOP_INJECT_GLOBAL_CODE */

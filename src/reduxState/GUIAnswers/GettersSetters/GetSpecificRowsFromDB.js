@@ -7,7 +7,7 @@ import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
 import { getSpecificRowsFromDB } from "../AsyncThunks/getSpecificRowsFromDB";
 
 // Le nom de la DB Sqlite,
-// ainsi qu'une description des noms/types des rows de cette DB Sqlite
+// ainsi quune description des noms/types des rows de cette DB Sqlite
 import { rowNamesAndTypes, databaseName } from "../DatabaseInfo";
 
 /**
@@ -52,7 +52,7 @@ export const GetSpecificRowsFromDB = ({
       )
       .unwrap()
       /**
-       * cette callback, s'execute lorsque les
+       * cette callback, sexecute lorsque les
        * données ont été ajoutées/réparties dans Sqlite/Redux
        */
       .then((rows) => {

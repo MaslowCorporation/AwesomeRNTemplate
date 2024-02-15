@@ -13,7 +13,7 @@ export function MsgAvecTxtInputNumKeyboard(props) {
 
   const [input, setInput] = useState(JSON.stringify(props.defaultNumInput));
 
-  // l'index de la question a l'écran
+  // lindex de la question a lécran
   const GUIState = SqliteReduxGUIState.GetFreshestGUIStateFirstRow();
   const currentIndex = GUIState.currentIndex;
 

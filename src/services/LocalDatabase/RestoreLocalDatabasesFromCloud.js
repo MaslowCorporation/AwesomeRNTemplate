@@ -1,3 +1,6 @@
+import i18next from 'i18next';
+
+
 import { GetFirestoreDocument } from "../FirestoreCRUD/FirebaseCRUD";
 import { GoogleLogin, GoogleLogout } from "../GoogleLogin/GoogleLogin";
 import { mapAsync } from "../MapAsync/MapAsync";
@@ -14,7 +17,7 @@ export async function RestoreLocalDatabasesFromCloud({ SqliteReduxObjects, onSuc
 
             GoogleLogin({
                 onSuccess: async (login_data) => {
-                    console.log(`google/fb login succes`);
+
 
                     // utilise GetFirestoreDocument, DeleteDatabases, et AddRowsToDatabase
 
@@ -30,7 +33,7 @@ export async function RestoreLocalDatabasesFromCloud({ SqliteReduxObjects, onSuc
 
                         // recupere les donnees cloud
                         const cloudRows = await GetFirestoreDocument({
-                            collectionName: `SqliteReduxDatabases`,
+                            collectionName: `SqliteReduxDatabases_arduinogpt`,
                             documentId: `${login_data.firebase_uid}_${SqliteReduxObject.dbName}`,
                         });
 
@@ -39,7 +42,7 @@ export async function RestoreLocalDatabasesFromCloud({ SqliteReduxObjects, onSuc
                         // si les donnees cloud existent...
                         if (cloudRows) {
 
-                            // l'array de rows
+                            // larray de rows
                             const rows = cloudRows.rows;
 
                             // Ajoute/Update ce ou ces rows a la DB locale
@@ -83,22 +86,21 @@ export async function RestoreLocalDatabasesFromCloud({ SqliteReduxObjects, onSuc
 
                         resolve(true);
                     } else {
-                        RunIfPossible({ func: onError, args: 'one or more database cloud saves failed' })
+                        RunIfPossible({ func: onError, args: i18next.t('xvFbSiUM') })
 
                         resolve(false);
                     }
                 },
                 onError: (e) => {
-                    console.log(`google/fb login erreur: ${JSON.stringify(e, null, 2)}`);
 
-                    RunIfPossible({ func: onError, args: `google/fb login erreur: ${JSON.stringify(e, null, 2)}` })
+                    RunIfPossible({ func: onError, args: i18next.t('xOMFA69Q') + `${JSON.stringify(e, null, 2)}` })
 
                     resolve(false);
                 },
                 onCancel: () => {
-                    console.log(`google login cancelled`);
 
-                    RunIfPossible({ func: onError, args: 'google login cancelled' })
+
+                    RunIfPossible({ func: onError, args: i18next.t('xZL6EBId') })
 
                     resolve(false);
                 },

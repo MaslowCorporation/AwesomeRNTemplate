@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 /* PLOP_INJECT_IMPORT */
 
 // nécéssaire
@@ -6,10 +8,10 @@ import React from 'react';
 // les fichiers de style de components.
 import { styles } from './App.style.js';
 
-// permet d'update l'écran quand tout est prêt
+// permet dupdate lécran quand tout est prêt
 import { useCallback } from 'react';
 
-// permet d'afficher un écran de patientage
+// permet dafficher un écran de patientage
 import * as SplashScreen from 'expo-splash-screen';
 
 // un message avec bouton cliquable
@@ -18,7 +20,7 @@ import { MessageAvecBouton } from 'src/components/MessageAvecBouton/MessageAvecB
 // permet bon affichage IOS
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 import { Constants } from 'src/constants/Constants.js';
 import { PlayerGTAInstance } from 'src/constants/PlayerGTA/PlayerGTA.js';
 
@@ -36,7 +38,7 @@ export const hideSplashScreenWhenLoaded = appState => {
     }
   }, [appState]);
 
-  // retourne le onLayoutRootView nécessaire a l'affichage de l'appli
+  // retourne le onLayoutRootView nécessaire a laffichage de lappli
   return onLayoutRootView;
 };
 
@@ -47,13 +49,13 @@ export const hideSplashScreenWhenLoaded = appState => {
  *   navigation: <un objet qui nous permet de naviguer d un écran vers un autre>
  * }
  *
- * @returns la page d'accueil, un ptit message avec bouton.
+ * @returns la page daccueil, un ptit message avec bouton.
  */
 export const Home = ({ route, navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <MessageAvecBouton
-        messageText={'Le bouton ci dessous fait du bruit.'}
+        messageText={i18next.t('xdTbnvWd')}
         messageTextColor={Constants.defaultContentColor}
         messageTextFont={Constants.defaultFontFamily}
         backgroundColor={'yellow'}
@@ -64,7 +66,7 @@ export const Home = ({ route, navigation }) => {
         buttonLogoName={'logo-google'}
         buttonLogoSize={20}
         buttonLogoColor={Constants.defaultContentColor}
-        buttonText={"Black n' Yellow/Orange"}
+        buttonText={i18next.t('xPuScS2M')}
         buttonTextColor={Constants.defaultContentColor}
         buttonTextFont={'PriceDown'}
         onButtonClicked={() => {

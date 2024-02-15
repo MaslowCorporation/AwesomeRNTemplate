@@ -6,15 +6,15 @@ import { infoTextOrNada } from "./infoTextOrNada";
 
 /**
  *
- * @param {*} itemInfo, les infos de l'item stocké dans DB
+ * @param {*} itemInfo, les infos de litem stocké dans DB
  *
- * @returns une ligne de icone + info, en dessous du nom de l'item.
+ * @returns une ligne de icone + info, en dessous du nom de litem.
  */
 
 export const singleInfoLine = (itemStyle, itemInfo, key) => {
   return (
     <View key={key} style={styles.infoIconAndDescription}>
-      {/* l'icone de la description, ou rien */}
+      {/* licone de la description, ou rien */}
       {infoIconOrNada(itemInfo)}
       {/* le texte de description/info/etc...., ou rien */}
       {infoTextOrNada(itemStyle, itemInfo)}

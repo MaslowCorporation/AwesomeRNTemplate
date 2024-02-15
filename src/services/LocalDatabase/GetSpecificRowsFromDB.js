@@ -7,7 +7,7 @@ import { InitLocalDatabase } from "./InitLocalDatabase";
  *
  * @returns via callback de succès ou erreur
  *
- * Cette fonction permet d'obtenir le(s) row(s) ayant un certain rowName, dans la base de données.
+ * Cette fonction permet dobtenir le(s) row(s) ayant un certain rowName, dans la base de données.
  *
  
 GetSpecificRowsFromDB({
@@ -20,10 +20,10 @@ GetSpecificRowsFromDB({
     moyenneBac: "REAL",
   },
   onSuccess: (rows) => {
-    /*console.log(`Voici les données: ${rows}`);
+    /*
   },
   onError: (e) => {
-    /*console.log("Erreur durant récup de données.");
+    /*
   },
 });
 

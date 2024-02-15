@@ -7,7 +7,7 @@ import { InitLocalDatabase } from "./InitLocalDatabase";
  *
  * @returns via callback de succès ou erreur
  *
- * Cette fonction permet d'obtenir toute les chose dans la base de données.
+ * Cette fonction permet dobtenir toute les chose dans la base de données.
  * 
  
 GetAllRowsFromDB({
@@ -18,10 +18,10 @@ GetAllRowsFromDB({
     moyenneBac: "REAL",
   },
   onSuccess: (rows) => {
-    /*console.log(`Voici les données: ${rows}`);
+    /*
   },
   onError: (e) => {
-    /*console.log("Erreur durant récup de données.");
+    /*
   },
 });
 

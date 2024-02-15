@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 /* PLOP_INJECT_IMPORT */
 
 // identifiant unique
@@ -19,7 +20,7 @@ import { SqliteReduxToolbox } from 'src/reduxState/Toolbox/ToolboxGetterSetter';
 
 /**
  *
- * Le choix de catégorie d'item.
+ * Le choix de catégorie ditem.
  */
 const ChooseCategory = () => {
   /* PLOP_INJECT_CODE */
@@ -53,9 +54,7 @@ const ChooseCategory = () => {
           choiceImgPath: '',
           greenCheckmark: answer?.value == Constants.besoinsDeBase,
           onChoiceClicked: () => {
-            console.log(
-              `tutoriel name = ${answers['GetToolboxItemName']?.value}`,
-            );
+
           },
         },
         {
@@ -77,31 +76,31 @@ const ChooseCategory = () => {
       ];
     },
 
-    // la valeur choisie/écrite par l'user
+    // la valeur choisie/écrite par luser
     // null (par défaut)
     value: currentItem?.category ?? Constants.besoinsDeBase,
 
     // la valeur par défaut a mettre dans le text input
     //defaultValue: ({ answers, answer, answerIndex }) => "",
 
-    // les flex du message ou de la zone d'input
+    // les flex du message ou de la zone dinput
     messageFlex: 1,
     componentFlex: 2,
 
     // la taille du texte du message
     messageFontSize: 25,
 
-    // on montre le component d'input en premier, ou pas ?
+    // on montre le component dinput en premier, ou pas ?
     componentFirst: true,
 
-    // un callback qui vérifie que l'input est valide
+    // un callback qui vérifie que linput est valide
     // true si valide false autrement
     checkInput: ({ input, answers, answer, answerIndex }) => {
       return input != null;
     },
-    // un message d'erreur à afficher si les données ne sont pas valides
+    // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
-      return "Blue pill, Red pill ? Choose a pilule s'il te please.";
+      return i18next.t('xNPv7aa');
     },
   };
 };

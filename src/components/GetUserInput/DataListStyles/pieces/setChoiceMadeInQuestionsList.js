@@ -17,7 +17,7 @@ export const setChoiceMadeInQuestionsList = (
   setQuestions,
   persistenceID
 ) => {
-  // l'index de la question en cours de réponsage
+  // lindex de la question en cours de réponsage
   // dans la liste de questions horizontale
   const questionIndex = questions.findIndex((questionInList) => {
     return questionInList.id === question.id;
@@ -33,11 +33,9 @@ export const setChoiceMadeInQuestionsList = (
 
   // ajoute la valeur actuelle dans answers
   if (answer) {
-    //console.log(`This answer already exists, update it: ${JSON.stringify(answer, null, 2)}`);
 
     answers[questionEnCours.name].value = choiceChosen.choiceValue;
   } else {
-    //console.log(`This answer doesn't exists, create it: ${JSON.stringify(question, null, 2)}`);
 
     const answer = GetAnswerObject(questionEnCours.name);
 

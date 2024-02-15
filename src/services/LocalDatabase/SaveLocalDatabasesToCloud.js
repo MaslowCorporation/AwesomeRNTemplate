@@ -1,3 +1,6 @@
+import i18next from 'i18next';
+
+
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 import { CreateFirestoreDocument } from "../FirestoreCRUD/FirebaseCRUD";
 import { GoogleLogin, GoogleLogout } from "../GoogleLogin/GoogleLogin";
@@ -15,7 +18,7 @@ export async function SaveLocalDatabasesToCloud({ SqliteReduxObjects, onSuccess,
 
             GoogleLogin({
                 onSuccess: async (data) => {
-                    console.log(`google/fb login succes`);
+
 
 
                     const saves = await mapAsync(SqliteReduxObjects, async (SqliteReduxObject, index) => {
@@ -33,22 +36,21 @@ export async function SaveLocalDatabasesToCloud({ SqliteReduxObjects, onSuccess,
 
                         resolve(true);
                     } else {
-                        RunIfPossible({ func: onError, args: 'one or more database cloud saves failed' })
+                        RunIfPossible({ func: onError, args: i18next.t('x3HAGIz') })
 
                         resolve(false);
                     }
                 },
                 onError: (e) => {
-                    console.log(`google/fb login erreur: ${JSON.stringify(e, null, 2)}`);
 
-                    RunIfPossible({ func: onError, args: `google/fb login erreur: ${JSON.stringify(e, null, 2)}` })
+                    RunIfPossible({ func: onError, args: i18next.t('xCRZALjm') + `${JSON.stringify(e, null, 2)}` })
 
                     resolve(false);
                 },
                 onCancel: () => {
-                    console.log(`google login cancelled`);
 
-                    RunIfPossible({ func: onError, args: 'google login cancelled' })
+
+                    RunIfPossible({ func: onError, args: i18next.t('xjJQt4i') })
 
                     resolve(false);
                 },

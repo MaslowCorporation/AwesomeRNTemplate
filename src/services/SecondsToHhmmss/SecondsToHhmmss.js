@@ -12,7 +12,7 @@
 const SecondsToHHMMSS = (seconds) => {
   /* PLOP_INJECT_CODE */
 
-  console.log(`seconds: ${seconds}`);
+
 
   if (seconds < 3600) {
     return new Date(seconds * 1000).toISOString().substring(14, 19);

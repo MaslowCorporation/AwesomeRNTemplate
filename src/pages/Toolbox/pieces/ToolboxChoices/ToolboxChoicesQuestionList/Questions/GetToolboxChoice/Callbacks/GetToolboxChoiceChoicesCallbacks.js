@@ -11,16 +11,16 @@ import { GetToolboxChoiceChoices } from "../GetToolboxChoiceChoices/GetToolboxCh
 
 export const GetToolboxChoiceChoicesCallbacks = {
   /* PLOP_INJECT_CHOICE_CALLBACK */
-	Arduino: (data) => {},
-	BackupDB: (data) => {},
-	ChatGPT: (data) => {},
-	Todos: (data) => {},
+  Arduino: (data) => { },
+  BackupDB: (data) => { },
+  ChatGPT: (data) => { },
+  Todos: (data) => { },
 
 };
 
 /**
  *
- * @param {*} value, le choix fait par l'user
+ * @param {*} value, le choix fait par luser
  *
  * @returns ...... , fournie via callback
  */

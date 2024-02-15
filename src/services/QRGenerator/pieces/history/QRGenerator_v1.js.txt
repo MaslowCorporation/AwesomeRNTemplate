@@ -31,12 +31,12 @@ export default function QRGenerator({ qrText, onSuccess, onError }) {
     await qrRef.current.toDataURL((data) => {
       RNFS.writeFile(path, data, 'base64')
         .then((success) => {
-          console.log('QR Code written to file!');
+          
           // Open the QR code in a new browser tab
           Linking.openURL(path);
         })
         .catch((err) => {
-          console.log(err.message);
+          
           onError(err.message);
         });
     });

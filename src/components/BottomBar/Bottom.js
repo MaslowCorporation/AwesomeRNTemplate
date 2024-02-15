@@ -9,8 +9,8 @@ import React from "react";
  * 
  * @param {*} un objet contenant {
   bottomBarStyle: {
-    // la barre en bas de l'écran est elle distincte du body (false)
-    // ou mélangé l'un a l'autre (true)
+    // la barre en bas de lécran est elle distincte du body (false)
+    // ou mélangé lun a lautre (true)
     bottomBarLayoutOverlaid: false,
 
     // affiche la bottom bar ou pas ?
@@ -19,10 +19,10 @@ import React from "react";
     // la hauteur de la bottom bar
     bottomBarHeight: Constants.defaultBarHeight,
 
-    // la couleur d'arrrière plan de la bottom bar
+    // la couleur darrrière plan de la bottom bar
     bottomBarBackgroundColor: "pink",
 
-    // si > 0, permet effet d'élévation de la bottom bar
+    // si > 0, permet effet délévation de la bottom bar
     bottomBarElevation: 0,
 
     // la couleur des icones de la bottom bar
@@ -43,7 +43,7 @@ import React from "react";
 
 } 
 
- * @returns la barre d'icone qui va typiquement en bas de l'écran 
+ * @returns la barre dicone qui va typiquement en bas de lécran 
  * (mais tu peux le mettre en haut aussi)
  * 
  */

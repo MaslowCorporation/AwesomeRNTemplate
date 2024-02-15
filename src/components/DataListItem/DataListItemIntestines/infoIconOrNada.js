@@ -6,7 +6,7 @@ import { Image } from "react-native";
  *
  * @param {*} itemStyle, les infos de style de la vignette
  *
- * @returns l'icone d' info, si existant
+ * @returns licone d' info, si existant
  */
 
 export const infoIconOrNada = (itemInfo) => {

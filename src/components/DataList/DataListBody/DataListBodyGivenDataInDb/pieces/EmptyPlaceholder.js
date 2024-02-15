@@ -4,12 +4,12 @@ import { React, memo } from "react";
 
 /**
  *
- * @param {*} dataListItemHeight, la hauteur de l'UI de l'item.
+ * @param {*} dataListItemHeight, la hauteur de lUI de litem.
  *
- * @param {*} dataListItemWidth, la largeur de l'UI de l'item.
+ * @param {*} dataListItemWidth, la largeur de lUI de litem.
  *
- * @param {*} backgroundColor, la couleur d'arrière plan
- * de l'écran
+ * @param {*} backgroundColor, la couleur darrière plan
+ * de lécran
  * (pour placeholders onebyoneflatlist par ex.)
  *
  * @returns du vide plein.

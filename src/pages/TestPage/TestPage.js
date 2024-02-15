@@ -10,7 +10,7 @@ import { StatusBar } from "react-native";
 // styles de base
 import { styles } from "./TestPage.style.js";
 
-// permet affichage correct sur l'écran
+// permet affichage correct sur lécran
 import { SafeAreaView } from "react-native-safe-area-context";
 
 // constantes globales
@@ -19,13 +19,13 @@ import { Constants } from "src/constants/Constants.js";
 // permet lifecycle
 import { OnComponentLifeAndDeath } from "./pieces/OnComponentLifeAndDeath/OnComponentLifeAndDeath";
 
-// écran d'ajout d'item
+// écran dajout ditem
 import { AddItemToTestPage } from "./pieces/AddItemToTestPage/AddItemToTestPage";
 
-// écran de modif d'item
+// écran de modif ditem
 import { EditItemInTestPage } from "./pieces/EditItemInTestPage/EditItemInTestPage";
 
-// la liste d'item ou un message, si liste vide
+// la liste ditem ou un message, si liste vide
 import { TestPageListOrMsg } from "./pieces/TestPageListOrMsg/TestPageListOrMsg";
 
 // gère les appui sur bouton back du phone.
@@ -64,10 +64,10 @@ SetPageState({
   // texte du snack
   snackbarText: "",
 
-  // index d'erreur en utilisant GetUserInput
+  // index derreur en utilisant GetUserInput
   userInputErrorIndex: -1,
 
-  // l'écran actuellement affiché dans TestPage.js
+  // lécran actuellement affiché dans TestPage.js
   chosenOne: "TestPageList",
 
   // la page TestPage.js est prêt à être affichée ?
@@ -92,13 +92,13 @@ GoToWaitScreen();
 // setter, permet de cacher le snackbar
 HideSnackbar(); OK
 
-// setter, permet de rendre l'écran visible
+// setter, permet de rendre lécran visible
 MarkScreenAsMounted(); OK
 
 // setter, permet de choisir quel écran on veut visionner
 SetCurrentChosenOne("newChosenOne", "itemUniqueId"); OK
 
-// setter, permet de changer l'index d'item visionné
+// setter, permet de changer lindex ditem visionné
 SetCurrentIndex(newIndex); OK
 
 
@@ -109,7 +109,7 @@ SetCurrentIndex(newIndex); OK
  * @param {*} route
  * @param {*} navigation
  *
- * @returns l'écran de tutos
+ * @returns lécran de tutos
  */
 const TestPage = ({ route, navigation }) => {
   /* PLOP_INJECT_CODE */
@@ -118,11 +118,7 @@ const TestPage = ({ route, navigation }) => {
   const TestPageState =
     SqliteReduxTestPageState.GetFreshestTestPageStateFirstRow();
 
-  /*console.log(
-    `ze page iz loading/reloading... TestPage state ?: ${JSON.stringify(
-      TestPageState
-    )}`
-  );*/
+
 
   /**
    * gère les appui sur bouton back
@@ -134,12 +130,12 @@ const TestPage = ({ route, navigation }) => {
    * Ceci nous permet de pouvoir faire
    * des choses avant/après que le component soit contruit/détruit.
    *
-   * A l'intérieur de ceci, on a ajouté un timeout qui
+   * A lintérieur de ceci, on a ajouté un timeout qui
    * permet une meilleure navigation entre écran.
    */
   OnComponentLifeAndDeath();
 
-  /* si la page n'est pas prête à etre affiché, affiche spinner */
+  /* si la page nest pas prête à etre affiché, affiche spinner */
   if (TestPageState.isMounted == Constants.false) {
     return (
       <Spinner
@@ -153,7 +149,7 @@ const TestPage = ({ route, navigation }) => {
   return (
     /* le conteneur qui contient toute la page */
     <SafeAreaView style={styles.dataListContainer}>
-      {/* Permet de donner de la couleur et du style, à la barre ou il y a l'heure sur ton phone */}
+      {/* Permet de donner de la couleur et du style, à la barre ou il y a lheure sur ton phone */}
       <StatusBar
         animated={true}
         backgroundColor={Constants.defaultBackgroundColor}
@@ -162,19 +158,19 @@ const TestPage = ({ route, navigation }) => {
 
       {/* PLOP_INJECT_SUBPAGE */}
 
-      {/* la liste des items crées par l'user, ou un message invitant à créer un item. */}
+      {/* la liste des items crées par luser, ou un message invitant à créer un item. */}
       <TestPageListOrMsg />
 
-      {/* L'écran de création d'item */}
+      {/* Lécran de création ditem */}
       <AddItemToTestPage />
 
-      {/* L'écran de modification d'item */}
+      {/* Lécran de modification ditem */}
       <EditItemInTestPage />
 
-      {/* L'écran de patientage */}
+      {/* Lécran de patientage */}
       <Wait />
 
-      {/* permet d'afficher des messages à l'écran */}
+      {/* permet dafficher des messages à lécran */}
       <Messager
         clickSound={PlayerGTAInstance.GetSound()}
         message={TestPageState.snackbarText}

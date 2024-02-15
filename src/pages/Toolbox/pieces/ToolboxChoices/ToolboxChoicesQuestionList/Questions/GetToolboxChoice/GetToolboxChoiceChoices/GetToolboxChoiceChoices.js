@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 import { SetPageState } from "src/pages/Toolbox/pieces/NavHelpers/SetPageState.js";
 import { app_strings } from "../../../../../../../../stringRepos/AppStrings/AppStrings.js";
 import MaslowGPTSDK from "maslow-gpt-sdk";
@@ -45,7 +47,7 @@ ${userData?.username}`
  *
  * @param {*} choice, un choix en particulier
  *
- * retourne le string d'UI à afficher selon valeur de choix
+ * retourne le string dUI à afficher selon valeur de choix
  */
 export const GetToolboxChoiceChoiceUI = choice => {
   var object = GetToolboxChoiceChoices();
@@ -69,7 +71,7 @@ export const GetToolboxChoiceChoicesActions = {
       onSuccess: (data) => {
         ShowNotification({
           id: 0,
-          title: "remindme",
+          title: "arduinogpt",
           body: app_strings.t("xNUgKxo"),
           extra: null,
         });
@@ -77,7 +79,7 @@ export const GetToolboxChoiceChoicesActions = {
       onError: (e) => {
         ShowNotification({
           id: 0,
-          title: "remindme",
+          title: "arduinogpt",
           body: app_strings.t('xAmgHBho'),
           extra: null,
         });
@@ -92,7 +94,7 @@ export const GetToolboxChoiceChoicesActions = {
       onSuccess: (data) => {
         ShowNotification({
           id: 0,
-          title: "remindme",
+          title: "arduinogpt",
           body: app_strings.t('xSpTMl1n'),
           extra: null,
         });
@@ -100,7 +102,7 @@ export const GetToolboxChoiceChoicesActions = {
       onError: (e) => {
         ShowNotification({
           id: 0,
-          title: "remindme",
+          title: "arduinogpt",
           body: app_strings.t('x0qpHyto'),
           extra: null,
         });
@@ -118,7 +120,7 @@ export const GetToolboxChoiceChoicesActions = {
       // le state existant.... agrémenté de ....
       ...ToolboxState,
 
-      // l'écran actuellement affiché dans Toolbox.js
+      // lécran actuellement affiché dans Toolbox.js
       chosenOne: "AddAPIKeySubpage",
 
     });
@@ -129,12 +131,12 @@ export const GetToolboxChoiceChoicesActions = {
     if (userData) {
       GoogleLogout({
         onSuccess: (data) => {
-          showSnackbar('Logout successful !')
+          showSnackbar(i18next.t('x6lEqMKs'))
 
-          SaveAPIKeyInAppState(null);
+          SaveAPIKeyInAppState("");
         },
         onError: (e) => {
-          showSnackbar('Logout failed... Try again ;-)')
+          showSnackbar(i18next.t('xko6nGyO'))
         }
       });
     } else {
@@ -144,44 +146,55 @@ export const GetToolboxChoiceChoicesActions = {
           await GrabGoogleAPIKey(data);
         },
         onError: (e) => {
-          showSnackbar('Login failed... Try again ;-)')
+          showSnackbar(i18next.t('xMhxIbI3'))
         },
         onCancel: () => {
-          showSnackbar('Login stopped ;-)')
+          showSnackbar(i18next.t('xgpEDcQ5'))
         }
       });
     }
   },
 };
 
-async function GrabGoogleAPIKey(data) {
-  const googleAPIKeyResponse = await MaslowGPTSDK.GetGoogleAPIKey({
-    onSuccess: (output) => {
-    },
-    onError: (e) => {
-      console.log(`Error`);
-    },
-    google_uid: data.firebase_uid, // "zizix",
-    print: false,
-  });
-  const googleAPIKey = googleAPIKeyResponse?.apiKey;
+export async function GrabGoogleAPIKey(data) {
+  let googleAPIKey;
 
+  try {
 
-  console.log(`googleAPIKey = ${JSON.stringify(googleAPIKey, null, 2)}`);
+    const googleAPIKeyResponse = await MaslowGPTSDK.GetGoogleAPIKey({
+      onSuccess: (output) => {
+      },
+      onError: (e) => {
 
-  if (googleAPIKey) {
-    showSnackbar('Login successful !');
-
-    ShowNotification({
-      id: 0,
-      title: "remindme",
-      body: app_strings.t("APIKeySuccess") + `: ` + googleAPIKey,
-      extra: null,
+      },
+      google_user_uid: data.google_user_uid,
+      email: data.email,
+      print: false,
     });
+    googleAPIKey = googleAPIKeyResponse?.apiKey;
 
-    SaveAPIKeyInAppState(googleAPIKey);
-  } else {
-    showSnackbar("Login successful ! But.... This account doesn't exist !");
+
+
+    if (googleAPIKey) {
+      showSnackbar(i18next.t('xGURyoWg'));
+
+      ShowNotification({
+        id: 0,
+        title: "arduinogpt",
+        body: app_strings.t("APIKeySuccess") + `: ` + googleAPIKey,
+        extra: null,
+      });
+
+      SaveAPIKeyInAppState(googleAPIKey);
+
+      return googleAPIKey;
+    } else {
+      showSnackbar(i18next.t('x8dg9LRr'));
+
+      return;
+    }
+  } catch (error) {
+    return googleAPIKey;
   }
 }
 

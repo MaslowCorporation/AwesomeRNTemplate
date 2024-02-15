@@ -19,7 +19,7 @@ export function VideoControls(props) {
               backTime = 0;
             }
 
-            console.log(`let's rewind this biiih to ${backTime} !`);
+
             props.current.playFromPositionAsync(backTime);
           }
         }}
@@ -28,7 +28,7 @@ export function VideoControls(props) {
       <TouchableOpacity
         onPress={() => {
           if (props.videoInfo.videoLoaded === true) {
-            console.log("let's play/pause/resume/replay this biiih !");
+
             if (props.status.isPlaying) {
               setIsPaused(true);
               props.current.pauseAsync();
@@ -55,7 +55,7 @@ export function VideoControls(props) {
               fwdTime = 0;
             }
 
-            console.log(`let's forward this biiih to ${fwdTime} !`);
+
             props.current.playFromPositionAsync(fwdTime);
           }
         }}
@@ -65,7 +65,7 @@ export function VideoControls(props) {
   );
 }
 
-/* l'icone a afficher selon que la vidéo joue ou charge, ou autre */
+/* licone a afficher selon que la vidéo joue ou charge, ou autre */
 function IconGivenPlaybackStatus(props, isPaused) {
   if (props.videoInfo.videoLoaded) {
     if (props.status.isPlaying) {

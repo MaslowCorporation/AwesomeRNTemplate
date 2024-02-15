@@ -13,26 +13,26 @@ import { addRowToGroupIfNeeded } from "./addRowToGroupIfNeeded";
  * en vrac, dans state.allRows, et en groupe, dans state.groups.
  */
 export function addRowToDatabaseReducer(builder) {
-  // l'AsyncThunk est en train de préparer/charger les données.
+  // lAsyncThunk est en train de préparer/charger les données.
   builder.addCase(addRowToDatabase.pending, (state, action) => {
-    // indique que chargement en cours, quand c'est = true
+    // indique que chargement en cours, quand cest = true
     state.loading = true;
   });
 
-  // l'AsyncThunk à fini de charger les données.
-  // Les données (retournées par l'AsyncThunk) sont dispo dans action.payload
+  // lAsyncThunk à fini de charger les données.
+  // Les données (retournées par lAsyncThunk) sont dispo dans action.payload
   builder.addCase(addRowToDatabase.fulfilled, (state, action) => {
     // indique que chargement terminé
     state.loading = false;
 
     // le row tout juste ajouté dans sqlite.
-    // maintenant, on l'ajote dans le state Redux.
+    // maintenant, on lajote dans le state Redux.
     const row = action.payload;
 
     // stocke les données (row) en vrac
     state.allRows.push(row);
 
-    // range en ordre croissant d'ajout
+    // range en ordre croissant dajout
     // selon (row.itemIndex)
     state.allRows.sort((a, b) => a.itemIndex - b.itemIndex);
 
@@ -40,7 +40,7 @@ export function addRowToDatabaseReducer(builder) {
     addRowToGroupIfNeeded(row, state);
   });
 
-  // Une erreur est survenue dans l'AsyncThunk
+  // Une erreur est survenue dans lAsyncThunk
   builder.addCase(addRowToDatabase.rejected, (state, action) => {
     // indique que chargement terminé
     state.loading = false;

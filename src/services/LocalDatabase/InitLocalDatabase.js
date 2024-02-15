@@ -2,7 +2,7 @@ import * as SQLite from "expo-sqlite";
 
 /**
  *
- * @param {*} dbName, le nom de la base de données qu'on veut créer/utiliser
+ * @param {*} dbName, le nom de la base de données quon veut créer/utiliser
  *
  * @param {*} rowNamesAndTypes, les noms et types (type SQLITE, soit TEXT ou NUMBER) des valeurs
  * stockées dans chaque row individuel.
@@ -12,7 +12,7 @@ import * as SQLite from "expo-sqlite";
  * qui permet entre autre un accès CRUD à la base de données.
  *
  * Cette fonction permet
- * d'initialiser (créer/init) la base de données sqlite.
+ * dinitialiser (créer/init) la base de données sqlite.
  */
 export const InitLocalDatabase = ({ dbName, rowNamesAndTypes, debugMode }) => {
   if (debugMode == true) {
@@ -40,8 +40,8 @@ const AddRowsForGoodMeasure = ({ dbName, rowNamesAndTypes }) => {
       tx.executeSql(
         request,
         [],
-        (txObj, resultSet) => {},
-        (txObj, error) => {}
+        (txObj, resultSet) => { },
+        (txObj, error) => { }
       );
     });
   });
@@ -51,10 +51,6 @@ const AddRowsForGoodMeasure = ({ dbName, rowNamesAndTypes }) => {
 
 const CreateDBIfNotExisting = (dbName, rowNamesAndTypes) => {
   const db = SQLite.openDatabase(`${dbName}.db`);
-
-  /*console.log(
-    `dbname=${dbName} rownameandtype=${JSON.stringify(rowNamesAndTypes)}`
-  );*/
 
   // la partie de la requête SQL qui énumère
   // les différentes paires de key/value stockées dans un row
@@ -72,8 +68,8 @@ const CreateDBIfNotExisting = (dbName, rowNamesAndTypes) => {
     tx.executeSql(
       sqlCreationRequest,
       [],
-      (txObj, resultSet) => {},
-      (txObj, error) => {}
+      (txObj, resultSet) => { },
+      (txObj, error) => { }
     );
   });
 

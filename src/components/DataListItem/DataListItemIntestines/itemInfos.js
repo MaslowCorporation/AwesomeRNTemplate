@@ -4,7 +4,7 @@ import { singleInfoLine } from "./singleInfoLine";
  *
  * @param {*} itemStyle, les infos de style de la vignette
  *
- * @returns les paires de icones + info, en dessous du nom de l'item.
+ * @returns les paires de icones + info, en dessous du nom de litem.
  */
 export const itemInfos = (itemStyle) => {
   if (itemStyle?.itemsInfos != null) {

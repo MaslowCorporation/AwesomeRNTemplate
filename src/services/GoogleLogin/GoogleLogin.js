@@ -6,6 +6,7 @@ import {
 } from "@react-native-google-signin/google-signin";
 import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
 import auth from '@react-native-firebase/auth';
+import { SaveAPIKeyInAppState } from "src/pages/Toolbox/pieces/AddAPIKeySubpage/AddAPIKeySubpageQuestionList/Questions/AddAPIKey/Custom/bits_and_pieces/SaveAPIKeyInAppState";
 
 /**
  *
@@ -24,7 +25,7 @@ import auth from '@react-native-firebase/auth';
  *
  * Cette fonction permet de se connecter à Google et a Firebase/Firestore
  *
- * Ceci grace à l'aide, entre autre de ce commentaire Github
+ * Ceci grace à laide, entre autre de ce commentaire Github
  *
  * https://github.com/react-native-google-signin/google-signin/issues/265#issuecomment-616072044
  * 
@@ -35,8 +36,6 @@ const GoogleLogin = async ({ onSuccess, onError, onCancel }) => {
 
 
     await GoogleSignin.hasPlayServices();
-
-
 
     // google sign in
     const { accessToken, idToken } = await GoogleSignin.signIn();
@@ -55,14 +54,16 @@ const GoogleLogin = async ({ onSuccess, onError, onCancel }) => {
 
 
 
-    const firebase_uid = firebase_signin.user.uid;
+    const google_user_uid = await firebase_signin.user.getIdToken();
     const email = firebase_signin.user.email;
     const username = firebase_signin.user.displayName;
     const username_photo = firebase_signin.user.photoURL;
 
 
 
-    const login_data = { accessToken, idToken, firebase_uid, email, username, username_photo };
+
+
+    const login_data = { google_user_uid, email, username, username_photo };
 
 
 
@@ -109,6 +110,8 @@ const GoogleLogout = async ({ onSuccess, onError }) => {
     await GoogleSignin.revokeAccess();
     await GoogleSignin.signOut();
     await auth().signOut();
+
+    await SaveAPIKeyInAppState("")
 
     // login réussi
     RunIfPossible({

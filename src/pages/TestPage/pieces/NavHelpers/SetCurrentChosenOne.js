@@ -1,7 +1,7 @@
 import { SqliteReduxTestPageState } from "src/reduxState/TestPageState/TestPageStateGetterSetter";
 
 /**
- * Set le nom de l'écran actuellement visionné à l'écran.
+ * Set le nom de lécran actuellement visionné à lécran.
  *
  * Pour camoufler les autres péquenauds.
  */
@@ -21,10 +21,8 @@ export function SetCurrentChosenOne(newChosenOne, itemUniqueId) {
     rowName: "uniqueId",
     rowValue: "TestPageState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans TestPage.`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

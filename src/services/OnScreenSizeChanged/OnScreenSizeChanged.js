@@ -11,7 +11,7 @@ import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
 
  OnScreenSizeChanged({
   onScreenSizeChanged: ({ newWindowSize, newScreenSize }) => {
-    console.log("screen size changed");
+    
 
     onScreenSizeChanged({
       dataListRef: ref,
@@ -24,19 +24,19 @@ import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
 });
 
 
- * @param {*} onScreenSizeChanged, la callback a exécuter, quand la taille d'écran à changé.
+ * @param {*} onScreenSizeChanged, la callback a exécuter, quand la taille décran à changé.
  *
- * Cette fonction permet de créer un listener de changement de taille d'écran.
+ * Cette fonction permet de créer un listener de changement de taille décran.
  */
 const OnScreenSizeChanged = ({ onScreenSizeChanged }) => {
   /* PLOP_INJECT_CODE */
 
   useEffect(() => {
-    // crée le listener de changement de taille d'écran
+    // crée le listener de changement de taille décran
     const subscription = Dimensions.addEventListener(
       "change",
       ({ window, screen }) => {
-        console.log("sa tangue sur le bateau ohéohéohé !");
+
 
         // exécute la callback de changement
         RunIfPossible({

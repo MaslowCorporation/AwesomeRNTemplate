@@ -10,13 +10,13 @@ import { Icon } from "@rneui/themed";
 import { RunIfPossible } from "src/services/RunIfPossible/RunIfPossible";
 import { SoundPlayer } from "src/services/SoundPlayer/SoundPlayer";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 
 /**
  *
  * @param {*} un objet contenant, entre autres: {
-    // la barre en bas de l'écran est elle distincte du body (false)
-    // ou mélangé l'un a l'autre (true)
+    // la barre en bas de lécran est elle distincte du body (false)
+    // ou mélangé lun a lautre (true)
     bottomBarLayoutOverlaid: false,
 
     // affiche la bottom bar ou pas ?
@@ -25,10 +25,10 @@ import { SoundPlayer } from "src/services/SoundPlayer/SoundPlayer";
     // la hauteur de la bottom bar
     bottomBarHeight: Constants.defaultBarHeight,
 
-    // la couleur d'arrrière plan de la bottom bar
+    // la couleur darrrière plan de la bottom bar
     bottomBarBackgroundColor: "pink",
 
-    // si > 0, permet effet d'élévation de la bottom bar
+    // si > 0, permet effet délévation de la bottom bar
     bottomBarElevation: 0,
 
     // la couleur des icones de la bottom bar
@@ -53,10 +53,10 @@ import { SoundPlayer } from "src/services/SoundPlayer/SoundPlayer";
  *
  *
  * @returns une bottomBar (optionnel) avec bouton
- * Précédent, un titre, une icone importante, et un menu d'options.
+ * Précédent, un titre, une icone importante, et un menu doptions.
  */
 export const BottomBarLayout = (props) => {
-  //console.log("la bottom bar prend du temps avant d'apparaitre");
+  //
 
   return (
     /* la barre entière */
@@ -93,7 +93,7 @@ export const BottomBarLayout = (props) => {
  * @param {*} bottomBarIconsList
  *
  *
- * @returns la liste d'icones
+ * @returns la liste dicones
  */
 
 export const bottomBarIcons = (bottomBarStyle) => {

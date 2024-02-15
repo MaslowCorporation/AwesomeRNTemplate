@@ -19,7 +19,7 @@ import { app_strings } from 'src/stringRepos/AppStrings/AppStrings';
 const HowLongAgo = ({ creationDate }) => {
   /* PLOP_INJECT_CODE */
 
-  // l'instant T
+  // linstant T
 
   const formattedDate = GetFormattedDate();
 

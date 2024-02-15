@@ -6,7 +6,7 @@ import { getBottomBarStyle } from "../../DataListStyles/bottomBarStyle";
 import { getAppbarStyle } from "../../DataListStyles/appbarStyle";
 import { getDataListStyle } from "../../DataListStyles/dataListStyle";
 
-// permet d'afficher une liste de données
+// permet dafficher une liste de données
 import { DataList } from "src/components/DataList/DataList";
 
 // globales constantes
@@ -21,12 +21,12 @@ import { SqliteReduxTestPage } from "src/reduxState/TestPage/TestPageGetterSette
 
 /**
  *
- * @returns la liste d'items crées par l'user, ou un message.
+ * @returns la liste ditems crées par luser, ou un message.
  */
 export const TestPageListOrMsg = () => {
   /* PLOP_INJECT_CODE */
 
-  /** les styles/callbacks de l'appbar (si besoin) */
+  /** les styles/callbacks de lappbar (si besoin) */
   const appbarStyle = getAppbarStyle();
 
   /** les styles/callbacks du dataList (si besoin) */
@@ -46,7 +46,7 @@ export const TestPageListOrMsg = () => {
       name={"TestPageList"}
       refreshed={true}
     >
-      {/* le component qui permet d'afficher tes items */}
+      {/* le component qui permet dafficher tes items */}
       <DataList
         /* ici c est les TestPage sous forme de array [] */
         dataItems={TestPageList}

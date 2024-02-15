@@ -24,21 +24,17 @@ export const ToolboxChoicesDB = ({ answers, route }) => {
     /* PLOP_INJECT_VALUE_IN_DB */
   };
 
-  console.log(`edited item = ${JSON.stringify(editedItem)}`);
 
   SqliteReduxToolbox.UpdateSpecificRowsFromDB({
     row: editedItem,
     rowName: "uniqueId",
     rowValue: editedItem.uniqueId,
     onSuccess: (row) => {
-      console.log("item modifé avec succès dans ToolboxChoices.");
+
 
       GoToToolboxList();
     },
     onError: (e) => {
-      console.log(
-        "Un problème est survenu durant la modif d'item dans ToolboxChoices."
-      );
 
       GoToToolboxList();
     },

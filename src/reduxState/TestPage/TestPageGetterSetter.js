@@ -27,7 +27,7 @@ import { GetFreshestItemByUniqueID } from "./GettersSetters/GetFreshestItemByUni
 export const SqliteReduxTestPage = {
   // Getters.
   //
-  // Récupèrent des données venant d'une base de données,
+  // Récupèrent des données venant dune base de données,
   // et ordonne les en ordre ascendant, selon row.itemIndex.
   //
   // (Mention spéciale pour GetAllRowsFromDB et GetSpecificRowsFromDB,
@@ -48,7 +48,7 @@ export const SqliteReduxTestPage = {
 
   // Setters.
   //
-  // (Ajoute/Modifie/Supprime des données venant d'une base de données)
+  // (Ajoute/Modifie/Supprime des données venant dune base de données)
   AddRowToDatabase,
   DeleteSpecificRowsFromDB,
   InitTestPage,

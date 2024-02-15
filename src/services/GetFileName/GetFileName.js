@@ -8,8 +8,8 @@
  *
  * @returns le blob, si possible, ou null
  *
- * Cette fonction permet d'obtenir le nom de fichier,
- * à partir d'un path
+ * Cette fonction permet dobtenir le nom de fichier,
+ * à partir dun path
  */
 const GetFileName = async (path) => {
   /* PLOP_INJECT_CODE */

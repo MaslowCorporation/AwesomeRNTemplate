@@ -1,10 +1,10 @@
 import { PlayerGTAInstance } from 'src/constants/PlayerGTA/PlayerGTA';
 /* PLOP_INJECT_IMPORT */
 
-/* permet UI de création/modif d'item dans liste */
+/* permet UI de création/modif ditem dans liste */
 import { GetUserInput } from 'src/components/GetUserInput/GetUserInput';
 
-/* la liste de question nécessaire à la modif d'item via UI */
+/* la liste de question nécessaire à la modif ditem via UI */
 import { ToolboxChoicesQuestionList } from './ToolboxChoicesQuestionList/ToolboxChoicesQuestionList';
 
 // some shyt
@@ -16,7 +16,7 @@ import { Constants } from 'src/constants/Constants.js';
 // permet affichage conditionnel de component
 import { Camouflage } from 'src/components/Camouflage/Camouflage.js';
 
-// permet d'être multilingue
+// permet dêtre multilingue
 import auth from '@react-native-firebase/auth';
 
 
@@ -35,7 +35,7 @@ import { Spinner } from 'src/components/Spinner/Spinner';
  *
  *
  * @returns un component qui affiche conditionnellement
- * un GetUserInput de création d'item dans ToolboxChoices.
+ * un GetUserInput de création ditem dans ToolboxChoices.
  */
 export const ToolboxChoices = () => {
   /* PLOP_INJECT_CODE */

@@ -1,12 +1,12 @@
 import React from 'react';
-import {styles} from '../DataListItem.style.js';
-import {Text} from 'react-native';
+import { styles } from '../DataListItem.style.js';
+import { Text } from 'react-native';
 
 /**
  *
  * @param {*} itemStyle, les infos de style de la vignette
  *
- * @returns le nom de l'item. si existant
+ * @returns le nom de litem. si existant
  */
 export const itemNameIfNameExists = itemStyle => {
   if (itemStyle?.itemName != null) {
@@ -14,7 +14,7 @@ export const itemNameIfNameExists = itemStyle => {
       <Text
         style={[
           styles?.itemName,
-          {color: itemStyle?.contentColor, fontFamily: itemStyle?.contentFont},
+          { color: itemStyle?.contentColor, fontFamily: itemStyle?.contentFont },
         ]}>
         {itemStyle.itemName}
       </Text>

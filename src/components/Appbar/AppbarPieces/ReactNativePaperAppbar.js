@@ -48,7 +48,7 @@ export const ReactNativePaperAppbar = (props) => {
         }}
       />
 
-      {/* le titre de l'appbar */}
+      {/* le titre de lappbar */}
       <ClickableTextIcon
         backgroundColor={props.appbarStyle.appbarContentBackgroundColor}
         borderColor={props.appbarStyle.appbarContentBorderColor}
@@ -64,12 +64,12 @@ export const ReactNativePaperAppbar = (props) => {
         }}
       ></ClickableTextIcon>
 
-      {/* l'icone importante, ou pas */}
+      {/* licone importante, ou pas */}
       <ShowImportantIconOrNot
         appbarStyle={props.appbarStyle}
       ></ShowImportantIconOrNot>
 
-      {/* le menu d'options, ou pas */}
+      {/* le menu doptions, ou pas */}
       <OptionsMenuOrNot appbarStyle={props.appbarStyle}></OptionsMenuOrNot>
     </RNPaperAppbar>
   );

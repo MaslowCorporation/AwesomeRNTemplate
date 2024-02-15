@@ -27,7 +27,7 @@ export async function UploadHexToArduino(hexString) {
             if (await RNSerialport.isServiceStarted() && await RNSerialport.isOpen()) {
                 // If a connection is established and confirmed, write the Hex code/file to Arduino UNO
                 RNSerialport.writeHexString(hexString);
-                console.log("Hex code successful written to Arduino UNO.");
+                
                 
             } else {
                 // If service is not started or connection isn't open, log the error message.

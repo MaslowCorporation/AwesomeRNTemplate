@@ -62,7 +62,7 @@ async function reduceAsync(data, asyncCallback, initialValue) {
  * @example
  * const data = [1, 2, 3];
  * const asyncLog = async (num, index) => {
- *   console.log(num, index);
+ *   
  * };
  * await forEachAsync(data, asyncLog);
  * // Will log 1 0, 2 1, 3 2

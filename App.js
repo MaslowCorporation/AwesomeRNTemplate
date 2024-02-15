@@ -9,17 +9,17 @@ import { useState } from 'react';
 
 // des providers, fournisseurs de choses utiles
 
-// permet d'etre multilingue
+// permet detre multilingue
 import { InitAppStrings } from 'src/stringRepos/AppStrings/AppStrings';
 
-// permet d'afficher un écran de base quand l'appli n'est pas encore prête a etre affichée
+// permet dafficher un écran de base quand lappli nest pas encore prête a etre affichée
 import * as SplashScreen from 'expo-splash-screen';
 
 // permet un accès CRUD a des données,
-// avec refresh de l'UI automatique quand data change. (via Redux),
+// avec refresh de lUI automatique quand data change. (via Redux),
 // et persistence des données dans DB (via sqlite)
 
-// permet de charger des données avant d'afficher l'application.
+// permet de charger des données avant dafficher lapplication.
 //
 // données = fichiers audios, fonts, icones, etc...
 import { FetchEverythingNeeded } from './AppPieces/FetchEverythingNeeded';
@@ -27,17 +27,18 @@ import { FetchEverythingNeeded } from './AppPieces/FetchEverythingNeeded';
 // Contient aussi une page dummy placeholder (Home).
 import { hideSplashScreenWhenLoaded } from './AppPieces/AppInit';
 
-// permet d'afficher l'appli en dessous de la barre ou il y a l'heure
+// permet dafficher lappli en dessous de la barre ou il y a lheure
 
 // les constantes utiles
 import { AppMainComponent } from './AppPieces/AppMainComponent';
+import { InitFirebasePush } from 'src/services/InitFirebasePush/InitFirebasePush';
 
 //
 
 // customer id = cus_OCEEHCXw9qG9x4
 // api key = 95561caf4ddcf9af39d3dfaa474558dc
 
-// permet d'éviter un warning visuel,
+// permet déviter un warning visuel,
 // quand on passe une callback a une page via react-navigation.
 // dans Stack.Screen initialParams.
 LogBox.ignoreLogs([
@@ -50,10 +51,14 @@ LogBox.ignoreLogs([
 SplashScreen.preventAutoHideAsync();
 
 /**
- * permet d'utiliser des strings multilingues partout
- * (doit etre exécute une seule fois dans le cycle de vie de l'appli)
+ * permet dutiliser des strings multilingues partout
+ * (doit etre exécute une seule fois dans le cycle de vie de lappli)
  */
 InitAppStrings();
+
+
+// init Firebase cloud messaging
+InitFirebasePush();
 
 /**
  * Bonjour,
@@ -83,21 +88,21 @@ export default function App() {
   //
   // on va charger des données importantes
   // comme des fonts/icones etc...
-  // avant d'afficher l'application.
+  // avant dafficher lapplication.
   FetchEverythingNeeded({ appState, setAppState });
 
-  // une fois ces données chargées, on cache le 'splash screen'
+  // une fois ces données chargées, on cache le splash screen
   // et on obtient le onLayoutRootView nécessaire a fournir
-  // au component englobant toute l'appli
+  // au component englobant toute lappli
   const onLayoutRootView = hideSplashScreenWhenLoaded(appState);
 
-  // si tout n'est pas encore chargé, on affiche rien
+  // si tout nest pas encore chargé, on affiche rien
   if (!appState.isEverythingLoaded) {
     return null;
   }
-  // si tout est prêt, on affiche l'appli dans son entièreté.
+  // si tout est prêt, on affiche lappli dans son entièreté.
   else {
-    //console.log(`app initial state = ${appState.initialState}`);
+    //
 
     return (
       <AppMainComponent

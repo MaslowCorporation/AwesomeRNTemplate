@@ -1,7 +1,7 @@
 /* PLOP_INJECT_IMPORT */
 
 import {
-	TestPage
+  TestPage
 } from "src/pages/TestPage/TestPage";
 
 import { Toolbox } from 'src/pages/Toolbox/Toolbox';
@@ -13,7 +13,7 @@ import React from 'react';
 // styles de base
 import { styles } from './App.style.js';
 
-// barre d'heure stylée
+// barre dheure stylée
 import { StatusBar } from 'react-native';
 
 // provider redux
@@ -44,7 +44,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
  * Ceci permet de pouvoir naviguer entre différents écrans
  * dans cette application.
  *
- * + d'infos dispo Ici
+ * + dinfos dispo Ici
  *
  * https://reactnavigation.org/docs/getting-started
  */
@@ -52,61 +52,61 @@ const Stack = createNativeStackNavigator();
 
 /**
  *
- * @param {*} onLayoutRootView, permet affichage de l'appli
+ * @param {*} onLayoutRootView, permet affichage de lappli
  *
- * @param {*} appState, le state de base de l'application.
+ * @param {*} appState, le state de base de lapplication.
  *
- * @returns L'alpha et L'oméga, l'appli entière.
+ * @returns Lalpha et Loméga, lappli entière.
  */
 export const AppMainComponent = ({ onLayoutRootView, appState }) => {
-	/* PLOP_INJECT_CODE */
+  /* PLOP_INJECT_CODE */
 
-	return (
-		<SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
-			{/* Permet de donner de la couleur et du style, à la barre ou il y a l'heure sur ton phone */}
-			<StatusBar
-				barStyle={'dark-content'}
-				animated={true}
-				backgroundColor={Constants.defaultBackgroundColor}
-			/>
+  return (
+    <SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
+      {/* Permet de donner de la couleur et du style, à la barre ou il y a lheure sur ton phone */}
+      <StatusBar
+        barStyle={'dark-content'}
+        animated={true}
+        backgroundColor={Constants.defaultBackgroundColor}
+      />
 
-			{/* Le Provider Redux, qui permet accès CRUD à des données, et refresh UI */}
-			<Provider store={store}>
-				{/* Le Provider react-native-paper, qui permet accès à des pretty Appbar et autre joyeuseries */}
-				<PaperProvider>
-					{/* Permet une navigation entre écrans */}
-					<NavigationContainer>
-						{/* initialRouteName, c'est la page par défaut a l'allumage de l'appli */}
-						<Stack.Navigator
-							initialRouteName="TestPage"
-							screenOptions={{
-								headerShown: false,
-							}}>
-							{/* PLOP_INJECT_PAGES_PARAMS */}
+      {/* Le Provider Redux, qui permet accès CRUD à des données, et refresh UI */}
+      <Provider store={store}>
+        {/* Le Provider react-native-paper, qui permet accès à des pretty Appbar et autre joyeuseries */}
+        <PaperProvider>
+          {/* Permet une navigation entre écrans */}
+          <NavigationContainer>
+            {/* initialRouteName, cest la page par défaut a lallumage de lappli */}
+            <Stack.Navigator
+              initialRouteName="TestPage"
+              screenOptions={{
+                headerShown: false,
+              }}>
+              {/* PLOP_INJECT_PAGES_PARAMS */}
 
-							<Stack.Screen
-								name="TestPage"
-								component={
-									TestPage
-								}
-								initialParams={
-									appState.initialState
-								} />
-							<Stack.Screen
-								name="Toolbox"
-								component={Toolbox}
-								initialParams={appState.initialState}
-							/>
+              <Stack.Screen
+                name="TestPage"
+                component={
+                  TestPage
+                }
+                initialParams={
+                  appState.initialState
+                } />
+              <Stack.Screen
+                name="Toolbox"
+                component={Toolbox}
+                initialParams={appState.initialState}
+              />
 
-							{/* la page par défaut */}
-							<Stack.Screen
-								name="Home"
-								component={Home}
-								initialParams={appState.initialState}></Stack.Screen>
-						</Stack.Navigator>
-					</NavigationContainer>
-				</PaperProvider>
-			</Provider>
-		</SafeAreaProvider>
-	);
+              {/* la page par défaut */}
+              <Stack.Screen
+                name="Home"
+                component={Home}
+                initialParams={appState.initialState}></Stack.Screen>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PaperProvider>
+      </Provider>
+    </SafeAreaProvider>
+  );
 };

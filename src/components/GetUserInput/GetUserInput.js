@@ -14,7 +14,7 @@ import { onComponentLifeAndDeath } from "./onComponentLifeAndDeath";
 import { GetOrientation } from "src/services/GetOrientation/GetOrientation.js";
 
 /**
- * @returns l'écran d'interrogatoire
+ * @returns lécran dinterrogatoire
  */
 const GetUserInput = (props) => {
   // le state SqliteRedux du GUI
@@ -23,7 +23,7 @@ const GetUserInput = (props) => {
   /**
    *
    * Le state stockant la liste de questions à demander
-   * à l'utilisateur
+   * à lutilisateur
    *
    * (soit null, ou une liste de données) (si besoin)
    *
@@ -35,7 +35,7 @@ const GetUserInput = (props) => {
    */
   const [GUIStateReady, setGUIStateReady] = useState(false);
 
-  /** les styles/callbacks de l'appbar/dataList/bottomBar */
+  /** les styles/callbacks de lappbar/dataList/bottomBar */
   const appbarStyle = getAppbarStyle({
     questions: questions,
     setQuestions: setQuestions,
@@ -50,7 +50,7 @@ const GetUserInput = (props) => {
   });
 
   /**
-   * les styles/callbacks de la barre d'icones en bas de l'écran
+   * les styles/callbacks de la barre dicones en bas de lécran
    * (annuler et valider.)
    */
   const bottomBarStyle = getBottomBarStyle({
@@ -61,7 +61,7 @@ const GetUserInput = (props) => {
 
 
 
-  /** les données importantes, déterminant si on refresh, ou pas, l'item */
+  /** les données importantes, déterminant si on refresh, ou pas, litem */
   const importantData = {
     currentIndex: GUIState.currentIndex,
     howManyNPCSOnEachSide: dataListStyle.howManyNPCSOnEachSide,
@@ -78,7 +78,7 @@ const GetUserInput = (props) => {
     hardReset: props.hardReset
   });
 
-  /* si la page n'est pas prête à etre affiché, affiche spinner */
+  /* si la page nest pas prête à etre affiché, affiche spinner */
   if (GUIStateReady == false) {
     return (
       <Spinner
@@ -95,9 +95,9 @@ const GetUserInput = (props) => {
       <DataList
         /* la liste de questions */
         dataItems={questions}
-        /* la couleur d'arrière plan du questionnaire */
+        /* la couleur darrière plan du questionnaire */
         backgroundColor={Constants.defaultBackgroundColor}
-        /* styles/callbacks de l'appbar */
+        /* styles/callbacks de lappbar */
         appbarStyle={appbarStyle}
         /* styles/callbacks de la liste de données */
         dataListStyle={dataListStyle}

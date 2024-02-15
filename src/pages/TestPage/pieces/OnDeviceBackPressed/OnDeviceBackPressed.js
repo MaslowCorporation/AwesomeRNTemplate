@@ -20,7 +20,7 @@ export const OnDeviceBackPressed = () => {
   // getter, contient le state actuel
   const TestPageState = SqliteReduxTestPageState.GetTestPageStateFirstRow();
 
-  // exécute t'on la callback de back pressed ?
+  // exécute ton la callback de back pressed ?
   const doWeRunCallback =
     TestPageState.chosenOne != "TestPageList" ||
     TestPageState.snackbarVisible == Constants.true;

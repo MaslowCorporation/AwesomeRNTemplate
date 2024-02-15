@@ -5,25 +5,25 @@ import { useSelector } from "react-redux";
 
 /**
  *
- * permet d'obtenir les plus récents
+ * permet dobtenir les plus récents
  * TestPage stocké dans Redux.
- * faisant partie d'un groupe de données.
+ * faisant partie dun groupe de données.
  *
  * Meme après que le state redux a changé ailleurs.
- * Cela permet d'afficher dans l'UI la toute dernère valeur du state Redux.
+ * Cela permet dafficher dans lUI la toute dernère valeur du state Redux.
  *
- * !!! IMPORTANT: Ce service n'est pas disponible en dehors du scope d'un component.
- * Si tu est en dehors de la zone d'influence d'un component,
- * il y aura un message d'erreur semblable à celui ci:
+ * !!! IMPORTANT: Ce service nest pas disponible en dehors du scope dun component.
+ * Si tu est en dehors de la zone dinfluence dun component,
+ * il y aura un message derreur semblable à celui ci:
  *
  * Invalid hook call. Hooks can only be called inside of the body of a function component.
  *
- * Cela signifie qu'il faut utiliser l'autre fonction nommée
+ * Cela signifie quil faut utiliser lautre fonction nommée
  *
  * GetTestPage
  *
- * qui fonctionne en dehors de la zone d'influence du component,
- * mais ne rafraichira pas l'UI quand le state redux change.
+ * qui fonctionne en dehors de la zone dinfluence du component,
+ * mais ne rafraichira pas lUI quand le state redux change.
  *
  */
 

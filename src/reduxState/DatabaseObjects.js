@@ -9,14 +9,14 @@ import { SqliteReduxToolbox } from './Toolbox/ToolboxGetterSetter';
 import { SqliteReduxToolboxState } from './ToolboxState/ToolboxStateGetterSetter';
 
 export const DatabaseObjects = [
-	/* PLOP_INJECT_SQLITE_REDUX_OBJ */
-
-	SqliteReduxGUIAnswers,
-	SqliteReduxTestPageState,
-	SqliteReduxTestPage,
-	SqliteReduxAppState,
-	SqliteReduxToolboxState,
-	SqliteReduxToolbox,
-	SqliteReduxGUIState,
+  /* PLOP_INJECT_SQLITE_REDUX_OBJ */
+  
+  SqliteReduxGUIAnswers,
+  SqliteReduxTestPageState,
+  SqliteReduxTestPage,
+  SqliteReduxAppState,
+  SqliteReduxToolboxState,
+  SqliteReduxToolbox,
+  SqliteReduxGUIState,
 ];
 

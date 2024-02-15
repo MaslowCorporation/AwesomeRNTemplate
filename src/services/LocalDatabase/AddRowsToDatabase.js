@@ -9,7 +9,7 @@ export async function AddRowsToDatabase({ SqliteReduxObject, rows, onSuccess, on
 
             // if a row with the same uniqueId already exists in the local database
             if (rowExists) {
-                console.log(`row with uniqueId ${row.uniqueId} already exists locally, we revert it to the backup state`);
+
 
                 // update this existing row back to the cloud backup state
                 return SqliteReduxObject.UpdateSpecificRowsFromDB({
@@ -20,7 +20,7 @@ export async function AddRowsToDatabase({ SqliteReduxObject, rows, onSuccess, on
             }
             // if no such row exists locally
             else {
-                console.log(`row with uniqueId ${row.uniqueId} doesn't exist locally, let's add it`);
+
 
                 // add this cloud backed up row
                 return SqliteReduxObject.AddRowToDatabase({

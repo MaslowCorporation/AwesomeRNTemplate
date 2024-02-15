@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 
 
 // Import necessary packages
@@ -25,7 +26,7 @@ export default function QRScanner({ onSuccess, onError }) {
 
     // If no camera permission was granted, return an error message
     if (hasPermission === false) {
-        onError('No access to camera');
+        onError(i18next.t('xO7ZBv8'));
         return <Text>Access to camera has been denied.</Text>;
     }
 

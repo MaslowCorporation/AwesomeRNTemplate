@@ -2,7 +2,7 @@ import { Constants } from "src/constants/Constants";
 import { SqliteReduxTestPageState } from "src/reduxState/TestPageState/TestPageStateGetterSetter";
 
 /**
- * L'écran est mounted.
+ * Lécran est mounted.
  */
 export function MarkScreenAsMounted() {
   // getter
@@ -13,16 +13,14 @@ export function MarkScreenAsMounted() {
     row: {
       ...TestPageState,
 
-      // l'écran est mounted
+      // lécran est mounted
       isMounted: Constants.true,
     },
     rowName: "uniqueId",
     rowValue: "TestPageState",
     onSuccess: (row) => {
-      /*console.log(
-        `state de page modifé avec succès dans TestPage. is mounted: ${row.isMounted}`
-      );*/
+
     },
-    onError: (e) => {},
+    onError: (e) => { },
   });
 }

@@ -2,10 +2,10 @@
 
 import { PlayerGTAInstance } from "src/constants/PlayerGTA/PlayerGTA.js";
 
-/* permet UI de création/modif d'item dans liste */
+/* permet UI de création/modif ditem dans liste */
 import { GetUserInput } from "src/components/GetUserInput/GetUserInput";
 
-/* la liste de question nécessaire à la création d'item via UI */
+/* la liste de question nécessaire à la création ditem via UI */
 import { TestPageCreationList } from "./TestPageCreationList/TestPageCreationList";
 
 // some shyt
@@ -17,7 +17,7 @@ import { Constants } from "src/constants/Constants.js";
 // permet affichage conditionnel de component
 import { Camouflage } from "src/components/Camouflage/Camouflage.js";
 
-// permet d'être multilingue
+// permet dêtre multilingue
 
 // permet accès CRUD a DB Sqlite , + Redux associé
 
@@ -35,7 +35,7 @@ import { GetUniqueID } from "src/services/GetUniqueID/GetUniqueID";
 /**
  *
  * @returns un component qui affiche conditionnellement
- * un GetUserInput de création d'item dans TestPage.
+ * un GetUserInput de création ditem dans TestPage.
  */
 export const AddItemToTestPage = () => {
   /* PLOP_INJECT_CODE */
@@ -52,7 +52,7 @@ export const AddItemToTestPage = () => {
 
   /**
    *
-   * Camouflage, c'est une cape d'invisibilité conditionnelle,
+   * Camouflage, cest une cape dinvisibilité conditionnelle,
    * si chosenOne == name, on affiche contenu, sinon rien
    *
    */
@@ -64,7 +64,7 @@ export const AddItemToTestPage = () => {
     >
       {/* Une UI de récup/modif de données */}
       <GetUserInput
-        /* permet persistence de donnes d'UI */
+        /* permet persistence de donnes dUI */
         persistenceID={TestPageState.itemUniqueId}
         /* direction vers laquelle va le scroll */
         scrollDirection={"horizontal_one_by_one"}

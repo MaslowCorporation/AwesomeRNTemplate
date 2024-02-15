@@ -10,22 +10,22 @@ import { MemoizedSingleItemGivenNeeds } from "./SingleItemGivenNeeds";
  *
  * @param {*} currentViewabilityConfig,
  * Permet de déterminer à quel pourcentage de scroll,
- * on passe d'un item à un autre, dans la FlatList.
+ * on passe dun item à un autre, dans la FlatList.
  *
  * @param {*} onViewableItemsChanged,
- * callback quand l'item visible à l'écran à changé.
+ * callback quand litem visible à lécran à changé.
  *
  * @param {*} dataListItemHeight,
- * la hauteur d'un item individuel de la liste d'items.
+ * la hauteur dun item individuel de la liste ditems.
  *
  * @param {*} dataListItemWidth,
- * la largeur d'un item individuel de la liste d'items.
+ * la largeur dun item individuel de la liste ditems.
  *
  * @param {*} properSnapToIntervalAndOffset,
- * combien de scroll pour passer d'un item à l'autre.
+ * combien de scroll pour passer dun item à lautre.
  *
  * @param {*} dataItems,
- * la liste d'items.
+ * la liste ditems.
  *
  * @param {*} horizontal,
  * scroll horizontal, ou pas ?
@@ -35,14 +35,14 @@ import { MemoizedSingleItemGivenNeeds } from "./SingleItemGivenNeeds";
  *
  * @param {*} importantData, contient les infos nécessaire au bon scroll one by one,
  * pour éviter re-renders inutiles.
- * contient notamment l'index de l'item en cours de visionnage.
+ * contient notamment lindex de litem en cours de visionnage.
  * valable si dataListStyle.dataListScrollDirection
  *
- * @param {*} backgroundColor, la couleur d'arrière plan
- * de l'écran
+ * @param {*} backgroundColor, la couleur darrière plan
+ * de lécran
  * (pour placeholders onebyoneflatlist par ex.)
  *
- * @returns la liste scrollable d'items (1 by 1, vertical ou horizontal)
+ * @returns la liste scrollable ditems (1 by 1, vertical ou horizontal)
  */
 export const OneByOneFlatListLayout = ({
   //setRef,
@@ -57,7 +57,7 @@ export const OneByOneFlatListLayout = ({
   importantData,
   backgroundColor,
 }) => {
-  // combien d'items il y  a t'il dans la liste de données ?
+  // combien ditems il y  a til dans la liste de données ?
   const qtyItems = dataItems.length;
 
   /**
@@ -65,7 +65,7 @@ export const OneByOneFlatListLayout = ({
    * pour créer les items du FlatList.
    */
   const renderItem = ({ item, index }) => {
-    // affiche l'UI de l'item, selon que l'item est PNJ, ou pas, custom.
+    // affiche lUI de litem, selon que litem est PNJ, ou pas, custom.
     return (
       <MemoizedSingleItemGivenNeeds
         importantData={importantData}
@@ -84,7 +84,7 @@ export const OneByOneFlatListLayout = ({
    * @param {*} data
    * @param {*} index
    *
-   * @returns un truc qui permet d'optimiser FlatList
+   * @returns un truc qui permet doptimiser FlatList
    */
   const getItemLayout = (data, index) => ({
     length: dataListItemWidth,
@@ -99,7 +99,7 @@ export const OneByOneFlatListLayout = ({
    * permet de stocker la télécommande de FlatList en dehors de ce component
    *
   const refSetter = (ref) => {
-    console.log("stocke réference");
+    
     setRef(ref);
   };
   */
@@ -131,16 +131,16 @@ export const OneByOneFlatListLayout = ({
           flex: 1,
         }}
         // fix: On set la quantité maximum
-        // d'items à créer dans la FlatList
+        // ditems à créer dans la FlatList
         // (pas trop, pas trop peu, goldilocks)
         maxToRenderPerBatch={5}
         // fix
         removeClippedSubviews={true}
         // fix
         //windowSize={1}
-        // l'index de l'item à montrer en premier
+        // lindex de litem à montrer en premier
         initialScrollIndex={importantData?.currentIndex}
-        // des données de taille (length) et place d'item(s) (offset)
+        // des données de taille (length) et place ditem(s) (offset)
         // dans la FlatList
         getItemLayout={getItemLayout}
         // la liste de données
@@ -157,10 +157,10 @@ export const OneByOneFlatListLayout = ({
         keyExtractor={KeyExtractor}
         // callback qd item visible à changé
         onViewableItemsChanged={onViewableItemsChanged}
-        // %tage déterminant passage d'un item à un autre
+        // %tage déterminant passage dun item à un autre
         viewabilityConfig={currentViewabilityConfig}
         // permet de récupérer la télécommande du FlatList,
-        // de l'extérieur de ce component
+        // de lextérieur de ce component
         //ref={refSetter}
         // scroll horizontal, ou pas ?
         horizontal={horizontal}

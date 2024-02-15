@@ -7,7 +7,7 @@
 import ImagePicker from 'react-native-image-crop-picker';
 
 /*
-It's important to note, the details of the crop region 
+Its important to note, the details of the crop region 
 would generally be obtained from user interactions in the 
 UI and not pre-set. The mock function below is simplified 
 to illustrate the overall idea.

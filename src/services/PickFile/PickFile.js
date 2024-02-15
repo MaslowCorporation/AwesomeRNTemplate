@@ -12,13 +12,13 @@ import { types } from "react-native-document-picker";
 PickFile({
   fileType: types.video,
   onFilePicked: async (fileUri) => {
-    //console.log(`video file ${fileUri} picked successfully !`);
+    //
 
     onVideoTaken({ path: fileUri, durationSec: null });
 
   },
   onPickError: (e) => {
-    console.log(`error during video file picking: ${e}`);
+    
 
     SetCurrentSubstep(CurrentSubstep.WatchVideo);
   },

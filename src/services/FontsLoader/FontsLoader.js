@@ -6,30 +6,30 @@ import * as SplashScreen from "expo-splash-screen";
 /**
  *
  * @param {*} fontPaths,
- * une liste des paths de fonts qu'on va utiliser,
- * partant du dossier racine de l'appli
+ * une liste des paths de fonts quon va utiliser,
+ * partant du dossier racine de lappli
  *
  * @param {*} setAppIsReady,
- * une callback qui permet de changer le state d'un component
+ * une callback qui permet de changer le state dun component
  *
  * @param {*} appIsReady
- * l'état d'avancement du chargement des font(s)
+ * létat davancement du chargement des font(s)
  *
- * @returns un truc machin chose nécessaire à l'affichage
- * délayé de l'UI
+ * @returns un truc machin chose nécessaire à laffichage
+ * délayé de lUI
  */
 const FontsLoader = (fontPaths, setAppIsReady, appIsReady) => {
   useEffect(() => {
     async function prepare() {
       try {
-        /*console.log("Chargeons ces jolis fonts...");*/
+        /**/
 
         // chargeons nos font(s)
         await Font.loadAsync(fontPaths);
       } catch (e) {
         console.warn(e);
       } finally {
-        /*console.log("Les fonts sont enfin chargés !");*/
+        /**/
 
         // indique que les données sont chargées
         setAppIsReady(true);

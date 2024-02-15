@@ -3,6 +3,6 @@
  * @param {*} _
  * @param {*} index
  *
- * @returns createur de key d'item de Flatlist
+ * @returns createur de key ditem de Flatlist
  */
 export const keyExtractor = (_, index) => index.toString();

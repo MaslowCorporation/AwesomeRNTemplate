@@ -12,7 +12,7 @@ import { SoundPlayer } from "src/services/SoundPlayer/SoundPlayer.js";
 /**
  *
  * DataListItem.
- * le layout par défaut d'un item de données.
+ * le layout par défaut dun item de données.
  
 DataListItem consomme un prop itemStyle = {
   thumbUrl: "",
@@ -37,12 +37,12 @@ itemData = {
         infoIconUrl: null,
         infoIconPath:
           "https://lh3.googleusercontent.com/a/AATXAJx9OD3G0U9fgZgXbd3aiZ_vtdMWVXQgVQt62_0d=s96-c",
-        infoTxt: "La lettre J",
+        infoTxt: string
       },
       {
         infoIconUrl: null,
         infoIconPath: null,
-        infoTxt: "sans icone",
+        infoTxt: string
       },
     ],
     onItemClicked: (itemData) => {
@@ -55,7 +55,7 @@ itemData = {
 />
 
  * Veille à ce que le component photo ne soit pas affiché.
- * si une prop itemStyle.thumbUrl n'est pas fournie.
+ * si une prop itemStyle.thumbUrl nest pas fournie.
  * 
  * Affiche une liste de vignettes + texte,
  * via prop itemStyle.itemsInfos = [{infoIconUrl, infoIconPath, infoTxt}, {...}]
@@ -66,7 +66,7 @@ itemData = {
  * un clique long exécute une prop onItemLongPress, si fourni.
  *
  * @param {*} un objet contenant: {
- *   itemStyle: { le style et contenu de cette vignette d'item },
+ *   itemStyle: { le style et contenu de cette vignette ditem },
  *   itemData: { les données stockées dans la DB pour cet item },
  * }
  *
@@ -74,7 +74,7 @@ itemData = {
  */
 const DataListItem = ({ itemStyle, itemData }) => {
   return (
-    /* permet de pouvoir cliquer sur l'item */
+    /* permet de pouvoir cliquer sur litem */
     <TouchableHighlight
       activeOpacity={0.6}
       style={{
@@ -106,7 +106,7 @@ const DataListItem = ({ itemStyle, itemData }) => {
           },
         ]}
       >
-        {/* le thumbnail de cette vignette, si l'url existe */}
+        {/* le thumbnail de cette vignette, si lurl existe */}
         {thumbnailPicIfUrlExists(itemStyle)}
 
         {/* le nom de cette item */}

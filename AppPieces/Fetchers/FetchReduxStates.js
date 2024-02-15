@@ -1,16 +1,15 @@
 /* PLOP_INJECT_IMPORT */
-
 import {
-	SqliteReduxGUIAnswers
+  SqliteReduxGUIAnswers
 } from "src/reduxState/GUIAnswers/GUIAnswersGetterSetter";
 import {
-	SqliteReduxTestPageState
+  SqliteReduxTestPageState
 } from "src/reduxState/TestPageState/TestPageStateGetterSetter";
 import {
-	SqliteReduxTestPage
+  SqliteReduxTestPage
 } from "src/reduxState/TestPage/TestPageGetterSetter";
 import {
-	SqliteReduxAppState
+  SqliteReduxAppState
 } from "src/reduxState/AppState/AppStateGetterSetter";
 
 import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStateGetterSetter";
@@ -21,79 +20,79 @@ import { SqliteReduxGUIState } from "src/reduxState/GUIState/GUIStateGetterSette
  *
  * @returns
  *
- * Cette fonction permet d'initialiser le(s) state(s) SqliteRedux,
+ * Cette fonction permet dinitialiser le(s) state(s) SqliteRedux,
  *
- * et d'effectuer d'eventuels reset, ou appels d'API, et j'en passe.
+ * et deffectuer deventuels reset, ou appels dAPI, et jen passe.
  */
 export const FetchReduxStates = async () => {
-	/** ***********************************************************************
-	 *
-	 * Ci dessous, les initialisations de state SqliteRedux.
-	 */
+  /** ***********************************************************************
+   *
+   * Ci dessous, les initialisations de state SqliteRedux.
+   */
 
-	/* PLOP_INJECT_REDUX_INIT */
-
-
-	// initialize the sqlite/redux mechanism      
-	await SqliteReduxGUIAnswers.InitGUIAnswers({
-		debugMode: true,
-	});
+  /* PLOP_INJECT_REDUX_INIT */
 
 
-
-	await SqliteReduxTestPageState.InitTestPageState({
-		debugMode: true,
-	});
-
-	await SqliteReduxTestPageState.ResetState();
+  // initialize the sqlite/redux mechanism      
+  await SqliteReduxGUIAnswers.InitGUIAnswers({
+    debugMode: true,
+  });
 
 
 
+  await SqliteReduxTestPageState.InitTestPageState({
+    debugMode: true,
+  });
 
-	await SqliteReduxTestPage.InitTestPage({
-		debugMode: true,
-	});
-
-
-	/*await SqliteReduxTestPage.ResetState({
-	  debugMode: true,
-	});*/
+  await SqliteReduxTestPageState.ResetState();
 
 
 
-	// initialize the sqlite/redux mechanism      
-	await SqliteReduxAppState.InitAppState({
-		debugMode: true,
-	});
 
-	// create the state, if not already existing
-	await SqliteReduxAppState.ResetState({
-		debugMode: true,
-	});
+  await SqliteReduxTestPage.InitTestPage({
+    debugMode: true,
+  });
 
 
-
-	await SqliteReduxToolboxState.InitToolboxState({
-		debugMode: true,
-	});
-
-	await SqliteReduxToolboxState.ResetState();
-
-	await SqliteReduxToolbox.InitToolbox({
-		debugMode: true,
-	});
+  /*await SqliteReduxTestPage.ResetState({
+    debugMode: true,
+  });*/
 
 
 
-	// ***** Initialisation du state Redux *****
-	await SqliteReduxGUIState.InitGUIState({
-		debugMode: true,
-	});
+  // initialize the sqlite/redux mechanism      
+  await SqliteReduxAppState.InitAppState({
+    debugMode: true,
+  });
 
-	await SqliteReduxGUIState.ResetState();
-	// ***** Initialisation du state Redux *****
+  // create the state, if not already existing
+  await SqliteReduxAppState.ResetState({
+    debugMode: true,
+  });
 
-	/** *********************************************************************** */
 
-	return;
+
+  await SqliteReduxToolboxState.InitToolboxState({
+    debugMode: true,
+  });
+
+  await SqliteReduxToolboxState.ResetState();
+
+  await SqliteReduxToolbox.InitToolbox({
+    debugMode: true,
+  });
+
+
+
+  // ***** Initialisation du state Redux *****
+  await SqliteReduxGUIState.InitGUIState({
+    debugMode: true,
+  });
+
+  await SqliteReduxGUIState.ResetState();
+  // ***** Initialisation du state Redux *****
+
+  /** *********************************************************************** */
+
+  return;
 };

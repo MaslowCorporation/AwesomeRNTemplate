@@ -5,7 +5,7 @@ export async function DeleteDatabase({ SqliteReduxObject, onSuccess, onError }) 
     try {
         const allRows = await SqliteReduxObject.GetAllRowsFromDB({});
 
-        console.log(`before deletion, db contains ${allRows.length} rows`);
+
 
         const deletions = await mapAsync(allRows, async (row, index) => {
             return SqliteReduxObject.DeleteSpecificRowsFromDB({
@@ -16,7 +16,7 @@ export async function DeleteDatabase({ SqliteReduxObject, onSuccess, onError }) 
 
         const allRowsCleaned = await SqliteReduxObject.GetAllRowsFromDB({});
 
-        console.log(`after deletion, db contains ${allRowsCleaned?.length} rows`);
+
 
         RunIfPossible({ func: onSuccess, args: deletions })
 

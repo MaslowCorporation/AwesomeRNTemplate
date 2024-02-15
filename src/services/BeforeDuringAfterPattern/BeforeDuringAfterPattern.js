@@ -5,7 +5,7 @@ import { RunIfPossible } from "../RunIfPossible/RunIfPossible";
 
 /**
  *
- * @param {*} onBefore, callback d'échauffement
+ * @param {*} onBefore, callback déchauffement
  * @param {*} onDuring, callback de bizness iz going down
  * @param {*} onDone, callback de business is done
  * @param {*} onError, callback de bobo durant bizness

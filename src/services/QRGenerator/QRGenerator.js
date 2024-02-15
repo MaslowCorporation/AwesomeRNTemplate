@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 
 // We start by importing necessary modules and components
 import React, { useRef } from 'react';
@@ -21,24 +23,24 @@ export function QRGenerator({ qrText, fontFamily, downloadButtonText, onSuccess,
     // Check if a QR code has been generated
     if (!qrRef.current) {
       // If not, inform client via error callback
-      onError('No QR code to download.');
+      onError(i18next.t('xHCVPMcX'));
       return;
     }
 
     // Define a path to save the generated QR code
-    // We're using RNFetchBlob to get a path to a temporary directory
+    // Were using RNFetchBlob to get a path to a temporary directory
     const path = `${RNFetchBlob.fs.dirs.CacheDir}/qrcode.png`;
 
     // Convert QR code to Base64
     qrRef.current.toDataURL((data) => {
 
       // Save base64 data as a file to a temporary cache dir
-      // It's a good practice to catch promise based function
+      // Its a good practice to catch promise based function
       // because they can throw an error if something goes wrong
       RNFetchBlob.fs.writeFile(path, data, 'base64')
         .then(() => {
 
-          // After saving to cache, save the file to the device's Gallery
+          // After saving to cache, save the file to the devices Gallery
           return SaveFileToCameraRoll(path)
         })
         .then((path) => {
@@ -46,7 +48,7 @@ export function QRGenerator({ qrText, fontFamily, downloadButtonText, onSuccess,
           // If everything went good, inform the client via success callback
           onSuccess(path);
 
-          ToastAndroid.show(`File Saved to gallery !`, ToastAndroid.SHORT);
+          ToastAndroid.show(i18next.t('xFjUd1xH'), ToastAndroid.SHORT);
         })
         .catch((err) => {
 

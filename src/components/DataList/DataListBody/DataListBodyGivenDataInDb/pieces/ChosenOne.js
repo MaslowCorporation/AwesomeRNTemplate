@@ -4,17 +4,17 @@ import { React, memo } from "react";
 
 /**
  *
- * @param {*} item, l'item à transformer en UI
+ * @param {*} item, litem à transformer en UI
  *
- * @param {*} index, l'index de  l'item à transformer en UI
+ * @param {*} index, lindex de  litem à transformer en UI
  *
- * @param {*} dataListStyle, styles/callbacks, a appliquer a l'item.
+ * @param {*} dataListStyle, styles/callbacks, a appliquer a litem.
  *
- * @param {*} dataListItemHeight, la hauteur de l'UI de l'item.
+ * @param {*} dataListItemHeight, la hauteur de lUI de litem.
  *
- * @param {*} dataListItemWidth, la largeur de l'UI de l'item.
+ * @param {*} dataListItemWidth, la largeur de lUI de litem.
  *
- * @returns le chosen one, l'élu des dieux, chaussée aux moiiiiiiiiines.
+ * @returns le chosen one, lélu des dieux, chaussée aux moiiiiiiiiines.
  */
 const ChosenOne = ({
   dataListItemHeight,
@@ -24,10 +24,10 @@ const ChosenOne = ({
   index,
 }) => {
   /*
-  Styles de container n°1, de l'item individuel
+  Styles de container n°1, de litem individuel
   */
 
-  // Taille originale de l'item, centré
+  // Taille originale de litem, centré
   // eslint-disable-next-line no-unused-vars
   const originalHeightCentered = {
     height: dataListItemHeight,

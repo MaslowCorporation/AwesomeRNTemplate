@@ -15,7 +15,7 @@ import { StatusBar } from 'react-native';
 // styles de base
 import { styles } from './Toolbox.style.js';
 
-// permet affichage correct sur l'écran
+// permet affichage correct sur lécran
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // constantes globales
@@ -24,13 +24,13 @@ import { Constants } from 'src/constants/Constants.js';
 // permet lifecycle
 import { OnComponentLifeAndDeath } from './pieces/OnComponentLifeAndDeath/OnComponentLifeAndDeath';
 
-// écran d'ajout d'item
+// écran dajout ditem
 import { AddItemToToolbox } from './pieces/AddItemToToolbox/AddItemToToolbox';
 
-// écran de modif d'item
+// écran de modif ditem
 import { EditItemInToolbox } from './pieces/EditItemInToolbox/EditItemInToolbox';
 
-// la liste d'item ou un message, si liste vide
+// la liste ditem ou un message, si liste vide
 import { ToolboxListOrMsg } from './pieces/ToolboxListOrMsg/ToolboxListOrMsg';
 
 // gère les appui sur bouton back du phone.
@@ -67,10 +67,10 @@ SetPageState({
   // texte du snack
   snackbarText: "",
 
-  // index d'erreur en utilisant GetUserInput
+  // index derreur en utilisant GetUserInput
   userInputErrorIndex: -1,
 
-  // l'écran actuellement affiché dans Toolbox.js
+  // lécran actuellement affiché dans Toolbox.js
   chosenOne: "ToolboxList",
 
   // la page Toolbox.js est prêt à être affichée ?
@@ -95,13 +95,13 @@ GoToWaitScreen();
 // setter, permet de cacher le snackbar
 HideSnackbar(); OK
 
-// setter, permet de rendre l'écran visible
+// setter, permet de rendre lécran visible
 MarkScreenAsMounted(); OK
 
 // setter, permet de choisir quel écran on veut visionner
 SetCurrentChosenOne("newChosenOne", "itemUniqueId"); OK
 
-// setter, permet de changer l'index d'item visionné
+// setter, permet de changer lindex ditem visionné
 SetCurrentIndex(newIndex); OK
 
 
@@ -112,7 +112,7 @@ SetCurrentIndex(newIndex); OK
  * @param {*} route
  * @param {*} navigation
  *
- * @returns l'écran de tutos
+ * @returns lécran de tutos
  */
 const Toolbox = ({ route, navigation }) => {
   /* PLOP_INJECT_CODE */
@@ -121,11 +121,7 @@ const Toolbox = ({ route, navigation }) => {
   const ToolboxState =
     SqliteReduxToolboxState.GetFreshestToolboxStateFirstRow();
 
-  /*console.log(
-    `ze page iz loading/reloading... Toolbox state ?: ${JSON.stringify(
-      ToolboxState
-    )}`
-  );*/
+
 
   /**
    * gère les appui sur bouton back
@@ -137,12 +133,12 @@ const Toolbox = ({ route, navigation }) => {
    * Ceci nous permet de pouvoir faire
    * des choses avant/après que le component soit contruit/détruit.
    *
-   * A l'intérieur de ceci, on a ajouté un timeout qui
+   * A lintérieur de ceci, on a ajouté un timeout qui
    * permet une meilleure navigation entre écran.
    */
   OnComponentLifeAndDeath();
 
-  /* si la page n'est pas prête à etre affiché, affiche spinner */
+  /* si la page nest pas prête à etre affiché, affiche spinner */
   if (ToolboxState.isMounted == Constants.false) {
     return (
       <Spinner
@@ -156,7 +152,7 @@ const Toolbox = ({ route, navigation }) => {
   return (
     /* le conteneur qui contient toute la page */
     <SafeAreaView style={styles.dataListContainer}>
-      {/* Permet de donner de la couleur et du style, à la barre ou il y a l'heure sur ton phone */}
+      {/* Permet de donner de la couleur et du style, à la barre ou il y a lheure sur ton phone */}
       <StatusBar
         animated={true}
         backgroundColor={Constants.defaultBackgroundColor}
@@ -169,19 +165,19 @@ const Toolbox = ({ route, navigation }) => {
 
       <ToolboxChoices />
 
-      {/* la liste des items crées par l'user, ou un message invitant à créer un item. */}
+      {/* la liste des items crées par luser, ou un message invitant à créer un item. */}
       <ToolboxListOrMsg />
 
-      {/* L'écran de création d'item */}
+      {/* Lécran de création ditem */}
       <AddItemToToolbox />
 
-      {/* L'écran de modification d'item */}
+      {/* Lécran de modification ditem */}
       <EditItemInToolbox />
 
-      {/* L'écran de patientage */}
+      {/* Lécran de patientage */}
       <Wait />
 
-      {/* permet d'afficher des messages à l'écran */}
+      {/* permet dafficher des messages à lécran */}
       <Messager
         clickSound={PlayerGTAInstance.GetSound()}
         message={ToolboxState.snackbarText}

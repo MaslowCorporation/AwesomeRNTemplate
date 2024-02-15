@@ -29,13 +29,13 @@ export function setChoiceInChoices({
   // le tout juste cliqué est green
   resettedDataList[itemIndex].greenCheckmark = true;
 
-  //console.log(`ze item index: ${index}`);
+  //
 
   // modifie le state du QCM, pour
   // afficher le nouveau choix
   setChoicesState({ choices: resettedDataList });
 
-  // stocke l'index de l'item tt juste cliqué dessus
+  // stocke lindex de litem tt juste cliqué dessus
   // dans un singleton
   GlobalChoiceListState.setLastItemClickedIndex(itemIndex);
 }

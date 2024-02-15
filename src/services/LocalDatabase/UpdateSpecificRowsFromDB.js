@@ -27,10 +27,10 @@ UpdateSpecificRowsFromDB({
     moyenneBac: "REAL",
   },
   onSuccess: (rows) => {
-    /*console.log(`Voici les données mises à jour: ${rows}`);
+    /*
   },
   onError: (e) => {
-    /*console.log("Erreur durant mise à jour de données.");
+    /*
   },
 });
 
@@ -85,7 +85,7 @@ const _UpdateSpecificRowsFromDB = ({
     })
     .join(", ");
 
-  // les valeurs correspondant aux point d'interrogations
+  // les valeurs correspondant aux point dinterrogations
   const keyValues = Object.entries(row).map(([key, value]) => {
     return value;
   });

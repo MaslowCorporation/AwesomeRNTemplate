@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { PlayerGTAInstance } from 'src/constants/PlayerGTA/PlayerGTA';
 /* PLOP_INJECT_IMPORT */
 
@@ -22,7 +23,7 @@ import { useRoute } from '@react-navigation/native';
 
 /**
  *
- * Nous permet de supprimer un item de la liste d'items.
+ * Nous permet de supprimer un item de la liste ditems.
  */
 const DeleteItemOrNot = () => {
   /* PLOP_INJECT_CODE */
@@ -57,38 +58,38 @@ const DeleteItemOrNot = () => {
       ];
     },
 
-    // la valeur choisie/écrite par l'user
+    // la valeur choisie/écrite par luser
     // null (par défaut)
     value: false,
 
     // la valeur par défaut a mettre dans le text input
     defaultValue: ({ answers, answer, answerIndex }) => '',
 
-    // les flex du message ou de la zone d'input
+    // les flex du message ou de la zone dinput
     messageFlex: 1,
     componentFlex: 1,
 
     // la taille du texte du message
     messageFontSize: 25,
 
-    // on montre le component d'input en premier, ou pas ?
+    // on montre le component dinput en premier, ou pas ?
     componentFirst: true,
 
-    // un callback qui vérifie que l'input est valide
+    // un callback qui vérifie que linput est valide
     // true si valide false autrement
     checkInput: ({ input, answers, answer, answerIndex }) => {
       return true;
     },
-    // un message d'erreur à afficher si les données ne sont pas valides
+    // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
-      return "Blue pill, Red pill ? Choose a pilule s'il te please.";
+      return i18next.t('xfnALXBd');
     },
   };
 };
 
 /**
  *
- * permet suppression d'item conditionnelle,
+ * permet suppression ditem conditionnelle,
  * pour éviter freakout et cassage de téléphone.
  *
  */
@@ -99,8 +100,6 @@ const onSupprimeVraimentOuPas = route => {
     onYesPressed: () => {
       deleteItemAndGoBackToList();
     },
-    onNoPressed: () => console.log("no we don't."),
-    onCancelPressed: () => console.log('You left the chat.'),
   });
 };
 
@@ -121,15 +120,13 @@ const deleteItemAndGoBackToList = () => {
     rowName: 'uniqueId',
     rowValue: currentItem.uniqueId,
     onSuccess: qtyAffected => {
-      console.log(
-        `suppression de ${qtyAffected} tuto(s) effectué avec succès !`,
-      );
+
 
       // retour à la maison
       GoToToolboxList();
     },
     onError: e => {
-      //console.log(`échec durant suppression de ${}`);
+      //
     },
   });
 };

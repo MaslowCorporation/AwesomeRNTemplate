@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 /* PLOP_INJECT_IMPORT */
 //import React from "react";
 
@@ -14,7 +15,7 @@ import { _DownloadFromURL } from "./_DownloadFromURL";
  * @param {*} onError
  * @param {*} onProgress
  *
- * Cete fonctionn permet de télécharger du contenu venant d'une URL
+ * Cete fonctionn permet de télécharger du contenu venant dune URL
  */
 const DownloadFromUrl = async ({
   url,
@@ -45,7 +46,7 @@ const DownloadFromUrl = async ({
 
         RunIfPossible({
           func: onError,
-          args: "Permission Denied! You need to give storage permission to download the file",
+          args: i18next.t('xc3lKws4'),
         });
       },
     });

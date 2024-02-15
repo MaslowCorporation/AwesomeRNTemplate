@@ -14,7 +14,7 @@ import { getAllRowsFromDBReducer } from "./Reducers/getAllRowsFromDBReducer";
 import { getSpecificRowsFromDBReducer } from "./Reducers/getSpecificRowsFromDBReducer";
 import { updateSpecificRowsFromDBReducer } from "./Reducers/updateSpecificRowsFromDBReducer";
 
-/** l'état initial du state redux */
+/** létat initial du state redux */
 const initialState = {
   /**
    * tous les rows

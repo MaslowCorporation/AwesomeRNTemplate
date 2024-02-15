@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+
 import GUIAnswersReducer from './GUIAnswers/GUIAnswersSlice';
 import TestPageStateReducer from './TestPageState/TestPageStateSlice';
 import TestPageReducer from './TestPage/TestPageSlice';
@@ -12,8 +13,8 @@ import { configureStore } from "@reduxjs/toolkit";
 const store = configureStore({
   reducer: {
     /* PLOP_INJECT_REDUX_REDUCER */
-
-    GUIAnswers: GUIAnswersReducer,
+		
+		GUIAnswers: GUIAnswersReducer,
     TestPageState: TestPageStateReducer,
     TestPage: TestPageReducer,
     AppState: AppStateReducer,

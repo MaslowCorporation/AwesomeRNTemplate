@@ -1,7 +1,9 @@
+import i18next from 'i18next';
+
 import logo from "assets/images/icon.png";
 import { GetUserInputLayout } from "./pieces/getUserInputLayout";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 import { Constants } from "src/constants/Constants.js";
 import { Spinner } from "src/components/Spinner/Spinner";
 import React from "react";
@@ -16,7 +18,7 @@ const getDataListStyle = ({ questions, setQuestions, props }) => {
     backgroundColor: props.bodyBackgroundColor ?? "yellow",
     contentColor: props.bodyContentColor ?? "green",
     emptyDBMsgData: {
-      messageText: "Ajoute des questions poto, dans ton programme",
+      messageText: i18next.t('xPgSenoH'),
       messageTextColor:
         props.dataListTextColor ?? Constants.defaultContentColor,
       messageTextFont: props.bodyFont ?? Constants.defaultFontFamily,
@@ -30,19 +32,17 @@ const getDataListStyle = ({ questions, setQuestions, props }) => {
       buttonLogoName: "plus",
       buttonLogoSize: 30,
       buttonLogoColor: "white",
-      buttonText: "This bouton ne sert à rien",
+      buttonText: i18next.t('xSoZVodD'),
       buttonTextColor: "white",
       buttonTextFont: Constants.defaultFontFamily,
       clickSound: props.clickSound,
       onButtonClicked: () => {
-        /*console.log(
-          "Il est temps de passer aux choses sérieuses... Créons une belle chose dans ton programme !"
-        );*/
+
       },
     },
 
     renderDataListItem: ({ item, index }) => {
-      // le layout d'une question individuelle de la liste
+      // le layout dune question individuelle de la liste
       // de questions déroulant horizontalement via scroll.
       //
       // Cette question est soit du texte,
@@ -56,7 +56,7 @@ const getDataListStyle = ({ questions, setQuestions, props }) => {
       });
     },
     renderNPCDataListItem: ({ item, index }) => {
-      // le layout d'une question individuelle de la liste
+      // le layout dune question individuelle de la liste
       // de questions déroulant horizontalement via scroll.
       //
       // Cette question est soit du texte,
@@ -70,16 +70,16 @@ const getDataListStyle = ({ questions, setQuestions, props }) => {
       );
     },
 
-    // on affiche uniquement l'item à l'index en cours de visionnage ?
+    // on affiche uniquement litem à lindex en cours de visionnage ?
     renderOnlyItemOnScreen: true,
 
     // si renderOnlyItemOnScreen = true
-    // howManyNPCSOnEachSide représente combien de PNJ entourent la chose affichée a l'écran ?
+    // howManyNPCSOnEachSide représente combien de PNJ entourent la chose affichée a lécran ?
     // combien à gauche et a droite.
     // (par ex: si howManyNPCSOnEachSide = 1, il y a un component PNJ a gauche et un a droite.
     // le reste des éléments de la FlatList est = à null.
     //
-    // ..... null => PNJ => Chose a l'écran => PNJ => null => .....
+    // ..... null => PNJ => Chose a lécran => PNJ => null => .....
     //
     // Ce méchanisme permet de ne pas trop surcharger notre UI
     // quand on affiche une liste de components 'lourds'
@@ -88,7 +88,7 @@ const getDataListStyle = ({ questions, setQuestions, props }) => {
     howManyNPCSOnEachSide: 1,
 
     onListEndPushed: () => {
-      /*console.log(`We're at the end of the list... Time to do some work...`);*/
+      /**/
     },
 
     // vertical, horizontal, vertical_one_by_one, horizontal_one_by_one

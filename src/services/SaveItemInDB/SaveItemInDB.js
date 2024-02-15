@@ -10,7 +10,7 @@
 ```javascript
 
 // par ex. sauvegarde des données dans un row, 
-// suite à une prise de photo thumbnail d'un tuto
+// suite à une prise de photo thumbnail dun tuto
 SaveItemInDB({
     // item is the currently stored item
     // in the DB, whose rows are about to be changed.
@@ -25,10 +25,10 @@ SaveItemInDB({
     SqliteReduxObject: SqliteReduxTutoriels,
     uniqueId: route.params.tutoriel.uniqueId,
     onSuccess: (qtyRowsAffected) => {
-      console.log(`Data saved successfully ! ${qtyRowsAffected} rows got edited.`);
+      
     },
     onError: (e) => {
-      console.log(`This error happened trying to save data: ${e} .`);
+      
     }
 })
 

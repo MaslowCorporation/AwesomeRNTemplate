@@ -19,21 +19,21 @@ export const computeDimensionsAndStuff = ({
   const appScreenWidth = Dimensions.get("window").width;
 
   /**
-   * l'appbar et bottom bar sont ils en mode sandwich ?
+   * lappbar et bottom bar sont ils en mode sandwich ?
    */
   const bottomBarLayoutOverlaid = bottomBarStyle.bottomBarLayoutOverlaid;
   const appbarLayoutOverlaid = appbarStyle.appbarLayoutOverlaid;
 
   /**
-   * l'appbar et bottom bar existent ils ?
+   * lappbar et bottom bar existent ils ?
    */
   const bottomBarExists = bottomBarStyle.showBottomBar;
   const appbarExists = appbarStyle.showAppbar;
 
   /**
-   * la taille de l'appbar et bottom bar.
+   * la taille de lappbar et bottom bar.
    *
-   * Si l'appbar/bottombar existent, et prennent de la place,
+   * Si lappbar/bottombar existent, et prennent de la place,
    * on déduit leur hauteur de la la hauteur totale de lécran,
    * pour donner la bonne taille au body pour un bon scroll one by one
    */
@@ -47,14 +47,14 @@ export const computeDimensionsAndStuff = ({
       : 0;
 
   /**
-   * la hauteur de la barre  tout en haut de l'écran (la ou il y a l'heure).
-   * Si il n'y a pas d'appbar, le contenu touche le bord haut de l'écran.
+   * la hauteur de la barre  tout en haut de lécran (la ou il y a lheure).
+   * Si il ny a pas dappbar, le contenu touche le bord haut de lécran.
    * Donc il faut pas enlever la hauteur de status bar de la hauteur de la liste, sinon bobo
    */
   const statusBarHeight = appbarExists === true ? Constants.statusBarHeight : 0;
 
   /**
-   * la hauteur et largeur de la liste d'items
+   * la hauteur et largeur de la liste ditems
    */
   const dataListItemHeight =
     appScreenHeight -

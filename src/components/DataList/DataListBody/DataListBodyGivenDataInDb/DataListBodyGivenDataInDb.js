@@ -7,28 +7,28 @@ import { ShowMsgWithButton } from "./pieces/ShowMsgWithButton";
 /**
  *
  * @param {*} appbarStyle, les styles et callbacks
- * à appliquer à la barre du haut de l'écran.
+ * à appliquer à la barre du haut de lécran.
  *
  * @param {*} bottomBarStyle, les styles et callbacks
- * à appliquer à la barre du bas d'écran.
+ * à appliquer à la barre du bas décran.
  *
  * @param {*} dataListStyle, les styles et callbacks
- * à appliquer au body de l'écran.
+ * à appliquer au body de lécran.
  *
- * @param {*} dataItems, une liste d'items à afficher,
+ * @param {*} dataItems, une liste ditems à afficher,
  * via notamment dataListStyle.renderDataListItem.
  *
  * @param {*} importantData, contient les infos nécessaire au bon scroll one by one,
  * pour éviter re-renders inutiles.
- * contient notamment l'index de l'item en cours de visionnage.
+ * contient notamment lindex de litem en cours de visionnage.
  *
- * @param {*} setCurrentIndex, modifie l'index de l'item en cours de visionnage.
+ * @param {*} setCurrentIndex, modifie lindex de litem en cours de visionnage.
  * valable si dataListStyle.dataListScrollDirection
  * ==
  * "horizontal_one_by_one" ou "vertical_one_by_one"
  *
- * @param {*} backgroundColor, la couleur d'arrière plan
- * de l'écran
+ * @param {*} backgroundColor, la couleur darrière plan
+ * de lécran
  * (pour placeholders onebyoneflatlist par ex.)
  *
  * @returns le body de la liste de données scrollable.
@@ -62,7 +62,7 @@ const DataListBodyGivenDataInDb = ({
   } else if (dataItems.length === 0) {
     /**
      * Si il existe une liste de données,
-     * mais qu'elle est vide,
+     * mais quelle est vide,
      *
      * affiche un message invitant à créer une liste de données.
      */

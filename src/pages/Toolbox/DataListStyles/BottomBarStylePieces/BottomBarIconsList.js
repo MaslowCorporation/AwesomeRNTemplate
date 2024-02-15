@@ -3,7 +3,7 @@ import { GoToAddItemToToolbox } from "../../pieces/NavHelpers/GoToAddItemToToolb
 /**
  *
  *
- * @returns la liste d'icones de la barre du bas d'écran.
+ * @returns la liste dicones de la barre du bas décran.
  */
 export function BottomBarIconsList() {
   return [

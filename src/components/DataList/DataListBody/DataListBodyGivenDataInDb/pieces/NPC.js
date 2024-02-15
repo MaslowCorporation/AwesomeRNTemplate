@@ -4,15 +4,15 @@ import { React, memo } from "react";
 
 /**
  *
- * @param {*} item, l'item à transformer en UI
+ * @param {*} item, litem à transformer en UI
  *
- * @param {*} index, l'index de  l'item à transformer en UI
+ * @param {*} index, lindex de  litem à transformer en UI
  *
- * @param {*} dataListStyle, styles/callbacks, a appliquer a l'item.
+ * @param {*} dataListStyle, styles/callbacks, a appliquer a litem.
  *
- * @param {*} dataListItemHeight, la hauteur de l'UI de l'item.
+ * @param {*} dataListItemHeight, la hauteur de lUI de litem.
  *
- * @param {*} dataListItemWidth, la largeur de l'UI de l'item.
+ * @param {*} dataListItemWidth, la largeur de lUI de litem.
  *
  * @returns le PNJ, qui doit être la pour faire joli, ou en anticipation.
  */

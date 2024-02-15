@@ -26,7 +26,7 @@ import React from "react";
  *
  *
  * @returns une appbar (optionnel) avec bouton
- * Précédent, un titre, une icone importante, et un menu d'options.
+ * Précédent, un titre, une icone importante, et un menu doptions.
  */
 const Appbar = ({ appbarStyle }) => {
   /**
@@ -35,7 +35,7 @@ const Appbar = ({ appbarStyle }) => {
    */
   onComponentLifeAndDeath();
 
-  /** Si il faut montrer l'appbar, on le montre */
+  /** Si il faut montrer lappbar, on le montre */
   if (appbarStyle?.showAppbar === true) {
     return (
       /* la barre entière */

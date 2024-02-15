@@ -3,7 +3,7 @@ import { MessageAvecBoutonLayout } from "src/components/MessageAvecBouton/Messag
 import React from "react";
 import { useEffect } from "react";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 
 /**
  *
@@ -11,7 +11,7 @@ import { useEffect } from "react";
  *
  * @returns un component MessageAvecBouton,
  *
- * qui permet d'afficher un message avec bouton
+ * qui permet dafficher un message avec bouton
  * qui fait des actions.
  *
 
@@ -29,11 +29,11 @@ import { useEffect } from "react";
   buttonLogoName={"logo-google"}
   buttonLogoSize={20}
   buttonLogoColor={Constants.defaultContentColor}
-  buttonText={"Black n' Yellow/Orange"}
+  buttonText={i18next.t("blk_n_yellow")}
   buttonTextColor={Constants.defaultContentColor}
   buttonTextFont={"PriceDown"}
   onButtonClicked={() => {
-    //console.log("Soon, we'll manifest material and spiritual abundance")
+
   }}
 ></MessageAvecBouton>
 
@@ -69,9 +69,9 @@ const MessageAvecBouton = ({
   /**
    * une page simple, constituées:
    *
-   * d'une icone,
-   * d'un message,
-   * d'un bouton.
+   * dune icone,
+   * dun message,
+   * dun bouton.
    *
    * empilés verticalement.
    *

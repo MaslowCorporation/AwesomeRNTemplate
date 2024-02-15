@@ -3,7 +3,7 @@ import { MessageAvecLayout } from "src/components/MessageAvec/MessageAvecLayout/
 import React from "react";
 import { useEffect } from "react";
 
-// permet d'accéder a des globales
+// permet daccéder a des globales
 
 /**
  *
@@ -11,7 +11,7 @@ import { useEffect } from "react";
  *
  * @returns un component MessageAvecTextInput,
  *
- * qui permet d'afficher un message avec bouton
+ * qui permet dafficher un message avec bouton
  * qui fait des actions.
  *
 
@@ -45,7 +45,7 @@ const MessageAvec = ({
   /**
    * une page simple, constituées:
    *
-   * d'un message,
+   * dun message,
    * de quelque component en dessous de ce message
    *
    * empilés verticalement.ou horizontalement selon orientation écran.

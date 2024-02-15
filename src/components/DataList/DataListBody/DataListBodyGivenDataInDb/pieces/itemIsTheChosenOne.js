@@ -1,11 +1,11 @@
 /**
  *
- * @param {*} itemIndex, index de l'item
- * @param {*} chosenOneIndex, index de l'item actuellement visible à l'écran.
+ * @param {*} itemIndex, index de litem
+ * @param {*} chosenOneIndex, index de litem actuellement visible à lécran.
  *
- * @returns si l'item est l'item actuellement visible à l'écran.
+ * @returns si litem est litem actuellement visible à lécran.
  */
 export const itemIsTheChosenOne = (itemIndex, chosenOneIndex) => {
-  //console.log(``);
+  //
   return itemIndex === chosenOneIndex;
 };

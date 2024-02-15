@@ -11,8 +11,8 @@ import { MemoizedDataListItem } from "./memoDataListItem";
  * @param {*} dataListStyle
  * @param {*} importantData
  *
- * @returns la liste d'items (via FlatList)
- * selon le type de scroll qu'on veut.
+ * @returns la liste ditems (via FlatList)
+ * selon le type de scroll quon veut.
  *
  */
 export const VerticalFlatList = ({
@@ -43,7 +43,7 @@ export const VerticalFlatList = ({
       <FlatList
         data={dataItems}
         // fix: On set la quantité maximum
-        // d'items à créer dans la FlatList
+        // ditems à créer dans la FlatList
         // (pas trop, pas trop peu, goldilocks)
         maxToRenderPerBatch={5}
         // fix

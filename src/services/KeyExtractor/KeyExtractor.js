@@ -6,7 +6,7 @@
  * @param {*} item
  * @param {*} index
  *
- * @returns createur de key d'item de Flatlist
+ * @returns createur de key ditem de Flatlist
  */
 const KeyExtractor = (item, index) => {
   if (Object.prototype.hasOwnProperty.call(item, "uniqueId")) {
