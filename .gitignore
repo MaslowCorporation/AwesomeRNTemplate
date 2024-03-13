@@ -32,7 +32,6 @@ local.properties
 *.hprof
 .cxx/
 *.keystore
-!debug.keystore
 
 # node.js
 #
@@ -66,4 +65,4 @@ package-lock.json
 
 node_modules/
 
-.vscode/
+android/app/google-services.json
