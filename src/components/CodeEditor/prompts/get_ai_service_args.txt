@@ -1,0 +1,2 @@
+initialCode (string, the initial code/text to add in the  code editor, or null if no initial stuff shall be added),
+onCodeChanged (a 1 arg callback that gets executed everytime the code editor's text changes)

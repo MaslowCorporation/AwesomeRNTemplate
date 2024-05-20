@@ -1,0 +1,72 @@
+
+
+import React, { useState } from 'react';
+import { ScrollView, TextInput, View, StyleSheet } from 'react-native';
+
+// Define the CodeEditor component.
+// We're using functional components with hooks here. 
+// This component will receive several props such as initialCode, onCodeChanged, textColor, backgroundColor, borderColor, textFont and placeholderText
+export const CodeEditor = ({
+  initialCode,
+  onCodeChanged,
+  textColor,
+  backgroundColor,
+  borderColor,
+  textFont,
+  placeholderText,
+}) => {
+  // Using the useState hook, we initialize the text in the code editor
+  // we use initialCode passed as props or if it's not available, set to empty string
+  const [code, setCode] = useState(initialCode || '');
+
+  // We define a method for handling the change of code in the editor.
+  // This function will be responsible for updating the state and executing the onCodeChanged callback
+  const handleCodeChanged = (text) => {
+    setCode(text);
+    // From the props, we trigger the onCodeChanged to notify the parent all the changes
+    onCodeChanged(text);
+  };
+
+  // Inside return, we define the JSX (JSXML) code that will be rendered
+  return (
+    <View style={[styles.container, { borderColor: borderColor, backgroundColor: backgroundColor }]}>
+      <ScrollView>
+        <TextInput
+          style={[styles.textInput, { color: textColor, fontFamily: textFont }]}
+	  // Styles related to the TextInput are dynamic. It gets the textColor and fontFamily as props
+
+          // The text in the editor will be obtained from the state
+          value={code}
+
+          // We link the onChangeText to the state update and callback trigger
+          onChangeText={handleCodeChanged}
+
+          // If a placeholderText was passed as a prop, it's added, otherwise, it provides a default
+          placeholder={placeholderText || 'Type your code here...'}
+
+          // Allows multiline input, allowing auto line breaking for long texts
+          multiline
+
+          // On render, it will automatically focus on the TextInput
+          autoFocus
+        />
+      </ScrollView>
+    </View>
+  );
+};
+
+// Styles are defined outside the component function itself - it's better performance-wise
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderWidth: 1,
+    margin: 20,
+    borderRadius: 5,
+  },
+  textInput: {
+    flex: 1,
+    fontSize: 16,
+    padding: 10,
+  },
+});
+

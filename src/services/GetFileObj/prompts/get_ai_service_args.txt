@@ -1,0 +1,1 @@
+filePath (le path du fichier dont on veut les données sous forme d'objet)

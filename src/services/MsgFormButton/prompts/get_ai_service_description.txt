@@ -1,0 +1,1 @@
+Returns a React Native component that provides a nice UI that allows the user to type his API key, in a TextInput, or allows the user to  subscribe to the API, via button.

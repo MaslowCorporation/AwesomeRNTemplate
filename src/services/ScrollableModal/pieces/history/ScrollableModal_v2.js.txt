@@ -1,0 +1,116 @@
+
+
+import React, { useState } from 'react';
+import { Modal, View, Text, TextInput, Picker, ScrollView, TouchableOpacity } from 'react-native';
+
+const ScrollableModal = ({ inputs, onSubmission }) => {
+  const [modalVisible, setModalVisible] = useState(false);  // State to control the visibility of the modal
+  const [answers, setAnswers] = useState([]);  // State to store the user's answers
+
+  // Function to handle when the user submits their answers
+  const handleSubmit = () => {
+    setModalVisible(false);
+    onSubmission(answers);
+  };
+
+  // Function to update the answer for a specific input field
+  const handleAnswerChange = (id, output) => {
+    const updatedAnswers = answers.map(answer => {
+      if (answer.id === id) {
+        return { ...answer, output };
+      }
+      return answer;
+    });
+    setAnswers(updatedAnswers);
+  };
+
+  return (
+    <View>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <Text>Open Modal</Text>
+      </TouchableOpacity>
+      
+      <Modal 
+        visible={modalVisible} 
+        animationType="slide" 
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <ScrollView>
+          <View style={styles.modalContainer}>
+            {inputs.map(input => (
+              <View key={input.id}>
+                <Text style={styles.inputTitle}>{input.title}</Text>
+
+                {input.type === 'textinput_text' && (
+                  <TextInput 
+                    style={styles.textInput} 
+                    onChangeText={output => handleAnswerChange(input.id, output)}
+                  />
+                )}
+
+                {input.type === 'textinput_number' && (
+                  <TextInput 
+                    style={styles.textInput} 
+                    keyboardType="numeric" 
+                    onChangeText={output => handleAnswerChange(input.id, output)}
+                  />
+                )}
+
+                {input.type === 'choice_list' && (
+                  <Picker 
+                    style={styles.picker} 
+                    selectedValue={answers.find(answer => answer.id === input.id)?.output}
+                    onValueChange={output => handleAnswerChange(input.id, output)}
+                  >
+                    {input.choices.map(choice => (
+                      <Picker.Item key={choice} label={choice} value={choice} />
+                    ))}
+                  </Picker>
+                )}
+              </View>
+            ))}
+            
+            <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+              <Text>Submit</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </Modal>
+    </View>
+  );
+};
+
+export default ScrollableModal;
+
+// Styling
+const styles = {
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  inputTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+  },
+  picker: {
+    height: 40,
+    marginBottom: 20,
+  },
+  submitButton: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+  },
+};
+

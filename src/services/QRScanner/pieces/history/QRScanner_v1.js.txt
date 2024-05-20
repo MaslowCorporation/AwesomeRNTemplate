@@ -1,0 +1,40 @@
+
+
+// First, import React and Component from react
+import React, { Component } from 'react';
+// Import the react-native-camera package
+import { RNCamera } from 'react-native-camera';
+
+export default class QRScanner extends Component {
+    // Define the method to handle QR code detection
+    barcodeRecognized = ({ barcodes }) => {
+        // Fetch the barcode data from the first barcode detected
+        const barcodeData = barcodes[0].data;
+        
+        // Call the onSuccess callback prop with the barcode data
+        this.props.onSuccess(barcodeData);
+    };
+
+    // Here is our render method, which returns our camera component
+    render() {
+        return (
+            <RNCamera
+                // Set the camera's aspect ratio
+                aspect={RNCamera.constants.Aspect.fill}
+                // Enable barcode scanning
+                onBarCodeRead={this.barcodeRecognized}
+                // Set the camera type to back
+                type={RNCamera.constants.Type.back}
+                // You can set flash mode to auto, on, off or torch
+                flashMode={RNCamera.constants.FlashMode.auto}
+                // Capture audio along with video
+                captureAudio={false}
+                // Style to stretch the camera component to full screen.
+                style={{flex: 1}}
+                // Catch any errors (like if the user doesn't grant permissions)
+                onError={this.props.onError}
+            />
+        );
+    }
+}
+

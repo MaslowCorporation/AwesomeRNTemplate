@@ -1,0 +1,59 @@
+
+
+// Import react and necessary hooks from 'react'
+import React, { useRef, useEffect, useState } from 'react';
+
+// Import RichEditor from 'react-native-pell-rich-editor'
+import { RichEditor } from 'react-native-pell-rich-editor';
+
+// Import StyleSheet from 'react-native' to handle CSS-in-JS styling
+import { StyleSheet } from 'react-native';
+
+// Define our CodeEditor component
+export const CodeEditor = ({ initialCode, onCodeChanged }) => {
+  // Create reference to the rich text editor
+  const richText = useRef(null);
+
+  // Set the editor's initial content to empty string or 'initialCode' prop
+  const [content, setContent] = useState(initialCode || '');
+
+  // This `useEffect` hook sets the initial content of the editor
+  useEffect(() => {
+    // If `initialCode` prop is provided, use it to set the content
+    if (initialCode) {
+      setContent(initialCode);
+      richText.current.setContentHTML(initialCode);
+    }
+  }, [initialCode]);
+
+  // This function will be called every time the editor's content changes
+  const onContentChange = (text) => {
+    setContent(text); // Update the state with the latest editor content
+
+    // If `onCodeChanged` prop (a function) is provided, it gets called with the editor's latest content
+    if (onCodeChanged) {
+      onCodeChanged(text);
+    }
+  };
+
+  // Component's UI definition
+  return (
+    <RichEditor
+      style={styles.codeEditor} // Apply styles
+      ref={richText} // Attach the reference to the rich text editor
+      initialContentHTML={content} // Set initial content
+      onChange={onContentChange} // Set the function to be called when the content changes
+    />
+  );
+};
+
+// React Native Stylesheet component to handle styling
+const styles = StyleSheet.create({
+  codeEditor: {
+    flex: 1, // Takes up the whole space available
+    borderWidth: 1, // Border width
+    borderStyle: 'solid', // Border style
+    borderColor: '#000', // Border color
+  },
+});
+

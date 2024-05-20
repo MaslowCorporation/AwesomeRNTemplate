@@ -1,0 +1,88 @@
+
+
+import React, { useState, useRef } from 'react';
+import { View, StyleSheet, TouchableOpacity, Modal, TextInput, Text } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Icon from 'react-native-vector-icons/MaterialIcons'; // material design icons
+
+const SwitchPages = ({ initialUrl, uiComponent }) => {
+
+    // State to control display of UI Component
+    const [showUI, setShowUI] = useState(false);
+
+    // State to maintain the url of WebView
+    const [iframeURL, setIframeURL] = useState(initialUrl);
+
+    // State to maintain text input value for desired page
+    const [inputValue, setInputValue] = useState("")
+
+    // Reference of WebView to use its instance methods
+    const webviewRef = useRef(null);
+
+    // Function to go back in WebView
+    const goBack = () => webviewRef.current.goBack();
+
+    // Function to go forward in WebView
+    const goForward = () => webviewRef.current.goForward();
+
+    // Function to reload WebView
+    const reload = () => webviewRef.current.reload();
+
+    // Function to set url and go to the desired page
+    const goToPage = () => setIframeURL(inputValue);
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.urlInput}>
+                <TextInput style={styles.input} onChangeText={text => setInputValue(text)} />
+                <TouchableOpacity onPress={goToPage}><View><Icon name='navigate-next' size={20} /></View></TouchableOpacity>
+            </View>
+            <View style={styles.bar}>
+                {/* Back Button */}
+                <TouchableOpacity onPress={goBack}><Icon name='arrow-back' size={20} /></TouchableOpacity>
+                {/* Forward Button */}
+                <TouchableOpacity onPress={goForward}><Icon name='arrow-forward' size={20} /></TouchableOpacity>
+                {/* Reload Button */}
+                <TouchableOpacity onPress={reload}><Icon name='refresh' size={20} /></TouchableOpacity>
+                {/* UI Switch Button */}
+                <TouchableOpacity onPress={() => setShowUI(!showUI)}><Icon name='menu' size={20} /></TouchableOpacity>
+            </View>
+            {/* WebView / UI Component as per the state */}
+            {!showUI &&
+            <WebView
+                source={{ uri: iframeURL }}
+                ref={webviewRef}
+            />
+            }
+            {showUI && uiComponent}
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    bar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 50,
+        backgroundColor: '#eee',
+    },
+    urlInput: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    input: {
+        flex: 1,
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+})
+
+export default SwitchPages;
+

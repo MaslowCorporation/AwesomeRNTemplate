@@ -1,0 +1,1 @@
+Displays a React Native component that displays the photo specified by photoURI. The photo should be centered. Add a backgroundColor property to this component, so I can set the photo's background color.

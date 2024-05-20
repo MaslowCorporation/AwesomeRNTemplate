@@ -1,0 +1,1 @@
+initialUrl (string, url de départ du iframe), uiComponent (un component React Native)

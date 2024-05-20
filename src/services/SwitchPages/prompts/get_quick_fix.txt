@@ -1,0 +1,110 @@
+Add the following fixes to this function:
+
+import React, { useRef, useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+const SwitchPages = ({ 
+  showUI,
+  setShowUI,
+  iframeURL,
+  setIframeURL,
+  homeURL,
+  UIComponent,
+  showAddressBar,
+  fontFamily,
+  barBackgroundColor,
+  barIconsColor,
+  barAddressTextColor
+}) => {
+  const webviewRef = useRef(null);
+  const [address, setAddress] = useState(iframeURL);
+
+  const goBack = () => webviewRef?.current?.goBack();
+  const goForward = () => webviewRef?.current?.goForward();
+  const reload = () => webviewRef?.current?.reload();
+
+  const goToAddress = () => {
+    setIframeURL(null);
+    setTimeout(() => setIframeURL(address), 100);
+  }
+
+  const home = () => {
+    setIframeURL(null);
+    setTimeout(() => setIframeURL(homeURL), 100);
+  }
+
+  const onNavigationStateChange = (navState) => {
+    setAddress(navState.url);
+  };
+
+  return (
+    <View style={styles.container}>
+      {/* Top bar */}
+      <View style={[styles.bar, { backgroundColor: barBackgroundColor }]}>
+        {/* Home button */}
+        {homeURL && (
+          <TouchableOpacity onPress={home} style={!showUI ? styles.visible : styles.invisible}>
+            <Icon name='home' size={20} color={barIconsColor} />
+          </TouchableOpacity>
+        )}
+        {/* Back button */}
+        <TouchableOpacity onPress={goBack} style={!showUI ? styles.visible : styles.invisible}>
+          <Icon name='arrow-back' size={20} color={barIconsColor} />
+        </TouchableOpacity>
+        {/* Forward button */}
+        <TouchableOpacity onPress={goForward} style={!showUI ? styles.visible : styles.invisible}>
+          <Icon name='arrow-forward' size={20} color={barIconsColor} />
+        </TouchableOpacity>
+        {/* Reload button */}
+        <TouchableOpacity onPress={reload} style={!showUI ? styles.visible : styles.invisible}>
+          <Icon name='refresh' size={20} color={barIconsColor} />
+        </TouchableOpacity>
+        {/* Address bar */}
+        {!showUI && showAddressBar && (
+          <TextInput
+            style={[styles.addressBar, { fontFamily: fontFamily, color: barAddressTextColor }]}
+            value={address}
+            onChangeText={setAddress}
+            onSubmitEditing={goToAddress}
+          />
+        )}
+        {/* Switch button */}
+        <TouchableOpacity onPress={() => setShowUI(!showUI)}>
+          <Icon name='menu' size={20} color={barIconsColor} />
+        </TouchableOpacity>
+      </View>
+      
+      {/* Body */}
+      <View style={styles.bodyContainer}>
+        {/* Display WebView or custom UIComponent based on showUI value */}
+        {iframeURL && <WebView
+          onNavigationStateChange={onNavigationStateChange}
+          source={{ uri: iframeURL }}
+          ref={webviewRef}
+        />}
+        {showUI && <View style={styles.uiContainer}><UIComponent /></View>}
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  bodyContainer: { position: "relative", flex: 1 },
+  uiContainer: { position: "absolute", flex: 1, top: 0, left: 0, bottom: 0, right: 0 },
+  bar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 50,
+  },
+  visible: { opacity: 1 },
+  invisible: { opacity: 0 },
+  addressBar: { flex: 1 },
+});
+
+export { SwitchPages };
+
+Fixes_should_be_here

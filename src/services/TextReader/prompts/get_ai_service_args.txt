@@ -1,0 +1,1 @@
+text, fontFamily, textSize, textColor, backgroundColor, textBackgroundColor

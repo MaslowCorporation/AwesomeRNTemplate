@@ -1,0 +1,48 @@
+
+
+// Import necessary libraries
+import React from 'react'; // Base React library for creating components
+import CodeEditor from '@rivascva/react-native-code-editor'; // Code editor library for React Native
+
+// Define a new functional component called CodeEditorComponent
+// This component takes two props:
+//   initialCode -> the initial code/text to display in the editor (default to empty string if no value provided)
+//   onCodeChanged -> a callback function that triggers when the text in the editor changes
+const CodeEditorComponent = ({ initialCode = '', onCodeChanged }) => {
+  // Define the style settings for the code editor 
+  let settings = {
+    content: {
+      fontSize: 16, // Font size of the main content
+      color: 'white', // Text color
+      backgroundColor: 'black', // Background color of the editor
+      paddingLeft: 20, // Padding on the left
+      paddingRight: 20, // Padding on the right
+      paddingTop: 20, // Padding on the top
+      paddingBottom: 20, // Padding on the bottom
+    },
+    lineNumber: {
+      fontSize: 16, // Font size of the line numbers
+      color: '#ccc', // Text color of the line numbers
+      backgroundColor: '#333', // Background color of the line numbers
+      paddingLeft: 10, // Padding on the left
+      paddingRight: 10, // Padding on the right
+    },
+    container: {
+      paddingLeft: 0, // Padding on the left of the overall container
+    },
+  };
+
+  // Return the CodeEditor component wrapped inside the custom CodeEditorComponent
+  // Pass the 'settings', 'initialCode' and 'onCodeChanged' props to the CodeEditor component
+  return (
+    <CodeEditor
+      settings={settings} // Pass the settings to the component
+      initialCode={initialCode} // Initialize the editor with the initial code
+      onCodeChanged={onCodeChanged} // Trigger the callback on text change
+    />
+  );
+};
+
+// Export the CodeEditorComponent for external use
+export default CodeEditorComponent;
+

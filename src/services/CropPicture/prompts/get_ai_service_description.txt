@@ -1,0 +1,3 @@
+A react Native component that gives the user a photo cropping UI, via a drag-and-drop crop square.
+There's a crop button that crops the picture, where the crop square is located within the picture,
+and returns the path of the cropped piece

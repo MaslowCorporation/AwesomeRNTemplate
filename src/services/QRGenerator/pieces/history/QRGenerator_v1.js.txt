@@ -1,0 +1,61 @@
+
+
+// Import required libraries
+import React, { useRef } from 'react';
+import { View, TouchableOpacity, Text, Linking } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
+import RNFS from 'react-native-fs';
+
+export default function QRGenerator({ qrText, onSuccess, onError }) {
+  // Create a reference to the QR code
+  let qrRef = useRef(null);
+
+  // Function for creating a QR code
+  const handleCreate = () => {
+    if(qrText) {
+      onSuccess('QR code generated successfully!');
+    } else {
+      onError('No qrText provided to generate QR code.');
+    }
+  };
+
+  // Function for downloading the QR code
+  const handleDownload = async () => {
+    if(!qrRef.current) {
+      onError('No QR code to download.');
+      return;
+    }
+
+    // Save the QR code to a temporary path (this may vary depending on the platform)
+    const path = `${RNFS.TemporaryDirectoryPath}/qrcode.svg`;
+    await qrRef.current.toDataURL((data) => {
+      RNFS.writeFile(path, data, 'base64')
+        .then((success) => {
+          
+          // Open the QR code in a new browser tab
+          Linking.openURL(path);
+        })
+        .catch((err) => {
+          
+          onError(err.message);
+        });
+    });
+  };
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      {qrText && <QRCode value={qrText} getRef={(c) => (qrRef = c)} />}
+      
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity onPress={handleCreate}>
+          <Text>Create QR Code</Text>
+        </TouchableOpacity>
+      
+        <TouchableOpacity onPress={handleDownload}>
+          <Text>Download QR Code</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+

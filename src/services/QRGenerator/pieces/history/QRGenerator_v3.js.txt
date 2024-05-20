@@ -1,0 +1,70 @@
+
+
+import React, { useRef } from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
+import { fs } from 'react-native-blob-util';
+import { CameraRoll, ToastAndroid } from "react-native"
+
+export default function QRGenerator({ qrText, onSuccess, onError }) {
+  // Create a reference to the QR code
+  let qrRef = useRef(null);
+
+  // Function for creating a QR code
+  const handleCreate = () => {
+    // Check if qrText is provided
+    if(!qrText) {
+      // qrText is not provided, hence call the onError callback function
+      onError('No qrText provided to generate QR code.');
+    }
+  };
+
+  // Function for downloading the QR code
+  const handleDownload = async () => {
+    // Check if a QR code has been generated
+    if(!qrRef.current) {
+      onError('No QR code to download.');
+      return;
+    }
+
+    // Save the QR code to a temporary path
+    const path = `${fs.dirs.CacheDir}/qrcode.png`;
+
+    // Get the base64 data of the QRCode
+    qrRef.current.toDataURL(async (data) => {
+      // write the base64 data to file
+      await fs.writeFile(path, data, 'base64')
+        .then((success) => {
+          
+          // Save to device gallery
+          return CameraRoll.saveToCameraRoll(path, 'photo')
+        })
+        .then(() => {
+          // onSuccess callback function with the disk file path
+          onSuccess(path);
+          // Inform the user that the QR Code has been saved
+          ToastAndroid.show('Saved to gallery !!', ToastAndroid.SHORT)
+        })
+        .catch((err) => {
+          
+          onError(err.message);
+        });
+    });
+  };
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      {/* Generate QR code view */}
+      {qrText && <QRCode value={qrText} getRef={(c) => (qrRef = c)} />}
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity onPress={handleCreate}>
+          <Text>Create QR Code</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleDownload}>
+          <Text>Download QR Code</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+

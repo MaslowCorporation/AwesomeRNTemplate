@@ -1,0 +1,29 @@
+Add the following fixes to this function:
+
+// We need to import React and some components from React Native in order to 
+// create our PhotoViewer component.
+import React from 'react';
+import { Image, View } from 'react-native';
+
+// The PhotoViewer function should be a function component. It takes one argument: an object 
+// with properties `imgURI` and `backgroundColor`.
+// `imgURI` is the URL of the image we want to display, and `backgroundColor` is the color of the 
+// background of the component.
+export function PhotoViewer({ imgURI, backgroundColor }) {
+  // The component that we returned is a View with a single Image inside of it.
+  // The View component is a simple container for other components, and we can specify its style 
+  // (including its background color) with the `style` prop.
+  return (
+    <View style={{ backgroundColor, flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {/* The Image component displays an image, which can be specified with the `source` prop. */}
+      {/* We use uri inside source because we are loading image from a remote url */}
+      <Image
+        source={{uri: imgURI}}  
+        style={{ width: "100%", height: "100%" }} // Image will take full width and height possible, adjust this as needed
+      />
+    </View>
+  );
+}
+
+
+Fixes_should_be_here

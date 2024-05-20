@@ -1,0 +1,73 @@
+
+
+// Import essential modules
+import React, { useRef, useEffect, useState } from 'react';
+import { RichEditor } from 'react-native-pell-rich-editor';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Icons library
+
+// Define the CodeEditor component
+// useEffect hook to set the initial content of the editor only once (empty dependency array)
+// useState hook to keep track of the editor's current content
+// useRef hook to create a reference to the RichEditor component
+// onContentChange function to handle changes in the editor's content
+// TouchableOpacity component acting as the floating saving button
+export const CodeEditor = ({ initialCode, onCodeChanged }) => {
+  const richText = useRef(null);
+  const [content, setContent] = useState(initialCode || '');
+
+  useEffect(() => {
+    if (initialCode) {
+      setContent(initialCode);
+      richText.current.setContentHTML(initialCode);
+    }
+  }, [initialCode]);
+
+  const onContentChange = (text) => {
+    setContent(text);
+    if (onCodeChanged) {
+      onCodeChanged(text);
+    }
+  };
+
+  return (
+    <>
+      <RichEditor
+        style={styles.codeEditor}
+        ref={richText}
+        initialContentHTML={content}
+        onChange={onContentChange}
+      />
+      <TouchableOpacity style={styles.fab}
+        onPress={() => {
+          // on pressing the button
+           
+        }}>
+        <Icon name="check" size={30} color="#FFF" />
+      </TouchableOpacity>
+    </>
+  );
+}
+
+// Define the styles for the CodeEditor and button
+const styles = StyleSheet.create({
+  codeEditor: {
+    flex: 1,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#000',
+  },
+  fab: { // floating action button styles
+    position: 'absolute', // here's how we'll stick it to the bottom-right
+    right: 30,
+    bottom: 30,
+    backgroundColor: '#03A9F4',
+    width: 56, 
+    height: 56,
+    borderRadius: 28, // half of width/height to achieve the round shape
+    alignItems: 'center', // icon alignment
+    justifyContent: 'center', // icon alignment
+    elevation: 8 // for Android shadow
+  }
+});
+

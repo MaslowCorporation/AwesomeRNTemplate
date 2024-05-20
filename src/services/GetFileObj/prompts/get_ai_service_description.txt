@@ -1,0 +1,8 @@
+Retourne un objet comme ceci, selon le filePath:
+
+return {
+    // Replace with your file URL/path
+    uri: '<should be filePath>',
+    name: '<filePath's name>.<filePath's extension>',
+    type: '<Replace with the appropriate file type, like image/png for a png file, etc...>'
+};

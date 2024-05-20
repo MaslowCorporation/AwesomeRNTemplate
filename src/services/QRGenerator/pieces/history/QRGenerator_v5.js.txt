@@ -1,0 +1,85 @@
+
+
+// We start by importing necessary modules and components
+import React, { useRef } from 'react';
+import { View, TouchableOpacity, Text, ToastAndroid } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
+import * as fs from 'react-native-fs'; // Corrected module for file system operations
+import CameraRoll from "@react-native-community/cameraroll";
+
+// Defining and exporting QRGenerator function
+export default function QRGenerator({ qrText, onSuccess, onError }) { 
+  // Create a reference to QR code using React's useRef hook   
+  let qrRef = useRef(null);   
+
+  // Define function for creating a QR code 
+  const handleCreate = () => {    
+    // Check if `qrText` is provided 
+    if(!qrText) { 
+      // qrText is not provided, so we call the onError callback function 
+      onError('No qrText provided to generate QR code.');      
+      return;    
+    }   
+
+    // If `qrText` is provided, show toast notification
+    ToastAndroid.show('QR code created!!', ToastAndroid.SHORT);  
+  };
+
+  // Define function for downloading the QR code
+  const handleDownload = () => {
+
+    // Check if a QR code has been generated
+    if(!qrRef.current) {
+      // Inform that there is no QR code to download.
+      onError('No QR code to download.');      
+      return;    
+    }   
+
+    // Save the QR code to a temporary path
+    const path = `${fs.TemporaryDirectoryPath}/qrcode.png`;
+    
+    // Get the base64 data of the QRCode
+    qrRef.current.toDataURL(data => {
+      // write base64 data to file
+      fs.writeFile(path, data, 'base64')
+        .then(() => {
+          // Save to device gallery
+          return CameraRoll.save(path, 'photo')
+        })
+        .then(() => {
+          // onSuccess callback function with the disk file path
+          onSuccess(path);
+          
+          // Inform user that the QR Code has been saved
+          ToastAndroid.show('Saved to gallery !!', ToastAndroid.SHORT)
+        })
+        .catch(err => {
+          // Log error message and pass to onError callback function
+          
+          onError(err.message);
+        });
+    });
+  };
+  
+  // Render the QR code generator component
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+
+      {/* Display QR code view if qrText is available */}
+      {qrText && <QRCode value={qrText} getRef={c => (qrRef = c)} />}
+
+      <View style={{ flexDirection: 'row' }}>
+        {/* Button for creating a QR code */}
+        <TouchableOpacity onPress={handleCreate}>
+          <Text>Create QR Code</Text>
+        </TouchableOpacity>
+        
+        {/* Button for downloading the QR code */}
+        <TouchableOpacity onPress={handleDownload}>
+          <Text>Download QR Code</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+

@@ -1,0 +1,96 @@
+
+
+import React, { useState } from 'react';
+import { Modal, ScrollView, View, Text, TextInput, TouchableOpacity } from 'react-native';
+
+const ScrollableModal = ({ inputs, onSubmission }) => {
+  const [answers, setAnswers] = useState([]); // State to store the user answers
+
+  // Function to handle user input change
+  const handleInputChange = (index, value) => {
+    const updatedAnswers = [...answers]; // Create a copy of the current answers
+    updatedAnswers[index] = { ...inputs[index], output: value }; // Update the specific answer object with user output
+    setAnswers(updatedAnswers); // Update the answers state
+  };
+
+  // Function to handle modal submission
+  const handleSubmit = () => {
+    onSubmission(answers); // Callback prop to pass the answers to the parent component
+  };
+
+  return (
+    <Modal visible={true} animationType="slide">
+      <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
+          {inputs.map((input, index) => (
+            <View key={input.id}>
+              <Text>{input.title}</Text>
+              {input.type === 'textinput_text' && (
+                <TextInput
+                  value={answers[index]?.output || ''}
+                  onChangeText={(value) => handleInputChange(index, value)}
+                />
+              )}
+              {input.type === 'textinput_number' && (
+                <TextInput
+                  value={answers[index]?.output || ''}
+                  onChangeText={(value) => handleInputChange(index, value)}
+                  keyboardType="numeric"
+                />
+              )}
+              {input.type === 'choice_dropdown_menu' && (
+                // Replace this placeholder with your dropdown component implementation
+                <Text>Dropdown Component</Text>
+              )}
+            </View>
+          ))}
+        </ScrollView>
+        <TouchableOpacity onPress={handleSubmit} style={{ backgroundColor: 'blue', padding: 10 }}>
+          <Text style={{ color: 'white', textAlign: 'center' }}>Submit</Text>
+        </TouchableOpacity>
+      </View>
+    </Modal>
+  );
+};
+
+export default ScrollableModal;
+
+// Example usage:
+/*
+import React, { useState } from 'react';
+import ScrollableModal from './ScrollableModal';
+
+const App = () => {
+  const [submittedAnswers, setSubmittedAnswers] = useState([]);
+
+  const handleSubmission = (answers) => {
+    setSubmittedAnswers(answers);
+    // Do something with the submitted answers
+    
+  };
+
+  const inputs = [
+    {
+      title: 'Text Input (Text)',
+      type: 'textinput_text',
+      id: 'text_input1',
+    },
+    {
+      title: 'Text Input (Number)',
+      type: 'textinput_number',
+      id: 'text_input2',
+    },
+    {
+      title: 'Dropdown Menu',
+      type: 'choice_dropdown_menu',
+      id: 'dropdown_menu',
+    },
+  ];
+
+  return (
+    <ScrollableModal inputs={inputs} onSubmission={handleSubmission} />
+  );
+};
+
+export default App;
+*/

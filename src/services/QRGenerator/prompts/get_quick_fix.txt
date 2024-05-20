@@ -1,0 +1,83 @@
+Add the following fixes to this function:
+
+// We start by importing necessary modules and components
+import React, { useRef } from 'react';
+import { View, TouchableOpacity, Text, ToastAndroid } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
+import RNFetchBlob from 'react-native-blob-util';
+import CameraRoll from "@react-native-community/cameraroll";
+
+// Defining and exporting QRGenerator function
+export default function QRGenerator({ qrText, onSuccess, onError }) {
+
+  // useRef is a built-in function in React
+  // We used it here to create a variable that can hold a reference to the QRCode component
+  let qrRef = useRef(null);
+
+  const handleCreate = () => {
+    // Check if `qrText` is available
+    if(!qrText) {
+      // If `qrText` is not available, inform client via error callback
+      onError('No qrText provided to generate QR code.');
+      return;
+    }
+
+    // If `qrText` is available, show a toast notification
+    // It's a simple way to show quick messages on a screen
+    ToastAndroid.show('QR code created!!', ToastAndroid.SHORT);
+  };
+
+  const handleDownload = () => {
+    // Check if a QR code has been generated
+    if(!qrRef.current) {
+      // If not, inform client via error callback
+      onError('No QR code to download.');
+      return;
+    }
+
+    // Define a path to save the generated QR code
+    // We're using RNFetchBlob to get a path to a temporary directory
+    const path = `${RNFetchBlob.fs.dirs.CacheDir}/qrcode.png`;
+
+    // Convert QR code to Base64
+    qrRef.current.toDataURL((data) => {
+      // Save base64 data as a file to a temporary cache dir
+      // It's a good practice to catch promise based function
+      // because they can throw an error if something goes wrong
+      RNFetchBlob.fs.writeFile(path, data, 'base64')
+        .then(() => {
+          // After saving to cache, save the file to the device's Gallery
+          return CameraRoll.save(path, { type: 'photo', album: 'QR Codes' })
+        })
+        .then(() => {
+          // If everything went good, inform the client via success callback
+          onSuccess(path);
+          ToastAndroid.show('Saved to gallery !!', ToastAndroid.SHORT);
+        })
+        .catch((err) => {
+          onError(err.message);
+        });
+    });
+  };
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      {/* Display QR code view if qrText is available */}
+      {qrText && <QRCode value={qrText} getRef={(c) => (qrRef.current = c)} />}
+      <View style={{ flexDirection: 'row' }}>
+        {/* Button for creating a QR code */}
+        <TouchableOpacity onPress={handleCreate}>
+          <Text>Create QR Code</Text>
+        </TouchableOpacity>
+
+        {/* Button for downloading the QR code */}
+        <TouchableOpacity onPress={handleDownload}>
+          <Text>Download QR Code</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+
+Fixes_should_be_here

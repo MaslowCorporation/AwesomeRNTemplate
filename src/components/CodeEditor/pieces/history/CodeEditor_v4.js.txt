@@ -1,0 +1,39 @@
+
+
+import React from 'react';
+import { WebView } from 'react-native-webview';
+
+function CodeEditor({ initialCode = '', onCodeChanged }) {
+  // You'll need to serve the Ace build files (use parcel, webpack, etc.)
+  const aceLocation = 'http://localhost:1234/ace'; // it could be your local server
+
+  const javascriptToInject = `
+    var aceEditor = ace.edit("editor");
+    aceEditor.setTheme("ace/theme/monokai"); // you can set your own theme
+    aceEditor.getSession().setMode("ace/mode/javascript"); // or, whatever mode you want
+    // Initialize editor with initial code
+    aceEditor.setValue(${JSON.stringify(initialCode)});
+   
+    aceEditor.on('change', function() {
+      // When editor contents change, send the current value to react native side.
+      window.ReactNativeWebView.postMessage(aceEditor.getValue());
+    });
+  `;
+
+  return (
+    <WebView 
+      source={{ uri: aceLocation }}
+      injectedJavaScript={javascriptToInject}
+      onMessage={(event) => {
+        // this event will triggered when the Ace editor's content changes
+        if (onCodeChanged) {
+          onCodeChanged(event.nativeEvent.data);
+        }
+      }}
+      style={{ flex: 1 }}
+    />
+  );
+}
+
+export default CodeEditor;
+
