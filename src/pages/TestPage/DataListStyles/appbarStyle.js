@@ -83,9 +83,9 @@ export const getAppbarStyle = () => {
 
     // callback dactions a effectuer si on clique sur licone de lappbar
     onAppbarIconClicked: () => {
-      //navigation.navigate("Toolbox");
+      navigation.navigate("Toolbox");
 
-      console.log("Hello bambino")
+      // console.log("Hello bambino")
     },
 
     // callback dactions a effectuer si on clique sur la flèche de retour arrière
