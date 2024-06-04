@@ -4,6 +4,8 @@
 
 import 'intl-pluralrules';
 import i18next from 'i18next';
+import { ReactNativeLanguageDetector } from 'react-native-localization-settings';
+
 
 /**
  * AppStrings
@@ -131,10 +133,12 @@ const translations = {
 function InitAppStrings() {
   //const i18nApp2 = i18next.createInstance();
 
-  i18next.init({
-    fallbackLng: 'en',
-    resources: translations,
-  });
+  i18next
+    .use(ReactNativeLanguageDetector)
+    .init({
+      fallbackLng: 'en',
+      resources: translations,
+    });
 
   return i18next;
 }
