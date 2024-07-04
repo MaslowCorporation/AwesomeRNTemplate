@@ -1,0 +1,74 @@
+
+
+import React, { useRef } from 'react';
+import { View, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+// The SwitchPages component with the modified arguments
+const SwitchPages = ({ showUI, setShowUI, iframeURL = "", fontFamily, UIComponent }) => {
+
+    // Reference to the WebView for calling instance methods
+    const webviewRef = useRef(null);
+
+    // Function that navigates back in WebView history
+    const goBack = () => webviewRef?.current?.goBack();
+
+    // Function that navigates forward in the WebView history
+    const goForward = () => webviewRef?.current?.goForward();
+
+    // Function that reloads the WebView
+    const reload = () => webviewRef?.current?.reload();
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.bar}>
+                {/* Back Button */}
+                <TouchableOpacity onPress={goBack}><Icon name='arrow-back' size={20} /></TouchableOpacity>
+                {/* Forward Button */}
+                <TouchableOpacity onPress={goForward}><Icon name='arrow-forward' size={20} /></TouchableOpacity>
+                {/* Reload Button */}
+                <TouchableOpacity onPress={reload}><Icon name='refresh' size={20} /></TouchableOpacity>
+                {/* Button that toggles between WebView and UIComponent */}
+                <TouchableOpacity onPress={() => setShowUI(!showUI)}><Icon name='menu' size={20} /></TouchableOpacity>
+            </View>
+
+            {/* WebView or UIComponent is shown based on the value of showUI */}
+            <View style={styles.bodyContainer}>
+                {iframeURL && <WebView
+                    source={{ uri: iframeURL }}
+                    ref={webviewRef}
+                />}
+                {showUI && <View style={styles.uiContainer}><UIComponent /></View>}
+            </View>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    uiContainer: {
+        flex: 1,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    },
+    bodyContainer: {
+        flex: 1,
+        position: "relative",
+    },
+    bar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 50,
+        // backgroundColor: '#eee',
+    },
+});
+
+export { SwitchPages };
+

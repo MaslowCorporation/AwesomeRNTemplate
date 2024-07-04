@@ -1,0 +1,14 @@
+Returns a React Native component that provides a nice UI that allows the user to type his API key, in a TextInput, or allows the user to  subscribe to the API, via button.
+
+The component fills the available space. 
+
+The component is made of a message saying "Type your API key below, or oress the button to subscribe to the API.".
+
+Under the message is a TextInput. The default value of the TextInput is currentAPIKey. Whenever the value of the TextInput changes, run onInput with the latest TextInput value as argument.
+This TextInput must have a delete button that allows the user to empty the TextInput. This button must be alongside the TextInput, not below it.
+
+Under the TextInput is a button whose text is 'Subscribe'. When pressed, a empty, no argument callback is called. I'll fill the callback on my own.
+
+Position the stuff nicely, so everything is visible without need for scrolling, all within the available space. Place the UI elements evenly, and center them too, using flex containers and other shenanigans.
+
+I believe in you

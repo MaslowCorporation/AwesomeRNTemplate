@@ -1,0 +1,50 @@
+
+
+// Importing the path module to perform operations on file path
+const path = require('path');
+
+/**
+ * @function GetFileObj
+ * @param {string} filePath - The file path from which we want to create a data object.
+ * @returns {{uri: string, name: string, type: string}} - an object with uri as the filePath, the fileName including extension,
+ *  and the mime type derived from the file extension.
+ */
+
+export function GetFileObj(filePath) {
+    // Get the file extension
+    let extension = path.extname(filePath);
+   
+    // Get the file base name (name + extension)
+    let baseName = path.basename(filePath);
+   
+    // We assume that the video type is mp4 by default
+    let mimeType = 'video/mp4';
+
+    // Map of file extensions to mime types
+    const mimeTypes = {
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.png': 'image/png',
+        '.gif': 'image/gif',
+        '.bmp': 'image/bmp',
+        '.mp4': 'video/mp4',
+        '.mov': 'video/quicktime',
+        '.avi': 'video/x-msvideo',
+        '.mkv': 'video/x-matroska'
+        // add more if needed
+    };
+
+    // If the file extension exists in our map, override the default mime type
+    if (extension in mimeTypes) {
+        mimeType = mimeTypes[extension];
+    }
+
+    // Return the final object
+    return {
+        uri: filePath,
+        name: baseName,
+        type: mimeType
+    };
+};
+
+

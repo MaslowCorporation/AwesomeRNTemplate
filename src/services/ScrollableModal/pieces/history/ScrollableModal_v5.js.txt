@@ -1,0 +1,148 @@
+
+
+import React, { useState, useEffect } from 'react';
+import { Modal, View, Text, TextInput, Picker, ScrollView, TouchableOpacity } from 'react-native';
+
+/**
+ * 
+ * @param {*} inputs, a list of objects {
+     title: the title of the input,
+     id: a unique identifier,
+     type: one of: 'textinput_text', 'textinput_number', 'choice_list'
+     choices: a list of objects {
+       title: the title of the choice,
+       value: the actual value of the choice,
+       onClick: callback that gets executed when that specific choice is chosen (optional)
+     }, each one of these objects represents an individual choice
+ * }
+ * @param {*} onSubmission, callback that gets executed when the submit button is pressed
+ * @param {*} modalVisible, is the modal visible or not 
+ * @param {*} showModalButton, do we show the "show modal" button
+ * 
+ * @returns a nice modal
+ */
+const ScrollableModal = ({ inputs, onSubmission, modalVisible = true, showModalButton = true }) => {
+  // Define state variables
+  const [answers, setAnswers] = useState(inputs);
+  const [isVisible, setIsVisible] = useState(modalVisible);
+
+  // Update modal visibility when prop value changes
+  useEffect(() => {
+    setIsVisible(modalVisible);
+  }, [modalVisible]);
+
+  // Handle form submission
+  const handleSubmit = () => {
+    setIsVisible(false);
+    onSubmission && onSubmission(answers);
+  };
+
+  // Handle input field value change
+  const handleAnswerChange = (id, output) => {
+    const updatedAnswers = answers.map(answer => {
+      if (answer.id === id) {
+        return { ...answer, output };
+      }
+      return answer;
+    });
+    setAnswers(updatedAnswers);
+  };
+
+  return (
+    <View>
+      {showModalButton && <TouchableOpacity onPress={() => setIsVisible(true)}>
+        <Text>Open Modal</Text>
+      </TouchableOpacity>}
+
+      <Modal
+        visible={isVisible}
+        animationType="slide"
+        onRequestClose={() => setIsVisible(false)}
+      >
+        <ScrollView>
+          <View style={styles.modalContainer}>
+            {/* Check if inputs array is empty or null */}
+            {inputs && inputs.length > 0 ? (
+              inputs.map(input => (
+                <View key={input.id}>
+                  <Text style={styles.inputTitle}>{input.title}</Text>
+
+                  {/* Render input fields based on input type */}
+                  {input.type === 'textinput_text' && (
+                    <TextInput
+                      style={styles.textInput}
+                      onChangeText={output => handleAnswerChange(input.id, output)}
+                    />
+                  )}
+                  {input.type === 'textinput_number' && (
+                    <TextInput
+                      style={styles.textInput}
+                      keyboardType="numeric"
+                      onChangeText={output => handleAnswerChange(input.id, output)}
+                    />
+                  )}
+                  {input.type === 'choice_list' && (
+                    <Picker
+                      style={styles.picker}
+                      selectedValue={answers.find(answer => answer.id === input.id)?.output}
+                      onValueChange={output => handleAnswerChange(input.id, output)}
+                    >
+                      {/* Render choice items */}
+                      {input.choices.map(choice => (
+                        <Picker.Item key={choice} label={choice} value={choice} />
+                      ))}
+                    </Picker>
+                  )}
+                </View>
+              ))
+            ) : (
+              // eslint-disable-next-line react/no-unescaped-entities
+              <Text>There's no inputs specified... Add an array of inputs, sir.</Text>
+            )}
+
+            {/* Submit button */}
+            <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+              <Text>Submit</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+      </Modal>
+    </View>
+  );
+};
+
+// Styling
+const styles = {
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  inputTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+  },
+  picker: {
+    height: 40,
+    marginBottom: 20,
+  },
+  submitButton: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+  },
+};
+
+// Export ScrollableModal function
+export { ScrollableModal };
+

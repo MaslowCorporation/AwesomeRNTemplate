@@ -1,0 +1,12 @@
+{
+  // add these 2 lines of code below,
+  // alongside the other existing code.
+  // don't add this stoopid comments, just the code.
+  // Thanks to the 
+  // "editor.formatOnSave": true 
+  // line of code, 
+  // your own code will also be reformatted 
+  // every time you save the code's file, so it always looks pretty
+  "eslint.lintTask.enable": true, 
+  "editor.formatOnSave": true,
+}

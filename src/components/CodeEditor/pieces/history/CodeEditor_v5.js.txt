@@ -1,0 +1,58 @@
+
+
+import React from 'react';
+import { WebView } from 'react-native-webview';
+
+function CodeEditor({ initialCode = '', onCodeChanged }) {
+  // Ace editor files should be served locally. They could be served using a module bundler
+  // like parcel, webpack, etc. The URI below is just an example, replace it with your server address.
+  const aceLocation = 'http://localhost:1234/ace';
+
+  // JavaScript code to be injected into WebView to initialize the Ace editor
+  const javascriptToInject = `
+    // Initialize Ace editor
+    var aceEditor = ace.edit("editor");
+
+    // Set theme
+    aceEditor.setTheme("ace/theme/monokai");
+
+    // Set mode (javascript in this case)
+    aceEditor.getSession().setMode("ace/mode/javascript");
+
+    // If there is an initial code, set it in the editor
+    aceEditor.setValue(${JSON.stringify(initialCode)});
+
+    // Add event listener for changes in the editor contents
+    aceEditor.on('change', function() {
+      // Whenever the code in the Ace editor changes, send the current value 
+      // to the react native side using the postMessage function. 
+      // The onMessage prop in the WebView component can capture this message.
+      window.ReactNativeWebView.postMessage(aceEditor.getValue());
+    });
+  `;
+
+  return (
+    <WebView
+      // Load Ace editor from the specified location
+      source={{ uri: aceLocation }}
+
+      // Inject JavaScript into WebView
+      injectedJavaScript={javascriptToInject}
+
+      // Function for handling messages sent from the WebView
+      onMessage={(event) => {
+        // This event will be triggered when the Ace editor's content changes.
+        // The new content can be captured via event.nativeEvent.data.
+        if (onCodeChanged) {
+          onCodeChanged(event.nativeEvent.data);
+        }
+      }}
+
+      // Take the entire space available
+      style={{ flex: 1 }}
+    />
+  );
+}
+
+export default CodeEditor;
+

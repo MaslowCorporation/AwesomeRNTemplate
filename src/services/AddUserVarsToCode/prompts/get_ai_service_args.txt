@@ -1,0 +1,3 @@
+programCode (string),
+allUserVars (List of string/ null or null),
+allUserValues (List of string/number/null, or null)

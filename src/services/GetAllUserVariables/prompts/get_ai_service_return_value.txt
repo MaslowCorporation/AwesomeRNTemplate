@@ -1,0 +1,4 @@
+Returns a list of strings containing all the user variables found in the source code. 
+Return null if no user variable was found, or if an error took place during search.
+The user variables are looking like this, with double brackets around them: {{VARIABLE_NAME}} , 
+and I want a list of ["VARIABLE_NAME_1", "VARIABLE_NAME_2", ....] , without double brackets

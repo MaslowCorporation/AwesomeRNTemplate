@@ -1,0 +1,56 @@
+
+import React, { useState, useEffect } from 'react';
+import { View } from 'react-native';
+import { CodeInput } from 'react-native-confirmation-code-input'; // A library that provides a customizable and easy to use code editor
+import { mono } from 'react-syntax-highlighter/dist/styles/prism'; // import syntax theme
+import Prism, { PrismLight } from 'react-native-syntax-highlighter'; // import syntax highlighter
+
+// Supported language for syntax highlighting
+import js from 'react-syntax-highlighter/dist/languages/prism/javascript';
+import css from 'react-syntax-highlighter/dist/languages/prism/css';
+import java from 'react-syntax-highlighter/dist/languages/prism/java';
+
+PrismLight.registerLanguage('js', js);
+PrismLight.registerLanguage('css', css);
+PrismLight.registerLanguage('java', java);
+
+/**
+ * CodeEditor component
+ * @param {String} initialCode the initial text/code to display in the code editor
+ * @param {Function} onCodeChanged a callback that gets executed whenever the text/code in the editor changes
+ * @param {String} language the programming language of the code, for syntax highlighting
+ */
+export const CodeEditor = ({ initialCode, onCodeChanged, language }) => {
+  const [code, setCode] = useState(initialCode);
+
+  // To handle code change event
+  const onCodeChange = (newCode) => {
+    setCode(newCode);  // Update the code state
+    onCodeChanged(newCode);  // trigger the onCodeChanged callback
+  };
+
+  // Update internal state when initialCode prop changes
+  useEffect(() => {
+    setCode(initialCode);
+  }, [initialCode]);
+
+  return (
+    <View>
+      <CodeInput
+        autoFocus={true}
+        codeLength={20}
+        activeColor='rgba(49, 180, 4, 1)'
+        inactiveColor='rgba(49, 180, 4, 1.3)'
+        ignoreCase={true}
+        onFulfill={onCodeChange}
+      />
+      <Prism
+        language={language}
+        style={mono}
+      >
+        {code}
+      </Prism>
+    </View>
+  );
+};
+

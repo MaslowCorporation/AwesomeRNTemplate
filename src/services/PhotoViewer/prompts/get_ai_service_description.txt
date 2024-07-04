@@ -1,0 +1,1 @@
+Displays the photo specified by photoURI

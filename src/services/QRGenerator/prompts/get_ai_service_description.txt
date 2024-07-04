@@ -1,0 +1,1 @@
+Return a QR code generator component in React Native.

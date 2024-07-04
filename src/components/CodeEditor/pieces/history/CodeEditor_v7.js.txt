@@ -1,0 +1,55 @@
+
+
+// Import React and react-native-webview
+import React from 'react';
+import { WebView } from 'react-native-webview';
+
+// CodeEditor component
+const CodeEditor = ({ initialCode = '', onCodeChanged }) => {
+  // Use CodeMirror CDN location since a local server is not available
+  const codeMirrorLocation = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/';
+
+  // JavaScript code that will be injected into WebView.
+  // This includes initializing CodeMirror, setting theme and MIME type (mode),
+  // as well as handling editor content changes
+  const injectedJavaScript = `
+    document.getElementById('code-editor').value = ${JSON.stringify(initialCode)};
+    
+    // Initialize the CodeMirror editor with a specific textarea and options
+    var editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+      lineNumbers: true,    // Show line numbers
+      theme: 'monokai',     // Set theme
+      mode: 'javascript'    // Set mode
+    });
+
+    // Add change listener to the CodeMirror editor
+    editor.on('change', function() {
+      // Post the current editor content to the native (React Native) side
+      window.ReactNativeWebView.postMessage(editor.getValue());
+    });
+  `;
+
+  // WebView component configuration
+  return (
+    <WebView
+      // Load CodeMirror from the specified location
+      source={{ uri: codeMirrorLocation }}
+      // Inject JavaScript into WebView
+      injectedJavaScript={injectedJavaScript}
+      // Handle messages sent from the WebView
+      onMessage={(event) => {
+        // Event triggered when editor content changes
+        // Event data contains the updated content
+        onCodeChanged && onCodeChanged(event.nativeEvent.data);
+      }}
+      // Style configuration for webview - it should take all space available
+      style={{ flex: 1 }}
+      // Enable JavaScript support
+      javaScriptEnabled 
+    />
+  );
+}
+
+// Export the CodeEditor component
+export default CodeEditor;
+

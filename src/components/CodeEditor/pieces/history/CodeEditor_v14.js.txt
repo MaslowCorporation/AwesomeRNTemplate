@@ -1,0 +1,55 @@
+
+
+// Required imports.
+import React, { useState, useEffect } from 'react';
+import { ScrollView, TextInput, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
+// Define the CodeEditor function.
+export const CodeEditor = ({ initialCode, onCodeChanged, textColor, backgroundColor, borderColor }) => {
+  // This state variable keeps track of the code that is currently being displayed in the editor.
+  const [codeLines, setCodeLines] = useState(initialCode ? initialCode.split('\n') : ['']);
+
+  // This function is used to handle when the code is changed. 
+  const handleCodeChanged = (newLine) => {
+    // The code that was changed is updated with the new line.
+    setCodeLines([newLine]);
+
+    // Call the onCodeChanged callback with the new code as a single string.
+    onCodeChanged(newLine);
+  };
+
+  // This is the render function. It returns a JSX element that represents what the component should look like.
+  return (
+    // We wrap the full component with a View with border for isolation and visual feel
+    <View style={[styles.container, { borderColor: borderColor, backgroundColor: backgroundColor }]}>
+      {/* Wrap the editor with a ScrollView to enable scrolling */}
+      <ScrollView>
+        <TextInput
+          style={[styles.textInput, { color: textColor }]} //apply text color
+          value={codeLines[0]}
+          onChangeText={handleCodeChanged}
+          placeholder='Type your code here...'
+          multiline
+          autoFocus
+        />
+      </ScrollView>
+    </View>
+  );
+};
+
+// Styling for the CodeEditor component inside a StyleSheet object for improved performance.
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderWidth: 1, //add border around the component
+    margin: 20, //give some spacing
+    borderRadius: 5 //add some roundness to really see the border
+  },
+  textInput: {
+    flex: 1,
+    fontSize: 16, //set default size of text
+    padding: 10 //give some padding in textinput
+  }
+});
+
+

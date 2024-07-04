@@ -1,0 +1,6 @@
+inputs (a list of objects representing each input field in the modal. each object contains {
+  title: a string, the title of the input field,
+  type: a string, the type of the input. either "textinput_text", "textinput_number", or "choice_list",
+  id: a string, a unique identifier for this input field,
+  choices: an array of strings, each is an individual choice. (only if type: choice_list)
+})

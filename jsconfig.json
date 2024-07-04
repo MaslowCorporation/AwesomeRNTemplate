@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    // *** La config du path aliasing ***
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "assets/*": ["assets/*"]
+    }
+    // ***********************************
+  }
+}

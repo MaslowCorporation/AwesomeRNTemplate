@@ -1,0 +1,61 @@
+
+
+// Start by importing the necessary dependencies.
+import React, { useState } from 'react';
+import { ScrollView, TextInput, View, StyleSheet } from 'react-native';
+
+// Define the CodeEditor component.
+// This component receives several props like initialCode, onCodeChanged, textColor, backgroundColor, borderColor, textFont and placeholderText
+export const CodeEditor = ({
+  initialCode,
+  onCodeChanged,
+  textColor,
+  backgroundColor,
+  borderColor,
+  textFont,
+  placeholderText,
+}) => {
+  // Use the useState hook to initialize the code in the editor. 
+  // Setup a state variable to store the code/text in the editor.
+  const [code, setCode] = useState(initialCode || '');
+
+  // Define a method for handling the change of code in the editor.
+  // This function will update the code state and execute the onCodeChanged callback.
+  const handleCodeChanged = (text) => {
+    setCode(text);
+    onCodeChanged(text);
+  };
+
+  // In the return, we setup our JSX code that will be rendered when this component is used.
+  return (
+    <View style={[styles.container, { borderColor: borderColor, backgroundColor: backgroundColor }]}>
+      <ScrollView>
+        <TextInput
+          style={[styles.textInput, { color: textColor, fontFamily: textFont }]}  // Set the font and color.
+          value={code}     // The editor text is set from the code state.
+          onChangeText={handleCodeChanged}    // Link the input text change to handleCodeChanged method.
+          placeholder={placeholderText || 'Type your code here...'}   // Set the placeholder.
+          multiline       // Make the TextInput component span multiple lines.
+          autoFocus      // Auto focus on the TextInput component on render.
+        />
+      </ScrollView>
+    </View>
+  );
+};
+
+// Outside the render function, the styles are defined for the components.
+// This is for performance reasons. If they were defined inside the function, they would be redefined on each render.
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderWidth: 1,
+    margin: 20,
+    borderRadius: 5,
+  },
+  textInput: {
+    flex: 1,
+    fontSize: 16,
+    padding: 10,
+  },
+});
+

@@ -1,0 +1,59 @@
+
+
+// Importing necessary modules from React, React Native and external libraries
+import React, { useState, useEffect } from 'react';
+import { View } from 'react-native';
+import { CodeInput } from 'react-native-confirmation-code-input'; // npm i react-native-confirmation-code-input
+import Prism, { PrismLight } from 'react-native-syntax-highlighter'; // npm i react-native-syntax-highlighter
+// Importing mono prism style for syntax highlighter
+import { mono } from 'react-syntax-highlighter/dist/styles/prism'; // npm i react-syntax-highlighter
+
+// Importing and registering languages for syntax highlighting
+import js from 'react-syntax-highlighter/dist/languages/prism/javascript';
+import css from 'react-syntax-highlighter/dist/languages/prism/css';
+import java from 'react-syntax-highlighter/dist/languages/prism/java';
+PrismLight.registerLanguage('js', js);
+PrismLight.registerLanguage('css', css);
+PrismLight.registerLanguage('java', java);
+
+// CodeEditor component provides a text editor with syntax highlighting for specified languages
+export const CodeEditor = ({ initialCode, onCodeChanged, language }) => {
+  // Using React hook to set an initial code state
+  const [code, setCode] = useState(initialCode);
+
+  // Function to handle code change event
+  const onCodeChange = (newCode) => {
+    // Update the code state
+    setCode(newCode);
+
+    // trigger the onCodeChanged callback
+    onCodeChanged(newCode);
+  };
+
+  // Whenever the initialCode prop changes, our internal state should also get updated
+  useEffect(() => {
+    setCode(initialCode);
+  }, [initialCode]);
+
+  return (
+    <View>
+      {/* Set up the CodeInput component with all its props */}
+      <CodeInput
+        autoFocus={true}
+        codeLength={20}
+        activeColor='rgba(49, 180, 4, 1)'
+        inactiveColor='rgba(49, 180, 4, 1.3)'
+        ignoreCase={true}
+        onFulfill={onCodeChange}
+      />
+      {/* Syntax highlighted code */}
+      <Prism
+        language={language}
+        style={mono}
+      >
+        {code}
+      </Prism>
+    </View>
+  );
+};
+

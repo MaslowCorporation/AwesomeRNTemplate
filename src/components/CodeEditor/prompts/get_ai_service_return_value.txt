@@ -1,0 +1,3 @@
+Returns a React Native component that provides a code/text editor. 
+
+Make it extremely simple. Add the line numbers in the UI. Don't use third party stuff or libs, only use readily available components for this.

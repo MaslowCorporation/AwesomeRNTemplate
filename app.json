@@ -1,0 +1,10 @@
+{
+  "name": "arduinogpt",
+  "plugins": [
+    "expo-font",
+    "expo-localization"
+  ],
+  "expo": {
+    "extra": {}
+  }
+}

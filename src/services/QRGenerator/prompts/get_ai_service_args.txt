@@ -1,0 +1,3 @@
+qrText (a string, the QR code value),
+onSuccess (a callback that provides access to the generated qr code data),
+onError (a error callback)

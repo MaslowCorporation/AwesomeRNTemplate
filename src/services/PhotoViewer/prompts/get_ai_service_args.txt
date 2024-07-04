@@ -1,0 +1,1 @@
+imgURI (string, the path/url of the image to be displayed)

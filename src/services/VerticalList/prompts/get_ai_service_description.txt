@@ -1,0 +1,1 @@
+Creates a React native component, that displays a vertical scrolling list of items.

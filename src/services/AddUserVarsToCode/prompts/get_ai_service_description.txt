@@ -1,0 +1,1 @@
+Replaces all the user variable placeholders in the code, with their values.

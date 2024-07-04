@@ -1,0 +1,71 @@
+
+
+import React, { useState } from 'react';
+import { ScrollView, TextInput, View, StyleSheet } from 'react-native';
+
+// The CodeEditor is a functional React Native component that serves as a code or text editor
+export const CodeEditor = ({  
+  initialCode,  
+  onCodeChanged,  
+  textColor,  
+  backgroundColor,  
+  borderColor,  
+  textFont,  
+  placeholderText,
+}) => {  
+  // The initial state of the code/text editor is given by the prop 'initialCode'
+  // If 'initialCode' is not provided, the editor will start empty ('')
+  const [code, setCode] = useState(initialCode || '');  
+ 
+  // Function that handles changes in the text in the editor
+  const handleCodeChanged = (text) => {
+    // The editor's current text state updates to the new input text
+    setCode(text);
+
+    // The function 'onCodeChanged' is triggered to notify the parent about the change
+    onCodeChanged(text);  
+  };
+  
+  // The elements and styles to render in this component are defined here
+  return (
+    // We render a 'View' component with a border color and background color passed as props
+    <View style={[styles.container, { borderColor: borderColor, backgroundColor: backgroundColor }]}>
+      // A 'ScrollView' component is added to add scroll functionality to the editor
+      <ScrollView
+        // Add style for the thick scrollbar
+        showsVerticalScrollIndicator={true}
+        indicatorStyle='black'>
+        // The 'TextInput' element is where the code/text will be input and edited
+        <TextInput
+          // Text color and font are also passed as props
+          style={[styles.textInput, { color: textColor, fontFamily: textFont }]}
+          // The value of the 'TextInput' is the current state of the 'code'
+          value={code}
+          // When the text changes, 'handleCodeChanged' function is triggered
+          onChangeText={handleCodeChanged}
+          // Placeholder text is also passed as a prop
+          placeholder={placeholderText || 'Type your code here...'}
+          // We want out text to be multiline and focus on the input on render
+          multiline
+          autoFocus
+        />
+      </ScrollView>
+    </View>
+  );
+};
+
+// This is the css-like styles used by the React Native elements
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    borderWidth: 1,
+    margin: 20,
+    borderRadius: 5,
+  },
+  textInput: {
+    flex: 1,
+    fontSize: 16,
+    padding: 10,
+  },
+});
+

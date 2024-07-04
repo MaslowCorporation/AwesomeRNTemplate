@@ -1,0 +1,12 @@
+Return a QR code generator component in React Native.
+
+This component takes up all the space available (flex baby !)
+
+This component has 2 Floating action buttons in the bottom right corner
+
+A create button that creates a brand new QR code and displays it on screen. 
+Center this QR code so it's displayed at the center of the component.
+
+A download button that displays this qr code in the browser, using Linking.openUrl.
+The reason for this button's existence is because the generated QR codes are probably created in the app folder, 
+and opening it in a browser tab allows the user to save this app file in their respective download folder.

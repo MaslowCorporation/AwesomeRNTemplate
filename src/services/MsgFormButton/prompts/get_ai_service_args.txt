@@ -1,0 +1,1 @@
+currentAPIKey (string, or null, the default API key to be in the TextInput), onInput (function, a one input callback that stores the TextInput content each time it changes)

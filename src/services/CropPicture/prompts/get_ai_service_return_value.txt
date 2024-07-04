@@ -1,0 +1,4 @@
+A react Native component that gives the user a photo cropping UI, via a drag-and-drop crop square.
+There's a crop button that crops the picture (imgPath), where the crop square is located within that picture,
+and returns the path of the cropped piece. this also runs the onSuccess callback with that same cropped piece path as argument.
+If something's wrong, return null, and run onError with the error as argument.

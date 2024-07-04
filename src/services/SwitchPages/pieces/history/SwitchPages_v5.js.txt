@@ -1,0 +1,96 @@
+
+
+// Import necessary dependencies
+import React, { useRef } from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+// Creation of the SwitchPages component
+const SwitchPages = ({ showUI, setShowUI, iframeURL = "", homeURL, UIComponent }) => {
+    // WebView reference for invoking instance methods
+    const webviewRef = useRef(null);
+
+    // Define the goBack function to navigate back
+    const goBack = () => webviewRef?.current?.goBack();
+
+    // Define the goForward function to navigate forward
+    const goForward = () => webviewRef?.current?.goForward();
+
+    // Define the reload function to reload the current page
+    const reload = () => webviewRef?.current?.reload();
+
+    // Define the home function to navigate to the homeURL
+    const home = () => webviewRef?.current?.load(homeURL);
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.bar}>
+                {/* Back Button */}
+                {!showUI && <TouchableOpacity onPress={goBack}>
+                    <Icon name='arrow-back' size={20} />
+                </TouchableOpacity>}
+
+                {/* Forward Button */}
+                {!showUI && <TouchableOpacity onPress={goForward}>
+                    <Icon name='arrow-forward' size={20} />
+                </TouchableOpacity>}
+
+                {/* Reload Button */}
+                {!showUI && <TouchableOpacity onPress={reload}>
+                    <Icon name='refresh' size={20} />
+                </TouchableOpacity>}
+
+                {/* Home Button */}
+                {!showUI && homeURL && <TouchableOpacity onPress={home}>
+                    <Icon name='home' size={20} />
+                </TouchableOpacity>}
+
+                {/* Switch button */}
+                <TouchableOpacity onPress={() => setShowUI(!showUI)}>
+                    <Icon name='menu' size={20} />
+                </TouchableOpacity>
+            </View>
+
+            {/* WebView or custom UIComponent is displayed based on the value of showUI */}
+            <View style={styles.bodyContainer}>
+                {iframeURL && <WebView
+                    source={{ uri: iframeURL }}
+                    ref={webviewRef}
+                />}
+
+                {showUI && <View style={styles.uiContainer}>
+                    <UIComponent />
+                </View>}
+            </View>
+        </View>
+    );
+}
+
+// Styles defined for the component using StyleSheet
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    uiContainer: {
+        flex: 1,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0
+    },
+    bodyContainer: {
+        flex: 1,
+        position: "relative"
+    },
+    bar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: 50
+    }
+});
+
+export { SwitchPages };
+
