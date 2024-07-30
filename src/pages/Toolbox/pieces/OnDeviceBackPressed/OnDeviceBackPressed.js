@@ -11,6 +11,7 @@ import { SoundPlayer } from 'src/services/SoundPlayer/SoundPlayer.js';
 import { SqliteReduxToolboxState } from 'src/reduxState/ToolboxState/ToolboxStateGetterSetter';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Constants } from 'src/constants/Constants';
+import { cancelItemCreation } from '../AddAPIKeySubpage/cancelItemCreation';
 
 // gère appui sur bouton back du device.
 export const OnDeviceBackPressed = () => {
@@ -21,7 +22,7 @@ export const OnDeviceBackPressed = () => {
 
   // exécute ton la callback de back pressed ?
   const doWeRunCallback =
-    ToolboxState.chosenOne != 'ToolboxList' ||
+    ToolboxState.chosenOne != 'ToolboxChoices' ||
     ToolboxState.snackbarVisible == Constants.true;
 
   // route de react navigation
@@ -33,7 +34,14 @@ export const OnDeviceBackPressed = () => {
     stateValue: ToolboxState.chosenOne,
     condition: () => doWeRunCallback,
     action: () => {
-      navigation.goBack();
+      //console.log(`do we run callback ?: ${doWeRunCallback}`);
+      //console.log(`chosen one: ${ToolboxState.chosenOne}`);
+
+      if (ToolboxState.chosenOne == "AddAPIKeySubpage") {
+        cancelItemCreation();
+      } else {
+        navigation.goBack();
+      }
     },
   });
 };
