@@ -36,7 +36,7 @@ const AddAPIKey = () => {
     // (optionnel)
     // true si valide false autrement
     checkInput: ({ input, answers, answer, answerIndex }) => {
-      //
+      //;
 
       const isValid = answer?.value?.length > 0;
 

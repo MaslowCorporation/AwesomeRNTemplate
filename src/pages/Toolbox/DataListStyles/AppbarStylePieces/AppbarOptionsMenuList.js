@@ -8,7 +8,7 @@ import i18next from 'i18next';
 export function AppbarOptionsMenuList() {
   return [
     {
-      optionName: i18next.t('xmQbIBwM'),
+      optionName: i18next.t('xnyu6t3v'),
 
       // que faire quand on clique sur ce choix
       onOptionClicked: () => {
@@ -17,7 +17,7 @@ export function AppbarOptionsMenuList() {
     },
     {
       // texte du choix
-      optionName: i18next.t('xlCyp2sY'),
+      optionName: i18next.t('x03RcSY'),
 
       // que faire quand on clique sur ce choix
       onOptionClicked: () => {

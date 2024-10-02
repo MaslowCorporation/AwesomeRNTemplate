@@ -3,9 +3,7 @@ import { GoogleLogin, GoogleLogout } from "src/services/GoogleLogin/GoogleLogin"
 import { showSnackbar } from "src/components/Messager/Messager";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 
-// import YourOwnSDK from "your-own-sdk";
-import { ErrorMsgGivenStatus } from "src/services/ErrorMsgGivenStatus/ErrorMsgGivenStatus";
-import i18next from "i18next";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 import { ShowErrorSnackbar } from "src/services/ShowErrorSnackbar/ShowErrorSnackbar";
 
 /**
@@ -24,8 +22,7 @@ export async function OnAPISubscribeButtonClicked({ setSubscribeUrl, setShowUI }
 
     GoogleLogin({
         onSuccess: async (login_data) => {
-            /*
-            YourOwnSDK.GetAPISubscriptionLink({
+            MaslowGPTSDK.GetAPISubscriptionLink({
                 params: login_data,
                 onSuccess: (url_data) => {
                     ShowNotification({
@@ -55,7 +52,7 @@ export async function OnAPISubscribeButtonClicked({ setSubscribeUrl, setShowUI }
                 },
                 print: true
             });
-            */
+
         },
         onError: (e) => {
             showSnackbar(app_strings.t("LoginError"))

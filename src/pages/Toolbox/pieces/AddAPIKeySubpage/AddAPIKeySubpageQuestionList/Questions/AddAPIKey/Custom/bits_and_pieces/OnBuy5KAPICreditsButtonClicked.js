@@ -4,11 +4,9 @@ import { showSnackbar } from "src/components/Messager/Messager";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 
-// import YourOwnSDK from "your-own-sdk";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 import { SaveAPIKeyInAppState } from "./SaveAPIKeyInAppState";
 import { GrabGoogleAPIKey } from "src/pages/Toolbox/pieces/ToolboxChoices/ToolboxChoicesQuestionList/Questions/GetToolboxChoice/GetToolboxChoiceChoices/GetToolboxChoiceChoices";
-import { ErrorMsgGivenStatus } from "src/services/ErrorMsgGivenStatus/ErrorMsgGivenStatus";
-import i18next from "i18next";
 import { ShowErrorSnackbar } from "src/services/ShowErrorSnackbar/ShowErrorSnackbar";
 
 /**
@@ -31,8 +29,7 @@ export async function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowU
         onSuccess: async (data) => {
             const freshAPIKey = await GrabGoogleAPIKey(data);
 
-            /*
-            YourOwnSDK.Buy5KAPICreditsLink({
+            MaslowGPTSDK.Buy5KAPICreditsLink({
                 apiKey: freshAPIKey ?? maslowAPIKey,
                 params: data,
                 onSuccess: (url_data) => {
@@ -61,7 +58,7 @@ export async function OnBuy5KAPICreditsButtonClicked({ setSubscribeUrl, setShowU
                 },
                 print: true
             });
-            */
+
         },
         onError: (e) => {
             showSnackbar(app_strings.t("LoginError"))

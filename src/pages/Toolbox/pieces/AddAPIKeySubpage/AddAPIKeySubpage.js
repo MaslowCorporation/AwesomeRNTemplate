@@ -26,8 +26,9 @@ import { onItemCreationError } from "./onItemCreationError.js";
 
 // getter/setter
 import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStateGetterSetter";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
+import i18next from "i18next";
 
 /**
  *
@@ -47,6 +48,11 @@ export const AddAPIKeySubpage = () => {
 
   const route = useRoute();
 
+  const navigation = useNavigation();
+  const GUIAppbarMenuOptions = [
+
+  ];
+
   return (
     <Camouflage
       chosenOne={ToolboxState.chosenOne}
@@ -55,6 +61,8 @@ export const AddAPIKeySubpage = () => {
     >
       {/* Une UI de récup/modif de données */}
       <GetUserInput
+        appbarMenuChoiceList={GUIAppbarMenuOptions}
+
         /* Permet persistence des donnees dU.I. 
         This takes effect when the value is a string, 
         the persistence ID */

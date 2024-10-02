@@ -129,6 +129,7 @@ const Toolbox = ({ route, navigation }) => {
    */
   OnDeviceBackPressed();
 
+
   /**
    * Ceci nous permet de pouvoir faire
    * des choses avant/après que le component soit contruit/détruit.

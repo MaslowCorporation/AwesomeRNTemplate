@@ -21,9 +21,9 @@ export const OnDeviceBackPressed = () => {
   const ToolboxState = SqliteReduxToolboxState.GetToolboxStateFirstRow();
 
   // exécute ton la callback de back pressed ?
-  const doWeRunCallback =
-    ToolboxState.chosenOne != 'ToolboxChoices' ||
-    ToolboxState.snackbarVisible == Constants.true;
+  const doWeRunCallback = true;
+  //ToolboxState.chosenOne != 'ToolboxChoices' ||
+  //ToolboxState.snackbarVisible == Constants.true;
 
   // route de react navigation
   const route = useRoute();
@@ -34,13 +34,13 @@ export const OnDeviceBackPressed = () => {
     stateValue: ToolboxState.chosenOne,
     condition: () => doWeRunCallback,
     action: () => {
-      //console.log(`do we run callback ?: ${doWeRunCallback}`);
+      console.log(`do we run callback ?: ${doWeRunCallback}`);
       //console.log(`chosen one: ${ToolboxState.chosenOne}`);
 
       if (ToolboxState.chosenOne == "AddAPIKeySubpage") {
         cancelItemCreation();
       } else {
-        navigation.goBack();
+        navigation.popToTop();
       }
     },
   });

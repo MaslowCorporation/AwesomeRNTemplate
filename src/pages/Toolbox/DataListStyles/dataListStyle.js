@@ -76,7 +76,7 @@ const getDataListStyle = () => {
 
     // que fait on quand on arrive au bout de la liste ?
     onListEndPushed: () => {
-      /**/
+      /*;*/
     },
 
     // on affiche uniquement litem à lindex en cours de visionnage ?

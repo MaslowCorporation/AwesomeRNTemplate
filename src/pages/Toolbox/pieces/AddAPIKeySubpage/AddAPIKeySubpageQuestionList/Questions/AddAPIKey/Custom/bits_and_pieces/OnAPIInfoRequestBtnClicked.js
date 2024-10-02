@@ -4,9 +4,7 @@ import { showSnackbar } from "src/components/Messager/Messager";
 import { app_strings } from "src/stringRepos/AppStrings/AppStrings";
 import { SqliteReduxAppState } from "src/reduxState/AppState/AppStateGetterSetter";
 
-// import YourOwnSDK from "your-own-sdk";
-import { ErrorMsgGivenStatus } from "src/services/ErrorMsgGivenStatus/ErrorMsgGivenStatus";
-import i18next from "i18next";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 import { ShowErrorSnackbar } from "src/services/ShowErrorSnackbar/ShowErrorSnackbar";
 
 /**
@@ -20,8 +18,7 @@ export function OnAPIInfoRequestBtnClicked({ setYourAPIData, setShowUI }) {
     const AppState = SqliteReduxAppState.GetItemByUniqueID("AppState");
     const maslowAPIKey = AppState.maslowAPIKey;
 
-    /*
-    YourOwnSDK.GetAPIClientInfo({
+    MaslowGPTSDK.GetAPIClientInfo({
         apiKey: maslowAPIKey,
         onSuccess: (APIData) => {
             setYourAPIData(APIData);
@@ -31,12 +28,10 @@ export function OnAPIInfoRequestBtnClicked({ setYourAPIData, setShowUI }) {
             //setShowUI(false);
         },
 
-        onError: (err) => {
-
-            ShowErrorSnackbar(err);
+        onError: (e) => {
+            ShowErrorSnackbar(e);
         },
         print: true
     });
-    */
-}
 
+}

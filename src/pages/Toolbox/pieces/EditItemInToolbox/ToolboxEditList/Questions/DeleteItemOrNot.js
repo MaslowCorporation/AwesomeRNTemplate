@@ -82,7 +82,7 @@ const DeleteItemOrNot = () => {
     },
     // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
-      return i18next.t('xfnALXBd');
+      return i18next.t('xDAyuecx');
     },
   };
 };
@@ -100,6 +100,8 @@ const onSupprimeVraimentOuPas = route => {
     onYesPressed: () => {
       deleteItemAndGoBackToList();
     },
+
+
   });
 };
 
@@ -126,7 +128,7 @@ const deleteItemAndGoBackToList = () => {
       GoToToolboxList();
     },
     onError: e => {
-      //
+      //;
     },
   });
 };

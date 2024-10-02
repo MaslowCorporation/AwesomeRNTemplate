@@ -25,8 +25,9 @@ import { onItemCreationError } from './onItemCreationError';
 
 // getter/setter
 import { SqliteReduxToolboxState } from 'src/reduxState/ToolboxState/ToolboxStateGetterSetter';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { app_strings } from 'src/stringRepos/AppStrings/AppStrings';
+import i18next from 'i18next';
 
 /**
  *
@@ -46,6 +47,11 @@ export const EditItemInToolbox = () => {
 
   const route = useRoute();
 
+  const navigation = useNavigation();
+  const GUIAppbarMenuOptions = [
+
+  ];
+
   return (
     <Camouflage
       chosenOne={ToolboxState.chosenOne}
@@ -53,6 +59,8 @@ export const EditItemInToolbox = () => {
       refreshed={true}>
       {/* Une UI de récup/modif de données */}
       <GetUserInput
+        appbarMenuChoiceList={GUIAppbarMenuOptions}
+
         /* direction vers laquelle va le scroll */
         scrollDirection={'horizontal_one_by_one'}
         /* montre appbar, ou pas ? */

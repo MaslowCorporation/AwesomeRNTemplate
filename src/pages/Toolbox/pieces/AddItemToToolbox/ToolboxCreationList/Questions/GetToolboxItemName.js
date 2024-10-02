@@ -27,6 +27,9 @@ const GetToolboxItemName = () => {
   const currentItemUniqueId = ToolboxState.itemUniqueId;
   const currentItem = SqliteReduxToolbox.GetItemByUniqueID(currentItemUniqueId);
 
+  //}`);
+  //;
+  //}`);
 
   return {
     // un identifiant unique

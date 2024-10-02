@@ -2,7 +2,7 @@ import i18next from 'i18next';
 
 import { SetPageState } from "src/pages/Toolbox/pieces/NavHelpers/SetPageState.js";
 import { app_strings } from "../../../../../../../../stringRepos/AppStrings/AppStrings.js";
-// import YourOwnSDK from "your-own-sdk";
+import MaslowGPTSDK from "maslow-gpt-sdk";
 
 /* PLOP_INJECT_IMPORT */
 import { DatabaseObjects } from 'src/reduxState/DatabaseObjects';
@@ -13,8 +13,8 @@ import { SqliteReduxToolboxState } from "src/reduxState/ToolboxState/ToolboxStat
 import { GoogleLogin, GoogleLogout, IsSomeUserLoggedIn } from "src/services/GoogleLogin/GoogleLogin.js";
 import { showSnackbar } from "src/components/Messager/Messager.js";
 import { SaveAPIKeyInAppState } from "src/pages/Toolbox/pieces/AddAPIKeySubpage/AddAPIKeySubpageQuestionList/Questions/AddAPIKey/Custom/bits_and_pieces/SaveAPIKeyInAppState.js";
-import { ErrorMsgGivenStatus } from 'src/services/ErrorMsgGivenStatus/ErrorMsgGivenStatus.js';
 import { ShowErrorSnackbar } from 'src/services/ShowErrorSnackbar/ShowErrorSnackbar.js';
+import { Constants } from 'src/constants/Constants.js';
 
 
 /* PLOP_INJECT_GLOBAL_CODE */
@@ -23,10 +23,10 @@ import { ShowErrorSnackbar } from 'src/services/ShowErrorSnackbar/ShowErrorSnack
 export const GetToolboxChoiceChoices = () => {
   return {
     /* PLOP_INJECT_CHOICE */
+    AddAPIKey: 2,
+    LoginLogout: 3,
     SaveDBCloud: 0,
     BackupDBCloud: 1,
-    AddAPIKey: 2,
-    LoginLogout: 3
   };
 };
 
@@ -77,6 +77,8 @@ export const GetToolboxChoiceChoicesActions = {
           body: app_strings.t("xNUgKxo"),
           extra: null,
         });
+
+        showSnackbar(app_strings.t("xNUgKxo"));
       },
       onError: (e) => {
         ShowNotification({
@@ -85,11 +87,25 @@ export const GetToolboxChoiceChoicesActions = {
           body: app_strings.t('xAmgHBho'),
           extra: null,
         });
+
+        showSnackbar(app_strings.t("xAmgHBho"));
       }
     });
 
   },
   BackupDBCloud: async ({ choice, answers, answer, answerIndex, currentItem }) => {
+    // getter, contient le state actuel
+    const ToolboxState =
+      SqliteReduxToolboxState.GetToolboxStateFirstRow();
+
+    // setter de state de page, en entier
+    SetPageState({
+      // le state existant.... agrémenté de ....
+      ...ToolboxState,
+
+      // la page Toolbox.js est prêt à être affichée ?
+      isMounted: Constants.false,
+    });
 
     RestoreLocalDatabasesFromCloud({
       SqliteReduxObjects: DatabaseObjects,
@@ -100,6 +116,17 @@ export const GetToolboxChoiceChoicesActions = {
           body: app_strings.t('xSpTMl1n'),
           extra: null,
         });
+
+        // setter de state de page, en entier
+        SetPageState({
+          // le state existant.... agrémenté de ....
+          ...ToolboxState,
+
+          // la page Toolbox.js est prêt à être affichée ?
+          isMounted: Constants.true,
+        });
+
+        showSnackbar(app_strings.t("xSpTMl1n"));
       },
       onError: (e) => {
         ShowNotification({
@@ -108,6 +135,17 @@ export const GetToolboxChoiceChoicesActions = {
           body: app_strings.t('x0qpHyto'),
           extra: null,
         });
+
+        // setter de state de page, en entier
+        SetPageState({
+          // le state existant.... agrémenté de ....
+          ...ToolboxState,
+
+          // la page Toolbox.js est prêt à être affichée ?
+          isMounted: Constants.true,
+        });
+
+        showSnackbar(app_strings.t("x0qpHyto"));
       }
     });
 
@@ -133,10 +171,10 @@ export const GetToolboxChoiceChoicesActions = {
     if (userData) {
       GoogleLogout({
         onSuccess: (data) => {
-          showSnackbar(i18next.t('x6lEqMKs'))
+          showSnackbar(i18next.t('xZ6RNXYD'))
         },
         onError: (e) => {
-          showSnackbar(i18next.t('xko6nGyO'))
+          showSnackbar(i18next.t('xhCkmjDG'))
         }
       });
     } else {
@@ -145,10 +183,10 @@ export const GetToolboxChoiceChoicesActions = {
 
         },
         onError: (e) => {
-          showSnackbar(i18next.t('xMhxIbI3'))
+          showSnackbar(i18next.t('xicjMvqY'))
         },
         onCancel: () => {
-          showSnackbar(i18next.t('xgpEDcQ5'))
+          showSnackbar(i18next.t('xzjsdVWj'))
         }
       });
     }
@@ -159,12 +197,12 @@ export async function GrabGoogleAPIKey(data) {
   let googleAPIKey;
 
   try {
-    /*
-    const googleAPIKeyResponse = await YourOwnSDK.GetGoogleAPIKey({
+
+    const googleAPIKeyResponse = await MaslowGPTSDK.GetGoogleAPIKey({
       onSuccess: (output) => {
       },
-      onError: (err) => {
-        ShowErrorSnackbar(err);
+      onError: (e) => {
+        ShowErrorSnackbar(e);
       },
       firebase_uid: data.firebase_uid,
       print: false,
@@ -173,8 +211,9 @@ export async function GrabGoogleAPIKey(data) {
 
 
 
+
     if (googleAPIKey) {
-      showSnackbar(i18next.t('xGURyoWg'));
+      showSnackbar(i18next.t('Success'));
 
       ShowNotification({
         id: 0,
@@ -187,11 +226,10 @@ export async function GrabGoogleAPIKey(data) {
 
       return googleAPIKey;
     } else {
-      showSnackbar(i18next.t('x8dg9LRr'));
+      showSnackbar(i18next.t('xWdJ36Wg'));
 
       return;
     }
-    */
   } catch (error) {
     return googleAPIKey;
   }

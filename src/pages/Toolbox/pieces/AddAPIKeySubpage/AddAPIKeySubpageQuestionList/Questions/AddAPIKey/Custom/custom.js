@@ -69,7 +69,7 @@ export const CustomComponent = ({
   // but it could also be your own custom homemade DIY component made from you too
   const UIComponent = () =>
     <MsgFormButton
-      fontFamily={"ComingSoon"}
+      fontFamily={"Fredoka"}
       message={app_strings.t("APIScreenMsg")}
       initialFormInput={defaultAPIKey}
       formPlaceholder={app_strings.t("EnterAPIKeyHere")}
@@ -92,7 +92,7 @@ export const CustomComponent = ({
       setShowUI={setShowUI}
       iframeURL={subscribeUrl}
       setIframeURL={setSubscribeUrl}
-      fontFamily={"ComingSoon"}
+      fontFamily={"Fredoka"}
       /* the url of the homepage, if omitted, the home button wont be shown in the iframe */
       //homeURL={"https://duckduckgo.com"}
       /* do we show the address bar in the iframe, or not ? */
@@ -135,7 +135,7 @@ export const CustomComponent = ({
       ]}
       modalVisible={showModal}
       showModalButton={false}
-      fontFamily={"ComingSoon"}
+      fontFamily={"Fredoka"}
       onCancel={() => {
         setShowModal(false);
       }}

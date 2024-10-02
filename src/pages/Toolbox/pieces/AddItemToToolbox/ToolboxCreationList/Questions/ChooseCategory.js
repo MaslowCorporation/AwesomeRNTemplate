@@ -100,7 +100,7 @@ const ChooseCategory = () => {
     },
     // un message derreur à afficher si les données ne sont pas valides
     errMsg: ({ answers, answer, answerIndex }) => {
-      return i18next.t('xNPv7aa');
+      return i18next.t('xBwx6aL2');
     },
   };
 };

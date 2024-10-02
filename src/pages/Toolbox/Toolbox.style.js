@@ -9,10 +9,10 @@ import { Constants } from "src/constants/Constants";
  */
 const styles = StyleSheet.create({
   dataListContainer: {
+    backgroundColor: Constants.defaultBackgroundColor,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Constants.defaultBackgroundColor,
   },
   blackText: {
     color: "black",
