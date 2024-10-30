@@ -1,12 +1,7 @@
 /* PLOP_INJECT_IMPORT */
 //import React from "react";
 
-// permet date de création jolie comme youtube.
-import { format } from 'date-fns';
-import { fr, enUS } from 'date-fns/locale';
 
-// multilingue
-import { app_strings } from 'src/stringRepos/AppStrings/AppStrings';
 
 /**
  *
@@ -21,7 +16,7 @@ const HowLongAgo = ({ creationDate }) => {
 
   // linstant T
 
-  const formattedDate = GetFormattedDate();
+  const formattedDate = GetFormattedDate(creationDate);
 
 
   // ça fait combien de temps que ce truc est né
@@ -33,9 +28,9 @@ const HowLongAgo = ({ creationDate }) => {
   return DOB;
 };
 
-export function GetFormattedDate() {
+export function GetFormattedDate(creationDate) {
   const locale = Intl.DateTimeFormat().resolvedOptions().locale;
-  const date = new Date();
+  const date = creationDate ?? new Date();
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
@@ -53,4 +48,3 @@ export function GetFormattedDate() {
 
 
 export { HowLongAgo };
-
