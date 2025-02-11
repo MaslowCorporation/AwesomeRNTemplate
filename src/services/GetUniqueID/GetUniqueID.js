@@ -12,7 +12,7 @@ import uuid from "react-native-uuid";
 const GetUniqueID = () => {
   /* PLOP_INJECT_CODE */
 
-  return uuid.v1();
+  return uuid.v4();
 };
 
 export { GetUniqueID };
